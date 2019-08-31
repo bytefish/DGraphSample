@@ -1,19 +1,26 @@
-﻿// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+﻿// Copyright (c) Philipp Wagner. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 namespace DGraphSample.DGraph.Model
 {
     public class Airport
     {
-        public ulong UID { get; set; }
-
-        public string Name { get; set; }
+        public string AirportId { get; set; }
 
         public string Abbr { get; set; }
 
-        public ulong City { get; set; }
+        public string Name { get; set; }
 
-        public ulong State { get; set; }
+        public string City { get; set; }
 
-        public ulong Country { get; set; }
+        public string State { get; set; }
+
+        public string Country { get; set; }
+
+        public string AirportWac { get; set; }
+
+        public string CountryCodeISO { get; set; }
+
+        public bool AirportIsLatest { get; set; }
     }
 }

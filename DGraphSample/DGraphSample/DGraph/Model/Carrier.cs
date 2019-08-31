@@ -3,8 +3,10 @@
 
 namespace DGraphSample.DGraph.Model
 {
-    public class City
+    public class Carrier
     {
-        public string Name { get; set; }
+        public string Code { get; set; }
+
+        public string Description { get; set; }
     }
 }

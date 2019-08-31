@@ -3,8 +3,14 @@
 
 namespace DGraphSample.DGraph.Model
 {
-    public class City
+    public class AirportInformation
     {
-        public string Name { get; set; }
+        public Airport Airport { get; set; }
+
+        public City City { get; set; }
+
+        public Country Country { get; set; }
+
+        public State State { get; set; }
     }
 }

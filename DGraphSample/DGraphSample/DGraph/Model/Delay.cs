@@ -3,8 +3,10 @@
 
 namespace DGraphSample.DGraph.Model
 {
-    public class City
+    public class Delay
     {
-        public string Name { get; set; }
+        public string Reason { get; set; }
+
+        public int Duration { get; set; }
     }
 }

@@ -4,7 +4,7 @@
 using DGraphSample.Csv.Model;
 using TinyCsvParser.Mapping;
 
-namespace Neo4jExample.Csv.Mapper
+namespace DGraphSample.Csv.Mapper
 {
     public class CarrierMapper : CsvMapping<Carrier>
     {

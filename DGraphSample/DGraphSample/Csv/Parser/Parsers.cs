@@ -1,12 +1,11 @@
 // Copyright (c) Philipp Wagner. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using AirlineOnTimePerformance.Csv.Mapper;
+using DGraphSample.Csv.Mapper;
 using DGraphSample.Csv.Model;
-using Neo4jExample.Csv.Mapper;
 using TinyCsvParser;
 
-namespace AirlineOnTimePerformance.Csv.Parser
+namespace DGraphSample.Csv.Parser
 {
     public static class Parsers
     {

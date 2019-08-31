@@ -6,7 +6,7 @@ using DGraphSample.Csv.Model;
 using TinyCsvParser.Mapping;
 using TinyCsvParser.TypeConverter;
 
-namespace AirlineOnTimePerformance.Csv.Mapper
+namespace DGraphSample.Csv.Mapper
 {
     public class AirportMapper : CsvMapping<Airport>
     {
