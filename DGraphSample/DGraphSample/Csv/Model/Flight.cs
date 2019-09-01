@@ -201,7 +201,7 @@ namespace DGraphSample.Csv.Model
         /// <summary>
         /// Distance between airports (miles).
         /// </summary>
-        public double? Distance { get; set; }
+        public float? Distance { get; set; }
 
         /// <summary>
         /// Distance Intervals, every 250 Miles, for Flight Segment.

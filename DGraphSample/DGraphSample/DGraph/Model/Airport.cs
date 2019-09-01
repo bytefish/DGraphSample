@@ -1,26 +1,34 @@
 ﻿// Copyright (c) Philipp Wagner. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
+using Newtonsoft.Json;
+
 namespace DGraphSample.DGraph.Model
 {
+    public class AirportList
+    {
+        [JsonProperty("airports")]
+        public Airport[] Airports { get; set; }
+    }
+
     public class Airport
     {
-        public string AirportId { get; set; }
+        [JsonProperty("uid")]
+        public string UID { get; set; }
 
-        public string Abbr { get; set; }
-
+        [JsonProperty("name")]
         public string Name { get; set; }
 
+        [JsonProperty("abbr")]
+        public string Abbr { get; set; }
+
+        [JsonProperty("city")]
         public string City { get; set; }
 
+        [JsonProperty("state")]
         public string State { get; set; }
 
+        [JsonProperty("country")]
         public string Country { get; set; }
-
-        public string AirportWac { get; set; }
-
-        public string CountryCodeISO { get; set; }
-
-        public bool AirportIsLatest { get; set; }
     }
 }
