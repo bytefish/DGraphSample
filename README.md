@@ -1,5 +1,7 @@
 # DGraphSample #
 
+*Please Note: This repository is a work in progress.*
+
 I have written about working with Neo4j and the SQL Server Graph Database:
 
 * [https://bytefish.de/blog/neo4j_at_scale_airline_dataset/](https://bytefish.de/blog/neo4j_at_scale_airline_dataset/)
