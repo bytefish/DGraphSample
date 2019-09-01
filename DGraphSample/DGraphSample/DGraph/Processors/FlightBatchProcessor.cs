@@ -7,7 +7,6 @@ using System.Threading.Tasks;
 using DGraphSample.Api;
 using DGraphSample.Api.Client;
 using DGraphSample.DGraph.Dto;
-using DGraphSample.DGraph.Model;
 using DGraphSample.DGraph.Resolvers;
 using DGraphSample.DGraph.Utils;
 
@@ -54,10 +53,12 @@ namespace DGraphSample.DGraph.Processors
             return mutation;
         }
 
-        private List<NQuad> Convert(int pos, FlightDto flight)
+        private List<NQuad> Convert(int position, FlightDto flight)
         {
-
-            var builder = new NQuadBuilder($"flight_{pos}")
+            // We use flight_{position} as the Subjects ID. That's because 
+            // we don't want to put too much logic in here to build a very 
+            // unique subject id:
+            var builder = new NQuadBuilder($"flight_{position}")
                 .Add(Constants.Predicates.Type, Constants.Types.Flight)
                 .Add(Constants.Predicates.FlightNumber, flight.FlightNumber)
                 .Add(Constants.Predicates.TailNumber, flight.TailNumber)

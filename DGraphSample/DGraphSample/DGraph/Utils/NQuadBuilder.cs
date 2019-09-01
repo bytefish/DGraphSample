@@ -50,6 +50,7 @@ namespace DGraphSample.DGraph.Utils
 
         public NQuadBuilder Add(string predicate, DateTime objectValue)
         {
+            
             nquads.Add(new NQuad
             {
                 Subject = subject,
@@ -57,6 +58,22 @@ namespace DGraphSample.DGraph.Utils
                 ObjectValue = new Value
                 {
                     DatetimeVal = TypeConverters.Convert(objectValue)
+                }
+            });
+
+            return this;
+        }
+
+        public NQuadBuilder Add(string predicate, ulong uid)
+        {
+
+            nquads.Add(new NQuad
+            {
+                Subject = subject,
+                Predicate = predicate,
+                ObjectValue = new Value
+                {
+                    UidVal = uid
                 }
             });
 

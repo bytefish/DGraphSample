@@ -1,9 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿// Copyright (c) Philipp Wagner. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+using System;
 using System.Linq;
 using System.Reactive.Linq;
-using System.Reflection.Emit;
-using System.Runtime.Versioning;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -21,9 +21,9 @@ namespace DGraphSample.ConsoleApp
 {
     public class Program
     {
-        private static readonly string csvAirportFile = "";
+        private static readonly string csvAirportFile = @"D:\github\LearningNeo4jAtScale\Resources\56803256_T_MASTER_CORD.csv";
 
-        private static readonly string csvCarriersFile = "";
+        private static readonly string csvCarriersFile = @"D:\github\LearningNeo4jAtScale\Resources\UNIQUE_CARRIERS.csv";
 
         private static readonly string[] csvFlightStatisticsFiles = new[]
         {
@@ -50,10 +50,11 @@ namespace DGraphSample.ConsoleApp
         {
             var client = new DGraphClient("127.0.0.1", 9080, ChannelCredentials.Insecure);
 
-            // Create the Schema:
+            // Create the Schema and Drop all data for this test:
             var operation = new Operation
             {
-                Schema = DGraphQueries.Schema
+                Schema = DGraphQueries.Schema,
+                DropAll = true
             };
 
             await client.AlterAsync(operation, CancellationToken.None);
@@ -82,9 +83,13 @@ namespace DGraphSample.ConsoleApp
 
         private static async Task InsertFlightData(DGraphClient client)
         {
+            // We cache the data, that fits into memory. Airports and Carriers won't 
+            // change during the initial data ingestion, so we can cache it in memory 
+            // to prevent useless network calls:
             var airportResolver = await AirportResolver.CreateResolverAsync(client);
             var carrierResolver = await CarrierResolver.CreateResolverAsync(client);
 
+            // Create the Processor and use the Resolvers:
             var processor = new FlightBatchProcessor(client, airportResolver, carrierResolver);
 
             // Create Flight Data with Batched Items:
