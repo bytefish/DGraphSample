@@ -1,9 +1,12 @@
-﻿using Google.Protobuf;
+﻿// Copyright (c) Philipp Wagner. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+using Google.Protobuf;
 using Newtonsoft.Json;
 
-namespace DGraphSample.DGraph.Serialization
+namespace DGraphSample.DGraph.Utils
 {
-    public static class DGraphUtils
+    public static class ProtobufUtils
     {
         public static TResult Deserialize<TResult>(ByteString json)
             where TResult : class
@@ -18,4 +21,6 @@ namespace DGraphSample.DGraph.Serialization
             return JsonConvert.DeserializeObject<TResult>(jsonString);
         }
     }
+
+    
 }

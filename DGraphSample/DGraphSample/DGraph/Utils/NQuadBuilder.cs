@@ -1,10 +1,12 @@
-﻿using System;
+﻿// Copyright (c) Philipp Wagner. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+using System;
 using System.Collections.Generic;
-using System.Text;
 using DGraphSample.Api;
 using DGraphSample.Api.Utils;
 
-namespace DGraphSample.DGraph.BatchProcessor
+namespace DGraphSample.DGraph.Utils
 {
     public class NQuadBuilder
     {

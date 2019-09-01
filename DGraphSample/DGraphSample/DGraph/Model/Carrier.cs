@@ -5,7 +5,6 @@ using Newtonsoft.Json;
 
 namespace DGraphSample.DGraph.Model
 {
-
     public class CarrierList
     {
         [JsonProperty("carriers")]

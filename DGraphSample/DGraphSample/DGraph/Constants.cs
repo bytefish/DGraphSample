@@ -18,7 +18,6 @@ namespace DGraphSample.DGraph
             public const string Name = "name";
             public const string Abbr = "abbr";
             public const string Code = "code";
-            public const string Description = "description";
             public const string Year = "year";
             public const string Month = "month";
             public const string DayOfMonth = "day_of_month";
@@ -29,12 +28,11 @@ namespace DGraphSample.DGraph
             public const string CancellationCode = "cancellation_code";
             public const string OriginAirport = "origin_airport";
             public const string DestinationAirport = "destination_airport";
-            public const string HasCarrier = "carrier";
+            public const string Carrier = "carrier";
             public const string City = "city";
             public const string State = "state";
             public const string Country = "country";
             public const string Distance = "distance";
-
             public const string DepartureDelay = "departure_delay";
             public const string ArrivalDelay = "arrival_delay";
             public const string CarrierDelay = "carrier_delay";

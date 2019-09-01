@@ -22,7 +22,7 @@ namespace DGraphSample.DGraph.Resources {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class DGraphQueries {
+    public class DGraphQueries {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace DGraphSample.DGraph.Resources {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("DGraphSample.DGraph.Resources.DGraphQueries", typeof(DGraphQueries).Assembly);
@@ -51,7 +51,7 @@ namespace DGraphSample.DGraph.Resources {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -72,7 +72,7 @@ namespace DGraphSample.DGraph.Resources {
         ///  }
         ///}.
         /// </summary>
-        internal static string GetAllAirports {
+        public static string GetAllAirports {
             get {
                 return ResourceManager.GetString("GetAllAirports", resourceCulture);
             }
@@ -87,7 +87,7 @@ namespace DGraphSample.DGraph.Resources {
         ///  }
         ///}.
         /// </summary>
-        internal static string GetAllCarriers {
+        public static string GetAllCarriers {
             get {
                 return ResourceManager.GetString("GetAllCarriers", resourceCulture);
             }
@@ -116,7 +116,7 @@ namespace DGraphSample.DGraph.Resources {
         ///country: string @index(exact) .
         ///depart [rest of string was truncated]&quot;;.
         /// </summary>
-        internal static string Schema {
+        public static string Schema {
             get {
                 return ResourceManager.GetString("Schema", resourceCulture);
             }
