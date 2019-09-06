@@ -108,7 +108,7 @@ namespace DGraphSample.ConsoleApp
                         {
                             processor.ProcessAsync(records, CancellationToken.None).GetAwaiter().GetResult();
 
-                            totalFlightNum = totalFlightNum + records.Count;
+                            totalFlightNum += records.Count;
 
                             Console.WriteLine($"[{DateTime.Now}] Wrote {totalFlightNum} Flights ...");
                         }
