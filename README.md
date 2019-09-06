@@ -16,10 +16,12 @@ In this repository I want to analyze the Airline On Time Performance dataset usi
 
 Starting Dgraph consists of running **Dgraph Zero** and **Dgraph Alpha**:
 
-* **Dgraph Zero**: Controls the Dgraph cluster, assigns servers to a group and re-balances data between server groups.
-* **Dgraph Alpha**: Hosts predicates and indexes.
+* **Dgraph Zero**
+    * Controls the Dgraph cluster, assigns servers to a group and re-balances data between server groups.
+* **Dgraph Alpha** 
+    * Hosts predicates and indexes.
 
-First start the **Dgraph Zero** by running:
+So first start the **Dgraph Zero** by running:
 
 ```
 dgraph zero
@@ -30,7 +32,6 @@ Then start **Dgraph Alpha** by running:
 ```
 dgraph alpha --lru_mb 4096 --zero localhost:5080
 ```
-
 
 ## Dgraph Schema ##
 
