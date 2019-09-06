@@ -7,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using DGraphSample.Api.Client;
 using DGraphSample.DGraph.Model;
+using DGraphSample.DGraph.Queries;
 using DGraphSample.DGraph.Utils;
 
 namespace DGraphSample.DGraph.Resolvers
@@ -33,7 +34,7 @@ namespace DGraphSample.DGraph.Resolvers
             var transaction = client.NewReadOnlyTxn();
 
             // Query DGraph:
-            var response = await transaction.QueryAsync(Resources.DGraphQueries.GetAllCarriers, CancellationToken.None);
+            var response = await transaction.QueryAsync(Query.GetAllCarriers, CancellationToken.None);
 
             // Deserialize the Result:
             var carriers = ProtobufUtils.Deserialize<CarrierList>(response.Json);

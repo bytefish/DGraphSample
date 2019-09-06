@@ -12,8 +12,8 @@ using DGraphSample.Api.Client;
 using DGraphSample.Csv.Parser;
 using DGraphSample.DGraph.Dto;
 using DGraphSample.DGraph.Processors;
+using DGraphSample.DGraph.Queries;
 using DGraphSample.DGraph.Resolvers;
-using DGraphSample.DGraph.Resources;
 using Grpc.Core;
 using TinyCsvParser;
 
@@ -54,7 +54,7 @@ namespace DGraphSample.ConsoleApp
             await client.AlterAsync(new Operation { DropAll = true }, CancellationToken.None);
 
             // Create the Schema and Drop all data for this test:
-            await client.AlterAsync(new Operation { Schema = DGraphQueries.Schema }, CancellationToken.None);
+            await client.AlterAsync(new Operation { Schema = Query.Schema }, CancellationToken.None);
             
             // Insert Data:
             await InsertAirports(client);
@@ -100,7 +100,7 @@ namespace DGraphSample.ConsoleApp
                     // As an Observable:
                     .ToObservable()
                     // Batch in Entities / Wait:
-                    .Buffer(TimeSpan.FromSeconds(1), 5000)
+                    .Buffer(TimeSpan.FromSeconds(1), 100)
                     // Insert when Buffered:
                     .Subscribe(records =>
                     {
@@ -110,7 +110,7 @@ namespace DGraphSample.ConsoleApp
 
                             totalFlightNum = totalFlightNum + records.Count;
 
-                            Console.WriteLine($"Wrote {totalFlightNum} Flights ...");
+                            Console.WriteLine($"[{DateTime.Now}] Wrote {totalFlightNum} Flights ...");
                         }
                     });
             }

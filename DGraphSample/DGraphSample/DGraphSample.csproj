@@ -13,19 +13,4 @@
     <ProjectReference Include="..\DGraphSample.Api\DGraphSample.Api.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="DGraph\Resources\DGraphQueries.Designer.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>DGraphQueries.resx</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Update="DGraph\Resources\DGraphQueries.resx">
-      <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>DGraphQueries.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-  </ItemGroup>
-
 </Project>
