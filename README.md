@@ -12,6 +12,26 @@ In this repository I want to analyze the Airline On Time Performance dataset usi
 > Dgraph is an open source, scalable, distributed, highly available and fast graph database, 
 > designed from ground up to be run in production.
 
+## Starting Dgraph ##
+
+Starting Dgraph consists of running **Dgraph Zero** and **Dgraph Alpha**:
+
+* **Dgraph Zero**: Controls the Dgraph cluster, assigns servers to a group and re-balances data between server groups.
+* **Dgraph Alpha**: Hosts predicates and indexes.
+
+First start the **Dgraph Zero** by running:
+
+```
+dgraph zero
+```
+
+Then start **Dgraph Alpha** by running:
+
+```
+dgraph alpha --lru_mb 4096 --zero localhost:5080
+```
+
+
 ## Dgraph Schema ##
 
 ```
