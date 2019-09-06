@@ -37,9 +37,11 @@ namespace DGraphSample.DGraph.Processors
         {
             Mutation mutation = new Mutation();
 
-            foreach (var carrier in carriers)
+            for (int pos = 0; pos < carriers.Count; pos++)
             {
-                var nquads = Convert(carrier);
+                CarrierDto carrier = carriers[pos];
+
+                var nquads = Convert(carrier, pos);
 
                 mutation.Set.AddRange(nquads);
             }
@@ -47,11 +49,12 @@ namespace DGraphSample.DGraph.Processors
             return mutation;
         }
 
-        private static List<NQuad> Convert(CarrierDto carrier)
+        private static List<NQuad> Convert(CarrierDto carrier, int pos)
         {
-            return new NQuadBuilder(carrier.Code)
+            return new NQuadBuilder($"_:carrier_{pos}")
                 .Add(Constants.Predicates.Type, Constants.Types.Carrier)
                 .Add(Constants.Predicates.Code, carrier.Code)
+                .Add(Constants.Predicates.Name, carrier.Description)
                 .Build();
         }
     }

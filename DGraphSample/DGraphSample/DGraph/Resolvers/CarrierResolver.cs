@@ -17,7 +17,10 @@ namespace DGraphSample.DGraph.Resolvers
 
         public CarrierResolver(Carrier[] carriers)
         {
-            this.lookup = carriers.ToDictionary(x => x.Code, x => x.UID);
+            this.lookup = carriers
+                .GroupBy(x => x.Code)
+                .Select(x => x.First())
+                .ToDictionary(x => x.Code, x => x.UID);
         }
 
         public bool TryGetByCode(string code, out string uid)

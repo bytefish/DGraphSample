@@ -73,7 +73,7 @@ namespace DGraphSample.Api.Client
 
             mutation.StartTs = context.StartTs;
 
-            Assigned assigned = null;
+            Assigned assigned;
 
             try
             {
@@ -86,9 +86,18 @@ namespace DGraphSample.Api.Client
 
                 MergeContext(assigned.Context);
             }
-            catch (RpcException)
+            catch (RpcException e)
             {
-                await DiscardAsync(cancellationToken);
+                try
+                {
+                    await DiscardAsync(cancellationToken);
+                }
+                catch
+                {
+                    // TODO This shouldn't go unnoticed.
+                }
+
+                throw e;
             }
 
             return assigned;

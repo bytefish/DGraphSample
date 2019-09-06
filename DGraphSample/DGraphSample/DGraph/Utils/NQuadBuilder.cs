@@ -64,17 +64,14 @@ namespace DGraphSample.DGraph.Utils
             return this;
         }
 
-        public NQuadBuilder Add(string predicate, ulong uid)
+        public NQuadBuilder AddEdge(string predicate, string objectId)
         {
-
+            
             nquads.Add(new NQuad
             {
                 Subject = subject,
                 Predicate = predicate,
-                ObjectValue = new Value
-                {
-                    UidVal = uid
-                }
+                ObjectId = objectId
             });
 
             return this;

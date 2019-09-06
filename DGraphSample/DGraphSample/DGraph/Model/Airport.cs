@@ -16,6 +16,9 @@ namespace DGraphSample.DGraph.Model
         [JsonProperty("uid")]
         public string UID { get; set; }
 
+        [JsonProperty("airport_id")]
+        public string AirportId { get; set; }
+
         [JsonProperty("name")]
         public string Name { get; set; }
 

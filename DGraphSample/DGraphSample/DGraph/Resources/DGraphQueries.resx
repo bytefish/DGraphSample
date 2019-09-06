@@ -121,11 +121,19 @@
     <value>{
   airports(func: eq(type, "airport")) {
     uid
+    airport_id
     name
     abbr
     city
     state
     country
+  }
+}</value>
+  </data>
+  <data name="GetAllByType" xml:space="preserve">
+    <value>query all($type: string) {
+  all(func: eq(type, $type)) {
+    _predicate_ 
   }
 }</value>
   </data>
@@ -142,6 +150,7 @@
     <value>type: string @index(exact) .
 flight_number: string @index(exact) .
 name: string @index(exact) .
+airport_id: string @index(exact) .
 abbr: string .
 code: string .
 description: string .

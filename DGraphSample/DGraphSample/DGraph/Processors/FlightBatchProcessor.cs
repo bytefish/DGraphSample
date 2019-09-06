@@ -45,7 +45,7 @@ namespace DGraphSample.DGraph.Processors
             for (int pos = 0; pos < flights.Count; pos++)
             {
                 var flight = flights[pos];
-                var nquads = Convert(pos, flight);
+                var nquads = Convert(flight, pos);
 
                 mutation.Set.AddRange(nquads);
             }
@@ -53,12 +53,12 @@ namespace DGraphSample.DGraph.Processors
             return mutation;
         }
 
-        private List<NQuad> Convert(int position, FlightDto flight)
+        private List<NQuad> Convert(FlightDto flight, int pos)
         {
             // We use flight_{position} as the Subjects ID. That's because 
             // we don't want to put too much logic in here to build a very 
             // unique subject id:
-            var builder = new NQuadBuilder($"flight_{position}")
+            var builder = new NQuadBuilder($"_:flight_{pos}")
                 .Add(Constants.Predicates.Type, Constants.Types.Flight)
                 .Add(Constants.Predicates.FlightNumber, flight.FlightNumber)
                 .Add(Constants.Predicates.TailNumber, flight.TailNumber)
@@ -69,20 +69,20 @@ namespace DGraphSample.DGraph.Processors
                 .Add(Constants.Predicates.Year, flight.Year);
 
             // Set Airports:
-            if (airportResolver.TryGetByName(flight.OriginAirport, out string originAirportUid))
+            if (airportResolver.TryGetByAirportId(flight.OriginAirport, out string originAirportUid))
             {
-                builder.Add(Constants.Predicates.OriginAirport, originAirportUid);
+                builder.AddEdge(Constants.Predicates.OriginAirport, originAirportUid);
             }
 
-            if (airportResolver.TryGetByName(flight.OriginAirport, out string destinationAirportUid))
+            if (airportResolver.TryGetByAirportId(flight.DestinationAirport, out string destinationAirportUid))
             {
-                builder.Add(Constants.Predicates.DestinationAirport, destinationAirportUid);
+                builder.AddEdge(Constants.Predicates.DestinationAirport, destinationAirportUid);
             }
 
             // Set Carrier:
             if (carrierResolver.TryGetByCode(flight.Carrier, out string carrierUid))
             {
-                builder.Add(Constants.Predicates.Carrier, carrierUid);
+                builder.AddEdge(Constants.Predicates.Carrier, carrierUid);
             }
 
             // Add Distance:

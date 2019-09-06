@@ -38,9 +38,11 @@ namespace DGraphSample.DGraph.Processors
         {
             Mutation mutation = new Mutation();
 
-            foreach (var airport in airports)
+            for(int pos = 0; pos < airports.Count; pos++)
             {
-                var nquads = Convert(airport);
+                var airport = airports[pos];
+
+                var nquads = Convert(airport, pos);
 
                 mutation.Set.AddRange(nquads);
             }
@@ -48,10 +50,11 @@ namespace DGraphSample.DGraph.Processors
             return mutation;
         }
 
-        private static List<NQuad> Convert(AirportDto airport)
+        private static List<NQuad> Convert(AirportDto airport, int pos)
         {
-            return new NQuadBuilder(airport.Name)
+            return new NQuadBuilder($"_:airport_{pos}")
                 .Add(Constants.Predicates.Type, Constants.Types.Airport)
+                .Add(Constants.Predicates.AirportID, airport.AirportId)
                 .Add(Constants.Predicates.Name, airport.Name)
                 .Add(Constants.Predicates.Abbr, airport.Abbr)
                 .Add(Constants.Predicates.City, airport.City)

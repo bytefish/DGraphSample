@@ -19,7 +19,7 @@ namespace DGraphSample.DGraph.Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class DGraphQueries {
@@ -64,6 +64,7 @@ namespace DGraphSample.DGraph.Resources {
         ///   Looks up a localized string similar to {
         ///  airports(func: eq(type, &quot;airport&quot;)) {
         ///    uid
+        ///    airport_id
         ///    name
         ///    abbr
         ///    city
@@ -75,6 +76,19 @@ namespace DGraphSample.DGraph.Resources {
         public static string GetAllAirports {
             get {
                 return ResourceManager.GetString("GetAllAirports", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to query all($type: string) {
+        ///  all(func: eq(type, $type)) {
+        ///    _predicate_ 
+        ///  }
+        ///}.
+        /// </summary>
+        public static string GetAllByType {
+            get {
+                return ResourceManager.GetString("GetAllByType", resourceCulture);
             }
         }
         
@@ -97,6 +111,7 @@ namespace DGraphSample.DGraph.Resources {
         ///   Looks up a localized string similar to type: string @index(exact) .
         ///flight_number: string @index(exact) .
         ///name: string @index(exact) .
+        ///airport_id: string @index(exact) .
         ///abbr: string .
         ///code: string .
         ///description: string .
@@ -113,8 +128,7 @@ namespace DGraphSample.DGraph.Resources {
         ///carrier: uid @reverse .
         ///city: string @index(exact) .
         ///state: string @index(exact) .
-        ///country: string @index(exact) .
-        ///depart [rest of string was truncated]&quot;;.
+        ///cou [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Schema {
             get {

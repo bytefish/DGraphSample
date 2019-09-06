@@ -50,15 +50,12 @@ namespace DGraphSample.ConsoleApp
         {
             var client = new DGraphClient("127.0.0.1", 9080, ChannelCredentials.Insecure);
 
+            // Drop All:
+            await client.AlterAsync(new Operation { DropAll = true }, CancellationToken.None);
+
             // Create the Schema and Drop all data for this test:
-            var operation = new Operation
-            {
-                Schema = DGraphQueries.Schema,
-                DropAll = true
-            };
-
-            await client.AlterAsync(operation, CancellationToken.None);
-
+            await client.AlterAsync(new Operation { Schema = DGraphQueries.Schema }, CancellationToken.None);
+            
             // Insert Data:
             await InsertAirports(client);
             await InsertCarrierData(client);
@@ -92,6 +89,8 @@ namespace DGraphSample.ConsoleApp
             // Create the Processor and use the Resolvers:
             var processor = new FlightBatchProcessor(client, airportResolver, carrierResolver);
 
+            int totalFlightNum = 0;
+
             // Create Flight Data with Batched Items:
             foreach (var csvFlightStatisticsFile in csvFlightStatisticsFiles)
             {
@@ -101,11 +100,18 @@ namespace DGraphSample.ConsoleApp
                     // As an Observable:
                     .ToObservable()
                     // Batch in Entities / Wait:
-                    .Buffer(TimeSpan.FromSeconds(1), 30000)
+                    .Buffer(TimeSpan.FromSeconds(1), 5000)
                     // Insert when Buffered:
                     .Subscribe(records =>
                     {
-                        processor.ProcessAsync(records, CancellationToken.None).GetAwaiter().GetResult();
+                        if (records.Count > 0)
+                        {
+                            processor.ProcessAsync(records, CancellationToken.None).GetAwaiter().GetResult();
+
+                            totalFlightNum = totalFlightNum + records.Count;
+
+                            Console.WriteLine($"Wrote {totalFlightNum} Flights ...");
+                        }
                     });
             }
         }
@@ -143,6 +149,7 @@ namespace DGraphSample.ConsoleApp
                 // Build the intermediate Airport Information:
                 .Select(x => new AirportDto
                 {
+                    AirportId = x.AirportId,
                     Name = x.AirportName,
                     Abbr = x.AirportAbbr,
                     City = x.AirportCityName,

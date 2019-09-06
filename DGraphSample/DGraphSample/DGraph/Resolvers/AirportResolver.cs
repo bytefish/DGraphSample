@@ -17,10 +17,13 @@ namespace DGraphSample.DGraph.Resolvers
 
         public AirportResolver(Airport[] airports)
         {
-            this.lookup = airports.ToDictionary(x => x.Name, x => x.UID);
+            this.lookup = airports
+                .GroupBy(x => x.AirportId)
+                .Select(x => x.First())
+                .ToDictionary(x => x.AirportId, x => x.UID);
         }
 
-        public bool TryGetByName(string name, out string uid)
+        public bool TryGetByAirportId(string name, out string uid)
         {
             return lookup.TryGetValue(name, out uid);
         }

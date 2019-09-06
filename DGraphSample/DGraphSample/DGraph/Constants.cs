@@ -20,6 +20,7 @@ namespace DGraphSample.DGraph
             public const string Code = "code";
             public const string Year = "year";
             public const string Month = "month";
+            public const string AirportID = "airport_id";
             public const string DayOfMonth = "day_of_month";
             public const string DayOfWeek = "day_of_week";
             public const string FlightDate = "flight_date";
