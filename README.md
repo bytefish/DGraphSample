@@ -21,7 +21,7 @@ Starting Dgraph consists of running **Dgraph Zero** and **Dgraph Alpha**:
 * **Dgraph Alpha** 
     * Hosts predicates and indexes.
 
-So first start the **Dgraph Zero** by running:
+So first start **Dgraph Zero** by running:
 
 ```
 dgraph zero
