@@ -66,4 +66,9 @@ security_delay: int .
 late_aircraft_delay: int .
 ```
 
+## Resources ##
+
+* [Jepsen: Dgraph 1.0.2](https://jepsen.io/analyses/dgraph-1-0-2)
+    * An in-depth analysis of Dgraph 1.0.2. Explains a lot of Dgraph concepts and internals.
+
 [Dgraph]: https://dgraph.io/
