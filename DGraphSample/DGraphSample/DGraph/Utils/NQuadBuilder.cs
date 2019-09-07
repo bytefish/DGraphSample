@@ -3,7 +3,7 @@
 
 using System;
 using System.Collections.Generic;
-using DGraphSample.Api;
+using DGraphSample.Api.Generated;
 using DGraphSample.Api.Utils;
 
 namespace DGraphSample.DGraph.Utils

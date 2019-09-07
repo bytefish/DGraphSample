@@ -13,8 +13,4 @@
   <Protobuf Include="Proto/api.proto" OutputDir="%(RelativeDir)\..\Generated" GrpcServices="Client" ClientBaseType="LiteClientBase" ProtoCompile="true" />
 </ItemGroup>
 
-<ItemGroup>
-  <Folder Include="Api\" />
-</ItemGroup>
-
 </Project>

@@ -10,7 +10,7 @@ using pbc = global::Google.Protobuf.Collections;
 using pbr = global::Google.Protobuf.Reflection;
 using scg = global::System.Collections.Generic;
 
-namespace DGraphSample.Api {
+namespace DGraphSample.Api.Generated {
 
   /// <summary>Holder for reflection information generated from Proto/api.proto</summary>
   public static partial class ApiReflection {
@@ -86,23 +86,23 @@ namespace DGraphSample.Api {
       descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
           new pbr::FileDescriptor[] { },
           new pbr::GeneratedClrTypeInfo(null, new pbr::GeneratedClrTypeInfo[] {
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Request), DGraphSample.Api.Request.Parser, new[]{ "Query", "Vars", "StartTs", "LinRead", "ReadOnly", "BestEffort" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Response), DGraphSample.Api.Response.Parser, new[]{ "Json", "Schema", "Txn", "Latency" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Assigned), DGraphSample.Api.Assigned.Parser, new[]{ "Uids", "Context", "Latency" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Mutation), DGraphSample.Api.Mutation.Parser, new[]{ "SetJson", "DeleteJson", "SetNquads", "DelNquads", "Query", "Cond", "Set", "Del", "StartTs", "CommitNow", "IgnoreIndexConflict" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Operation), DGraphSample.Api.Operation.Parser, new[]{ "Schema", "DropAttr", "DropAll", "DropOp", "DropValue" }, null, new[]{ typeof(DGraphSample.Api.Operation.Types.DropOp) }, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Payload), DGraphSample.Api.Payload.Parser, new[]{ "Data" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.TxnContext), DGraphSample.Api.TxnContext.Parser, new[]{ "StartTs", "CommitTs", "Aborted", "Keys", "Preds", "LinRead" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Check), DGraphSample.Api.Check.Parser, null, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Version), DGraphSample.Api.Version.Parser, new[]{ "Tag" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.LinRead), DGraphSample.Api.LinRead.Parser, new[]{ "Ids", "Sequencing" }, null, new[]{ typeof(DGraphSample.Api.LinRead.Types.Sequencing) }, new pbr::GeneratedClrTypeInfo[] { null, }),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Latency), DGraphSample.Api.Latency.Parser, new[]{ "ParsingNs", "ProcessingNs", "EncodingNs", "AssignTimestampNs" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.NQuad), DGraphSample.Api.NQuad.Parser, new[]{ "Subject", "Predicate", "ObjectId", "ObjectValue", "Label", "Lang", "Facets" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Value), DGraphSample.Api.Value.Parser, new[]{ "DefaultVal", "BytesVal", "IntVal", "BoolVal", "StrVal", "DoubleVal", "GeoVal", "DateVal", "DatetimeVal", "PasswordVal", "UidVal" }, new[]{ "Val" }, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Facet), DGraphSample.Api.Facet.Parser, new[]{ "Key", "Value", "ValType", "Tokens", "Alias" }, null, new[]{ typeof(DGraphSample.Api.Facet.Types.ValType) }, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.SchemaNode), DGraphSample.Api.SchemaNode.Parser, new[]{ "Predicate", "Type", "Index", "Tokenizer", "Reverse", "Count", "List", "Upsert", "Lang" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.LoginRequest), DGraphSample.Api.LoginRequest.Parser, new[]{ "Userid", "Password", "RefreshToken" }, null, null, null),
-            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Jwt), DGraphSample.Api.Jwt.Parser, new[]{ "AccessJwt", "RefreshJwt" }, null, null, null)
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.Request), DGraphSample.Api.Generated.Request.Parser, new[]{ "Query", "Vars", "StartTs", "LinRead", "ReadOnly", "BestEffort" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.Response), DGraphSample.Api.Generated.Response.Parser, new[]{ "Json", "Schema", "Txn", "Latency" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.Assigned), DGraphSample.Api.Generated.Assigned.Parser, new[]{ "Uids", "Context", "Latency" }, null, null, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.Mutation), DGraphSample.Api.Generated.Mutation.Parser, new[]{ "SetJson", "DeleteJson", "SetNquads", "DelNquads", "Query", "Cond", "Set", "Del", "StartTs", "CommitNow", "IgnoreIndexConflict" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.Operation), DGraphSample.Api.Generated.Operation.Parser, new[]{ "Schema", "DropAttr", "DropAll", "DropOp", "DropValue" }, null, new[]{ typeof(DGraphSample.Api.Generated.Operation.Types.DropOp) }, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.Payload), DGraphSample.Api.Generated.Payload.Parser, new[]{ "Data" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.TxnContext), DGraphSample.Api.Generated.TxnContext.Parser, new[]{ "StartTs", "CommitTs", "Aborted", "Keys", "Preds", "LinRead" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.Check), DGraphSample.Api.Generated.Check.Parser, null, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.Version), DGraphSample.Api.Generated.Version.Parser, new[]{ "Tag" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.LinRead), DGraphSample.Api.Generated.LinRead.Parser, new[]{ "Ids", "Sequencing" }, null, new[]{ typeof(DGraphSample.Api.Generated.LinRead.Types.Sequencing) }, new pbr::GeneratedClrTypeInfo[] { null, }),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.Latency), DGraphSample.Api.Generated.Latency.Parser, new[]{ "ParsingNs", "ProcessingNs", "EncodingNs", "AssignTimestampNs" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.NQuad), DGraphSample.Api.Generated.NQuad.Parser, new[]{ "Subject", "Predicate", "ObjectId", "ObjectValue", "Label", "Lang", "Facets" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.Value), DGraphSample.Api.Generated.Value.Parser, new[]{ "DefaultVal", "BytesVal", "IntVal", "BoolVal", "StrVal", "DoubleVal", "GeoVal", "DateVal", "DatetimeVal", "PasswordVal", "UidVal" }, new[]{ "Val" }, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.Facet), DGraphSample.Api.Generated.Facet.Parser, new[]{ "Key", "Value", "ValType", "Tokens", "Alias" }, null, new[]{ typeof(DGraphSample.Api.Generated.Facet.Types.ValType) }, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.SchemaNode), DGraphSample.Api.Generated.SchemaNode.Parser, new[]{ "Predicate", "Type", "Index", "Tokenizer", "Reverse", "Count", "List", "Upsert", "Lang" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.LoginRequest), DGraphSample.Api.Generated.LoginRequest.Parser, new[]{ "Userid", "Password", "RefreshToken" }, null, null, null),
+            new pbr::GeneratedClrTypeInfo(typeof(DGraphSample.Api.Generated.Jwt), DGraphSample.Api.Generated.Jwt.Parser, new[]{ "AccessJwt", "RefreshJwt" }, null, null, null)
           }));
     }
     #endregion
@@ -117,7 +117,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[0]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[0]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -185,9 +185,9 @@ namespace DGraphSample.Api {
 
     /// <summary>Field number for the "lin_read" field.</summary>
     public const int LinReadFieldNumber = 14;
-    private DGraphSample.Api.LinRead linRead_;
+    private DGraphSample.Api.Generated.LinRead linRead_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DGraphSample.Api.LinRead LinRead {
+    public DGraphSample.Api.Generated.LinRead LinRead {
       get { return linRead_; }
       set {
         linRead_ = value;
@@ -325,7 +325,7 @@ namespace DGraphSample.Api {
       }
       if (other.linRead_ != null) {
         if (linRead_ == null) {
-          LinRead = new DGraphSample.Api.LinRead();
+          LinRead = new DGraphSample.Api.Generated.LinRead();
         }
         LinRead.MergeFrom(other.LinRead);
       }
@@ -360,7 +360,7 @@ namespace DGraphSample.Api {
           }
           case 114: {
             if (linRead_ == null) {
-              LinRead = new DGraphSample.Api.LinRead();
+              LinRead = new DGraphSample.Api.Generated.LinRead();
             }
             input.ReadMessage(LinRead);
             break;
@@ -387,7 +387,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[1]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[1]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -429,20 +429,20 @@ namespace DGraphSample.Api {
 
     /// <summary>Field number for the "schema" field.</summary>
     public const int SchemaFieldNumber = 2;
-    private static readonly pb::FieldCodec<DGraphSample.Api.SchemaNode> _repeated_schema_codec
-        = pb::FieldCodec.ForMessage(18, DGraphSample.Api.SchemaNode.Parser);
-    private readonly pbc::RepeatedField<DGraphSample.Api.SchemaNode> schema_ = new pbc::RepeatedField<DGraphSample.Api.SchemaNode>();
+    private static readonly pb::FieldCodec<DGraphSample.Api.Generated.SchemaNode> _repeated_schema_codec
+        = pb::FieldCodec.ForMessage(18, DGraphSample.Api.Generated.SchemaNode.Parser);
+    private readonly pbc::RepeatedField<DGraphSample.Api.Generated.SchemaNode> schema_ = new pbc::RepeatedField<DGraphSample.Api.Generated.SchemaNode>();
     [global::System.ObsoleteAttribute]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<DGraphSample.Api.SchemaNode> Schema {
+    public pbc::RepeatedField<DGraphSample.Api.Generated.SchemaNode> Schema {
       get { return schema_; }
     }
 
     /// <summary>Field number for the "txn" field.</summary>
     public const int TxnFieldNumber = 3;
-    private DGraphSample.Api.TxnContext txn_;
+    private DGraphSample.Api.Generated.TxnContext txn_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DGraphSample.Api.TxnContext Txn {
+    public DGraphSample.Api.Generated.TxnContext Txn {
       get { return txn_; }
       set {
         txn_ = value;
@@ -451,9 +451,9 @@ namespace DGraphSample.Api {
 
     /// <summary>Field number for the "latency" field.</summary>
     public const int LatencyFieldNumber = 12;
-    private DGraphSample.Api.Latency latency_;
+    private DGraphSample.Api.Generated.Latency latency_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DGraphSample.Api.Latency Latency {
+    public DGraphSample.Api.Generated.Latency Latency {
       get { return latency_; }
       set {
         latency_ = value;
@@ -548,13 +548,13 @@ namespace DGraphSample.Api {
       schema_.Add(other.schema_);
       if (other.txn_ != null) {
         if (txn_ == null) {
-          Txn = new DGraphSample.Api.TxnContext();
+          Txn = new DGraphSample.Api.Generated.TxnContext();
         }
         Txn.MergeFrom(other.Txn);
       }
       if (other.latency_ != null) {
         if (latency_ == null) {
-          Latency = new DGraphSample.Api.Latency();
+          Latency = new DGraphSample.Api.Generated.Latency();
         }
         Latency.MergeFrom(other.Latency);
       }
@@ -579,14 +579,14 @@ namespace DGraphSample.Api {
           }
           case 26: {
             if (txn_ == null) {
-              Txn = new DGraphSample.Api.TxnContext();
+              Txn = new DGraphSample.Api.Generated.TxnContext();
             }
             input.ReadMessage(Txn);
             break;
           }
           case 98: {
             if (latency_ == null) {
-              Latency = new DGraphSample.Api.Latency();
+              Latency = new DGraphSample.Api.Generated.Latency();
             }
             input.ReadMessage(Latency);
             break;
@@ -605,7 +605,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[2]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[2]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -645,9 +645,9 @@ namespace DGraphSample.Api {
 
     /// <summary>Field number for the "context" field.</summary>
     public const int ContextFieldNumber = 2;
-    private DGraphSample.Api.TxnContext context_;
+    private DGraphSample.Api.Generated.TxnContext context_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DGraphSample.Api.TxnContext Context {
+    public DGraphSample.Api.Generated.TxnContext Context {
       get { return context_; }
       set {
         context_ = value;
@@ -656,9 +656,9 @@ namespace DGraphSample.Api {
 
     /// <summary>Field number for the "latency" field.</summary>
     public const int LatencyFieldNumber = 12;
-    private DGraphSample.Api.Latency latency_;
+    private DGraphSample.Api.Generated.Latency latency_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DGraphSample.Api.Latency Latency {
+    public DGraphSample.Api.Generated.Latency Latency {
       get { return latency_; }
       set {
         latency_ = value;
@@ -741,13 +741,13 @@ namespace DGraphSample.Api {
       uids_.Add(other.uids_);
       if (other.context_ != null) {
         if (context_ == null) {
-          Context = new DGraphSample.Api.TxnContext();
+          Context = new DGraphSample.Api.Generated.TxnContext();
         }
         Context.MergeFrom(other.Context);
       }
       if (other.latency_ != null) {
         if (latency_ == null) {
-          Latency = new DGraphSample.Api.Latency();
+          Latency = new DGraphSample.Api.Generated.Latency();
         }
         Latency.MergeFrom(other.Latency);
       }
@@ -768,14 +768,14 @@ namespace DGraphSample.Api {
           }
           case 18: {
             if (context_ == null) {
-              Context = new DGraphSample.Api.TxnContext();
+              Context = new DGraphSample.Api.Generated.TxnContext();
             }
             input.ReadMessage(Context);
             break;
           }
           case 98: {
             if (latency_ == null) {
-              Latency = new DGraphSample.Api.Latency();
+              Latency = new DGraphSample.Api.Generated.Latency();
             }
             input.ReadMessage(Latency);
             break;
@@ -794,7 +794,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[3]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[3]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -898,21 +898,21 @@ namespace DGraphSample.Api {
 
     /// <summary>Field number for the "set" field.</summary>
     public const int SetFieldNumber = 10;
-    private static readonly pb::FieldCodec<DGraphSample.Api.NQuad> _repeated_set_codec
-        = pb::FieldCodec.ForMessage(82, DGraphSample.Api.NQuad.Parser);
-    private readonly pbc::RepeatedField<DGraphSample.Api.NQuad> set_ = new pbc::RepeatedField<DGraphSample.Api.NQuad>();
+    private static readonly pb::FieldCodec<DGraphSample.Api.Generated.NQuad> _repeated_set_codec
+        = pb::FieldCodec.ForMessage(82, DGraphSample.Api.Generated.NQuad.Parser);
+    private readonly pbc::RepeatedField<DGraphSample.Api.Generated.NQuad> set_ = new pbc::RepeatedField<DGraphSample.Api.Generated.NQuad>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<DGraphSample.Api.NQuad> Set {
+    public pbc::RepeatedField<DGraphSample.Api.Generated.NQuad> Set {
       get { return set_; }
     }
 
     /// <summary>Field number for the "del" field.</summary>
     public const int DelFieldNumber = 11;
-    private static readonly pb::FieldCodec<DGraphSample.Api.NQuad> _repeated_del_codec
-        = pb::FieldCodec.ForMessage(90, DGraphSample.Api.NQuad.Parser);
-    private readonly pbc::RepeatedField<DGraphSample.Api.NQuad> del_ = new pbc::RepeatedField<DGraphSample.Api.NQuad>();
+    private static readonly pb::FieldCodec<DGraphSample.Api.Generated.NQuad> _repeated_del_codec
+        = pb::FieldCodec.ForMessage(90, DGraphSample.Api.Generated.NQuad.Parser);
+    private readonly pbc::RepeatedField<DGraphSample.Api.Generated.NQuad> del_ = new pbc::RepeatedField<DGraphSample.Api.Generated.NQuad>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<DGraphSample.Api.NQuad> Del {
+    public pbc::RepeatedField<DGraphSample.Api.Generated.NQuad> Del {
       get { return del_; }
     }
 
@@ -1190,7 +1190,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[4]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[4]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1255,9 +1255,9 @@ namespace DGraphSample.Api {
 
     /// <summary>Field number for the "drop_op" field.</summary>
     public const int DropOpFieldNumber = 4;
-    private DGraphSample.Api.Operation.Types.DropOp dropOp_ = 0;
+    private DGraphSample.Api.Generated.Operation.Types.DropOp dropOp_ = 0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DGraphSample.Api.Operation.Types.DropOp DropOp {
+    public DGraphSample.Api.Generated.Operation.Types.DropOp DropOp {
       get { return dropOp_; }
       set {
         dropOp_ = value;
@@ -1414,7 +1414,7 @@ namespace DGraphSample.Api {
             break;
           }
           case 32: {
-            DropOp = (DGraphSample.Api.Operation.Types.DropOp) input.ReadEnum();
+            DropOp = (DGraphSample.Api.Generated.Operation.Types.DropOp) input.ReadEnum();
             break;
           }
           case 42: {
@@ -1453,7 +1453,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[5]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[5]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1582,7 +1582,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[6]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[6]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1674,9 +1674,9 @@ namespace DGraphSample.Api {
 
     /// <summary>Field number for the "lin_read" field.</summary>
     public const int LinReadFieldNumber = 13;
-    private DGraphSample.Api.LinRead linRead_;
+    private DGraphSample.Api.Generated.LinRead linRead_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DGraphSample.Api.LinRead LinRead {
+    public DGraphSample.Api.Generated.LinRead LinRead {
       get { return linRead_; }
       set {
         linRead_ = value;
@@ -1791,7 +1791,7 @@ namespace DGraphSample.Api {
       preds_.Add(other.preds_);
       if (other.linRead_ != null) {
         if (linRead_ == null) {
-          LinRead = new DGraphSample.Api.LinRead();
+          LinRead = new DGraphSample.Api.Generated.LinRead();
         }
         LinRead.MergeFrom(other.LinRead);
       }
@@ -1828,7 +1828,7 @@ namespace DGraphSample.Api {
           }
           case 106: {
             if (linRead_ == null) {
-              LinRead = new DGraphSample.Api.LinRead();
+              LinRead = new DGraphSample.Api.Generated.LinRead();
             }
             input.ReadMessage(LinRead);
             break;
@@ -1847,7 +1847,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[7]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[7]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -1948,7 +1948,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[8]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[8]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2077,7 +2077,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[9]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[9]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2116,9 +2116,9 @@ namespace DGraphSample.Api {
 
     /// <summary>Field number for the "sequencing" field.</summary>
     public const int SequencingFieldNumber = 2;
-    private DGraphSample.Api.LinRead.Types.Sequencing sequencing_ = 0;
+    private DGraphSample.Api.Generated.LinRead.Types.Sequencing sequencing_ = 0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DGraphSample.Api.LinRead.Types.Sequencing Sequencing {
+    public DGraphSample.Api.Generated.LinRead.Types.Sequencing Sequencing {
       get { return sequencing_; }
       set {
         sequencing_ = value;
@@ -2209,7 +2209,7 @@ namespace DGraphSample.Api {
             break;
           }
           case 16: {
-            Sequencing = (DGraphSample.Api.LinRead.Types.Sequencing) input.ReadEnum();
+            Sequencing = (DGraphSample.Api.Generated.LinRead.Types.Sequencing) input.ReadEnum();
             break;
           }
         }
@@ -2238,7 +2238,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[10]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[10]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2451,7 +2451,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[11]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[11]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -2518,9 +2518,9 @@ namespace DGraphSample.Api {
 
     /// <summary>Field number for the "object_value" field.</summary>
     public const int ObjectValueFieldNumber = 4;
-    private DGraphSample.Api.Value objectValue_;
+    private DGraphSample.Api.Generated.Value objectValue_;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DGraphSample.Api.Value ObjectValue {
+    public DGraphSample.Api.Generated.Value ObjectValue {
       get { return objectValue_; }
       set {
         objectValue_ = value;
@@ -2551,11 +2551,11 @@ namespace DGraphSample.Api {
 
     /// <summary>Field number for the "facets" field.</summary>
     public const int FacetsFieldNumber = 7;
-    private static readonly pb::FieldCodec<DGraphSample.Api.Facet> _repeated_facets_codec
-        = pb::FieldCodec.ForMessage(58, DGraphSample.Api.Facet.Parser);
-    private readonly pbc::RepeatedField<DGraphSample.Api.Facet> facets_ = new pbc::RepeatedField<DGraphSample.Api.Facet>();
+    private static readonly pb::FieldCodec<DGraphSample.Api.Generated.Facet> _repeated_facets_codec
+        = pb::FieldCodec.ForMessage(58, DGraphSample.Api.Generated.Facet.Parser);
+    private readonly pbc::RepeatedField<DGraphSample.Api.Generated.Facet> facets_ = new pbc::RepeatedField<DGraphSample.Api.Generated.Facet>();
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public pbc::RepeatedField<DGraphSample.Api.Facet> Facets {
+    public pbc::RepeatedField<DGraphSample.Api.Generated.Facet> Facets {
       get { return facets_; }
     }
 
@@ -2679,7 +2679,7 @@ namespace DGraphSample.Api {
       }
       if (other.objectValue_ != null) {
         if (objectValue_ == null) {
-          ObjectValue = new DGraphSample.Api.Value();
+          ObjectValue = new DGraphSample.Api.Generated.Value();
         }
         ObjectValue.MergeFrom(other.ObjectValue);
       }
@@ -2715,7 +2715,7 @@ namespace DGraphSample.Api {
           }
           case 34: {
             if (objectValue_ == null) {
-              ObjectValue = new DGraphSample.Api.Value();
+              ObjectValue = new DGraphSample.Api.Generated.Value();
             }
             input.ReadMessage(ObjectValue);
             break;
@@ -2746,7 +2746,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[12]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[12]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3216,7 +3216,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[13]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[13]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3270,9 +3270,9 @@ namespace DGraphSample.Api {
 
     /// <summary>Field number for the "val_type" field.</summary>
     public const int ValTypeFieldNumber = 3;
-    private DGraphSample.Api.Facet.Types.ValType valType_ = 0;
+    private DGraphSample.Api.Generated.Facet.Types.ValType valType_ = 0;
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-    public DGraphSample.Api.Facet.Types.ValType ValType {
+    public DGraphSample.Api.Generated.Facet.Types.ValType ValType {
       get { return valType_; }
       set {
         valType_ = value;
@@ -3430,7 +3430,7 @@ namespace DGraphSample.Api {
             break;
           }
           case 24: {
-            ValType = (DGraphSample.Api.Facet.Types.ValType) input.ReadEnum();
+            ValType = (DGraphSample.Api.Generated.Facet.Types.ValType) input.ReadEnum();
             break;
           }
           case 34: {
@@ -3470,7 +3470,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[14]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[14]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -3815,7 +3815,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[15]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[15]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
@@ -4000,7 +4000,7 @@ namespace DGraphSample.Api {
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
     public static pbr::MessageDescriptor Descriptor {
-      get { return DGraphSample.Api.ApiReflection.Descriptor.MessageTypes[16]; }
+      get { return DGraphSample.Api.Generated.ApiReflection.Descriptor.MessageTypes[16]; }
     }
 
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute]

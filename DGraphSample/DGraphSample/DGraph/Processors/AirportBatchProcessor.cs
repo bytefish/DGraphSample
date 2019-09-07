@@ -4,10 +4,9 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using DGraphSample.Api;
 using DGraphSample.Api.Client;
+using DGraphSample.Api.Generated;
 using DGraphSample.DGraph.Dto;
-using DGraphSample.DGraph.Model;
 using DGraphSample.DGraph.Utils;
 
 namespace DGraphSample.DGraph.Processors

@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Grpc.Core;
+using DGraphSample.Api.Generated;
 
 namespace DGraphSample.Api.Client
 {

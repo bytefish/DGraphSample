@@ -7,7 +7,7 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using DGraphSample.Api;
+using DGraphSample.Api.Generated;
 using DGraphSample.Api.Client;
 using DGraphSample.Csv.Parser;
 using DGraphSample.DGraph.Dto;
