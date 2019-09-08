@@ -4,11 +4,11 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using DGraphSample.Api.Generated;
-using DGraphSample.Api.Client;
 using DGraphSample.DGraph.Dto;
 using DGraphSample.DGraph.Resolvers;
 using DGraphSample.DGraph.Utils;
+using TinyDgraphClient.Generated;
+using TinyDgraphClient.Client;
 
 namespace DGraphSample.DGraph.Processors
 {

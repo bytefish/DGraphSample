@@ -2,20 +2,13 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using System;
+using System.IO;
 using System.Linq;
-using System.Reactive.Linq;
 using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 using DGraphSample.Csv.Parser;
 using DGraphSample.DGraph.Dto;
-using DGraphSample.DGraph.Processors;
-using DGraphSample.DGraph.Queries;
-using DGraphSample.DGraph.Resolvers;
-using Grpc.Core;
+using DGraphSample.Export;
 using TinyCsvParser;
-using TinyDgraphClient.Client;
-using TinyDgraphClient.Generated;
 
 namespace DGraphSample.ConsoleApp
 {
@@ -43,76 +36,70 @@ namespace DGraphSample.ConsoleApp
 
         public static void Main(string[] args)
         {
-            Main().GetAwaiter().GetResult();
+            const string rdfFilePath = "flights.rdf";
+
+            StreamWriter writer = new StreamWriter(rdfFilePath, true);
+
+            WriteAirports(writer);
+            WriteCarriers(writer);
+            WriteFlights(writer);
+
+            writer.Flush();
+            writer.Close();
         }
 
-        public static async Task Main()
+        private static void WriteAirports(StreamWriter writer)
         {
-            var client = new DGraphClient("127.0.0.1", 9080, ChannelCredentials.Insecure);
+            var airports = GetAirportData(csvAirportFile).AsEnumerable();
 
-            // Drop All:
-            await client.AlterAsync(new Operation { DropAll = true }, CancellationToken.None);
+            foreach (var airport in airports)
+            {
+                var lines = FlightsRdfExporter.ConvertToRdf(airport.AirportId, airport);
 
-            // Create the Schema and Drop all data for this test:
-            await client.AlterAsync(new Operation { Schema = Query.Schema }, CancellationToken.None);
-            
-            // Insert Data:
-            await InsertAirports(client);
-            await InsertCarrierData(client);
-            await InsertFlightData(client);
+                foreach (var line in lines)
+                {
+                    writer.WriteLine(line);
+                }
+            }
         }
 
-        private static async Task InsertAirports(DGraphClient client)
+        private static void WriteCarriers(StreamWriter writer)
         {
-            var airports = GetAirportData(csvAirportFile).ToList();
-            var processor = new AirportBatchProcessor(client);
+            var carriers = GetCarrierData(csvCarriersFile).AsEnumerable();
 
-            await processor.ProcessAsync(airports, CancellationToken.None);
+            foreach (var carrier in carriers)
+            {
+                var lines = FlightsRdfExporter.ConvertToRdf(carrier.Code, carrier);
+
+                foreach (var line in lines)
+                {
+                    writer.WriteLine(line);
+                }
+            }
         }
 
-        private static async Task InsertCarrierData(DGraphClient client)
+        private static void WriteFlights(StreamWriter writer)
         {
-            var carriers = GetCarrierData(csvCarriersFile).ToList();
-            var processor = new CarrierBatchProcessor(client);
-
-            await processor.ProcessAsync(carriers, CancellationToken.None);
-        }
-
-        private static async Task InsertFlightData(DGraphClient client)
-        {
-            // We cache the data, that fits into memory. Airports and Carriers won't 
-            // change during the initial data ingestion, so we can cache it in memory 
-            // to prevent useless network calls:
-            var airportResolver = await AirportResolver.CreateResolverAsync(client);
-            var carrierResolver = await CarrierResolver.CreateResolverAsync(client);
-
-            // Create the Processor and use the Resolvers:
-            var processor = new FlightBatchProcessor(client, airportResolver, carrierResolver);
-
-            int totalFlightNum = 0;
+            ulong totalNumberOfFlightsWritten = 0;
 
             // Create Flight Data with Batched Items:
             foreach (var csvFlightStatisticsFile in csvFlightStatisticsFiles)
             {
                 Console.WriteLine($@"Starting Flights CSV Import: {csvFlightStatisticsFile}");
 
-                GetFlightData(csvFlightStatisticsFile)
-                    // As an Observable:
-                    .ToObservable()
-                    // Batch in Entities / Wait:
-                    .Buffer(TimeSpan.FromSeconds(1), 100)
-                    // Insert when Buffered:
-                    .Subscribe(records =>
+                var flights = GetFlightData(csvFlightStatisticsFile).AsEnumerable();
+
+                foreach (var flight in flights)
+                {
+                    var lines = FlightsRdfExporter.ConvertToRdf($"{totalNumberOfFlightsWritten}", flight);
+
+                    foreach (var line in lines)
                     {
-                        if (records.Count > 0)
-                        {
-                            processor.ProcessAsync(records, CancellationToken.None).GetAwaiter().GetResult();
+                        writer.WriteLine(line);
+                    }
 
-                            totalFlightNum += records.Count;
-
-                            Console.WriteLine($"[{DateTime.Now}] Wrote {totalFlightNum} Flights ...");
-                        }
-                    });
+                    totalNumberOfFlightsWritten = totalNumberOfFlightsWritten + 1;
+                }
             }
         }
 
@@ -188,7 +175,7 @@ namespace DGraphSample.ConsoleApp
                     NasDelay = x.NasDelay,
                     SecurityDelay = x.SecurityDelay,
                     WeatherDelay = x.WeatherDelay,
-                    FlightDate =  x.FlightDate
+                    FlightDate = x.FlightDate
                 });
         }
 

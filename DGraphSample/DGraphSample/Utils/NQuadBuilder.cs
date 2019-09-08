@@ -3,8 +3,8 @@
 
 using System;
 using System.Collections.Generic;
-using DGraphSample.Api.Generated;
-using DGraphSample.Api.Utils;
+using TinyDgraphClient.Generated;
+using TinyDgraphClient.Utils;
 
 namespace DGraphSample.DGraph.Utils
 {

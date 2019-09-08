@@ -4,10 +4,10 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using DGraphSample.Api.Generated;
-using DGraphSample.Api.Client;
 using DGraphSample.DGraph.Model;
 using DGraphSample.DGraph.Utils;
+using TinyDgraphClient.Generated;
+using TinyDgraphClient.Client;
 
 namespace DGraphSample.DGraph.Processors
 {
@@ -54,7 +54,7 @@ namespace DGraphSample.DGraph.Processors
             return new NQuadBuilder($"_:carrier_{pos}")
                 .Add(Constants.Predicates.Type, Constants.Types.Carrier)
                 .Add(Constants.Predicates.Code, carrier.Code)
-                .Add(Constants.Predicates.Name, carrier.Description)
+                .Add(Constants.Predicates.Name, carrier.Name)
                 .Build();
         }
     }

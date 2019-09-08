@@ -5,10 +5,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using DGraphSample.Api.Client;
 using DGraphSample.DGraph.Model;
 using DGraphSample.DGraph.Queries;
 using DGraphSample.DGraph.Utils;
+using TinyDgraphClient.Client;
 
 namespace DGraphSample.DGraph.Resolvers
 {

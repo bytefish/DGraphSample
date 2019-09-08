@@ -4,10 +4,10 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using DGraphSample.Api.Client;
-using DGraphSample.Api.Generated;
 using DGraphSample.DGraph.Dto;
 using DGraphSample.DGraph.Utils;
+using TinyDgraphClient.Client;
+using TinyDgraphClient.Generated;
 
 namespace DGraphSample.DGraph.Processors
 {
@@ -25,7 +25,7 @@ namespace DGraphSample.DGraph.Processors
             var transaction = client.NewTxn();
 
             // Get the Mutation:
-            var mutation = GetMutation(airports);
+            Mutation mutation = GetMutation(airports);
 
             // Commit instantly:
             mutation.CommitNow = true;

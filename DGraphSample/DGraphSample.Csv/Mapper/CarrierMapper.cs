@@ -11,7 +11,7 @@ namespace DGraphSample.Csv.Mapper
         public CarrierMapper()
         {
             MapProperty(0, x => x.Code);
-            MapProperty(1, x => x.Description);
+            MapProperty(1, x => x.Name);
         }
     }
 }
