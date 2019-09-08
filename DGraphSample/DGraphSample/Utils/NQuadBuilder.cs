@@ -32,6 +32,22 @@ namespace DGraphSample.DGraph.Utils
             return this;
         }
 
+        public NQuadBuilder Add(string predicate, int objectValue)
+        {
+
+            nquads.Add(new NQuad
+            {
+                Subject = subject,
+                Predicate = predicate,
+                ObjectValue = new Value
+                {
+                    IntVal = objectValue
+                }
+            });
+
+            return this;
+        }
+
         public NQuadBuilder Add(string predicate, float objectValue)
         {
             
