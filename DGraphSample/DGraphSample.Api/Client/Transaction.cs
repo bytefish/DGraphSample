@@ -95,7 +95,7 @@ namespace DGraphSample.Api.Client
                 }
                 catch
                 {
-                    // TODO This shouldn't go unnoticed.
+                    // TODO Problems discarding the Transaction shouldn't go unnoticed ...
                 }
 
                 throw e;
