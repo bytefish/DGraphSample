@@ -66,6 +66,19 @@ security_delay: int .
 late_aircraft_delay: int .
 ```
 
+## Queries ##
+
+### Number of Flights Departed by Airport ###
+
+```graphql
+{
+   number_of_flights_started(func: eq(type, "airport")) {
+    name
+    count(~origin_airport)
+  }
+}
+```
+
 ## Resources ##
 
 * [Jepsen: Dgraph 1.0.2](https://jepsen.io/analyses/dgraph-1-0-2)
