@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\DGraphSample.Csv\DGraphSample.Csv.csproj" />
+    <ProjectReference Include="..\DGraphSample.Csv\DGraphSample.Csv.Aotp.csproj" />
     <ProjectReference Include="..\DGraphSample\DGraphSample.csproj" />
   </ItemGroup>
 

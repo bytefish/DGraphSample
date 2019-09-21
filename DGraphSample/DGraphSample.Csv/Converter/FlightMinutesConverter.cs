@@ -4,7 +4,7 @@
 using System;
 using TinyCsvParser.TypeConverter;
 
-namespace DGraphSample.Csv.Converter
+namespace DGraphSample.Csv.Aotp.Converter
 {
     public class FlightMinutesConverter : ITypeConverter<int?>
     {

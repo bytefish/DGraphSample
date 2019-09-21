@@ -3,7 +3,7 @@
 
 using System;
 
-namespace DGraphSample.Csv.Model
+namespace DGraphSample.Csv.Aotp.Model
 {
     public class Flight
     {

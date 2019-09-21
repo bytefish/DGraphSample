@@ -1,8 +1,8 @@
 // Copyright (c) Philipp Wagner. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using DGraphSample.Csv.Mapper;
-using DGraphSample.Csv.Model;
+using DGraphSample.Csv.Aotp.Mapper;
+using DGraphSample.Csv.Aotp.Model;
 using TinyCsvParser;
 
 namespace DGraphSample.Csv.Parser

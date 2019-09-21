@@ -19,9 +19,9 @@ namespace DGraphSample.DGraph.Queries
                                        flight_date: dateTime .
                                        tail_number: string .
                                        cancellation_code: string .
-                                       origin_airport: uid @reverse @count .
-                                       destination_airport: uid @reverse @count .
-                                       carrier: uid @reverse @count .
+                                       has_origin_airport: uid @reverse @count .
+                                       has_destination_airport: uid @reverse @count .
+                                       has_carrier: uid @reverse @count .
                                        distance: float .
                                        city: string @index(exact) .
                                        state: string @index(exact) .

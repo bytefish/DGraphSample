@@ -27,8 +27,8 @@ namespace DGraphSample.DGraph
             public const string TailNumber = "tail_number";
             public const string FlightNumber = "flight_number";
             public const string CancellationCode = "cancellation_code";
-            public const string OriginAirport = "origin_airport";
-            public const string DestinationAirport = "destination_airport";
+            public const string OriginAirport = "has_origin_airport";
+            public const string DestinationAirport = "has_destination_airport";
             public const string Carrier = "carrier";
             public const string City = "city";
             public const string State = "state";

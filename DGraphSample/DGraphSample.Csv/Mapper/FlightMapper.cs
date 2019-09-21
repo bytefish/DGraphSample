@@ -2,12 +2,12 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using System;
-using DGraphSample.Csv.Converter;
-using DGraphSample.Csv.Model;
+using DGraphSample.Csv.Aotp.Converter;
+using DGraphSample.Csv.Aotp.Model;
 using TinyCsvParser.Mapping;
 using TinyCsvParser.TypeConverter;
 
-namespace DGraphSample.Csv.Mapper
+namespace DGraphSample.Csv.Aotp.Mapper
 {
     public class FlightMapper : CsvMapping<Flight>
     {
