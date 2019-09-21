@@ -7,7 +7,7 @@ using System.Reactive.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
-using DGraphSample.Csv.Parser;
+using DGraphSample.Csv.Aotp.Parser;
 using DGraphSample.DGraph.Dto;
 using DGraphSample.DGraph.Processors;
 using DGraphSample.DGraph.Queries;
