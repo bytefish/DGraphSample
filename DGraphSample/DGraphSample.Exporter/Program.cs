@@ -97,8 +97,38 @@ namespace DGraphSample.ConsoleApp
                     {
                         writer.WriteLine(line);
                     }
+                }
+            }
+        }
 
-                    totalNumberOfFlightsWritten = totalNumberOfFlightsWritten + 1;
+        private static void WriteWeatherStations(StreamWriter writer)
+        {
+            var stations = GetWeatherStationData(csvCarriersFile).AsEnumerable();
+
+            foreach (var station in stations)
+            {
+                var lines = FlightsRdfExporter.ConvertToRdf(station.IATA, station);
+
+                foreach (var line in lines)
+                {
+                    writer.WriteLine(line);
+                }
+            }
+        }
+
+        private static void WriteWeatherData(StreamWriter writer)
+        {
+            var measurements = GetWeatherData(csvCarriersFile).AsEnumerable();
+
+            ulong pos = 0;
+
+            foreach (var measurement in measurements)
+            {
+                var lines = FlightsRdfExporter.ConvertToRdf($"{pos}", measurement);
+
+                foreach (var line in lines)
+                {
+                    writer.WriteLine(line);
                 }
             }
         }
@@ -177,6 +207,114 @@ namespace DGraphSample.ConsoleApp
                     WeatherDelay = x.WeatherDelay,
                     FlightDate = x.FlightDate
                 });
+        }
+
+
+        private static ParallelQuery<WeatherStationDto> GetWeatherStationData(string filename)
+        {
+            return Csv.Ncar.Parser.Parsers.MetarStationParser
+                // Read from the Master Coordinate CSV File:
+                .ReadFromFile(filename, Encoding.ASCII)
+                // Only take valid entities:
+                .Where(x => x.IsValid)
+                // Get the parsed result:
+                .Select(x => x.Result)
+                // Return the Graph Model:
+                .Select(x => new WeatherStationDto
+                {
+                    Station = x.Station,
+                    Elevation = x.Elevation,
+                    IATA = x.IATA,
+                    ICAO = x.ICAO,
+                    Latitude = x.Latitude,
+                    Longitude = x.Longitude,
+                    SYNOP = x.SYNOP
+                });
+        }
+
+        private static ParallelQuery<WeatherDataDto> GetWeatherData(string filename)
+        {
+            return Csv.Asos.Parser.Parsers.AsosDatasetParser
+                // Read from the Master Coordinate CSV File:
+                .ReadFromFile(filename, Encoding.ASCII)
+                // Only take valid entities:
+                .Where(x => x.IsValid)
+                // Get the parsed result:
+                .Select(x => x.Result)
+                // Return the Graph Model:
+                .Select(x => new WeatherDataDto
+                {
+                    alti = x.alti,
+                    drct = x.drct,
+                    dwpf = x.dwpf,
+                    dwpc = ConvertFahrenheitToCelsius(x.dwpf),
+                    feelf = x.feel,
+                    feelc = ConvertFahrenheitToCelsius(x.feel),
+                    gust = x.gust,
+                    ice_accretion_1hr = x.ice_accretion_1hr,
+                    ice_accretion_3hr = x.ice_accretion_3hr,
+                    ice_accretion_6hr = x.ice_accretion_6hr,
+                    lat = x.lat,
+                    lon = x.lon,
+                    metar = x.metar,
+                    mslp = x.mslp,
+                    p01i = x.p01i,
+                    peak_wind_drct = x.peak_wind_drct,
+                    peak_wind_gust = x.peak_wind_gust,
+                    peak_wind_time_hh = x.peak_wind_time.HasValue ? x.peak_wind_time.Value.Hours : default(int?),
+                    peak_wind_time_MM = x.peak_wind_time.HasValue ? x.peak_wind_time.Value.Minutes : default(int?),
+                    relh = x.relh,
+                    sknt = x.sknt,
+                    skyc1 = x.skyc1,
+                    skyc2 = x.skyc2,
+                    skyc3 = x.skyc3,
+                    skyc4 = x.skyc4,
+                    skyl1 = x.skyl1,
+                    skyl2 = x.skyl2,
+                    skyl3 = x.skyl3,
+                    skyl4 = x.skyl4,
+                    station = x.station,
+                    tmpf = x.tmpf,
+                    tmpc = ConvertFahrenheitToCelsius(x.tmpf),
+                    valid = x.valid,
+                    vsby_mi = x.vsby,
+                    vsby_km = ConvertMilesToKilometers(x.vsby),
+                    wxcodes = x.wxcodes,
+                });
+        }
+
+        #endregion
+
+        #region Unit Converters
+
+        public static float? ConvertFahrenheitToCelsius(float? fahrenheit)
+        {
+            if (!fahrenheit.HasValue)
+            {
+                return default(float?);
+            }
+
+            return (fahrenheit.Value - 32.0f) * 5.0f / 9.0f;
+        }
+
+        public static float ConvertFahrenheitToCelsius(float fahrenheit)
+        {
+            return (fahrenheit - 32.0f) * 5.0f / 9.0f;
+        }
+
+        public static float? ConvertMilesToKilometers(float? miles)
+        {
+            if (!miles.HasValue)
+            {
+                return default(float?);
+            }
+
+            return miles.Value * 1.609344f;
+        }
+
+        public static float ConvertMilesToKilometers(float miles)
+        {
+            return miles * 1.609344f;
         }
 
         #endregion
