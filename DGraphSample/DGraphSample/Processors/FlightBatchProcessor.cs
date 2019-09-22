@@ -66,7 +66,21 @@ namespace DGraphSample.Processors
                 .Add(Constants.Predicates.FlightDayOfWeek, flight.DayOfWeek)
                 .Add(Constants.Predicates.FlightDayOfMonth, flight.DayOfMonth)
                 .Add(Constants.Predicates.FlightMonth, flight.Month)
-                .Add(Constants.Predicates.FlightYear, flight.Year);
+                .Add(Constants.Predicates.FlightYear, flight.Year)
+                .Add(Constants.Predicates.FlightDistance, flight.Distance)
+                .Add(Constants.Predicates.FlightArrivalDelay, flight.ArrivalDelay)
+                .Add(Constants.Predicates.FlightCarrierDelay, flight.CarrierDelay)
+                .Add(Constants.Predicates.FlightDepartureDelay, flight.DepartureDelay)
+                .Add(Constants.Predicates.FlightLateAircraftDelay, flight.LateAircraftDelay)
+                .Add(Constants.Predicates.FlightNasDelay, flight.NasDelay)
+                .Add(Constants.Predicates.FlightSecurityDelay, flight.SecurityDelay)
+                .Add(Constants.Predicates.FlightWeatherDelay, flight.WeatherDelay.Value);
+
+            // Only add CancellationCode if not empty:
+            if (!string.IsNullOrWhiteSpace(flight.CancellationCode))
+            {
+                builder.Add(Constants.Predicates.FlightCancellationCode, flight.CancellationCode);
+            }
 
             // Set Airports:
             if (airportResolver.TryGetByAirportId(flight.OriginAirport, out string originAirportUid))
@@ -83,54 +97,6 @@ namespace DGraphSample.Processors
             if (carrierResolver.TryGetByCode(flight.Carrier, out string carrierUid))
             {
                 builder.AddEdge(Constants.Predicates.HasCarrier, carrierUid);
-            }
-
-            // Add Distance:
-            if (flight.Distance.HasValue)
-            {
-                builder.Add(Constants.Predicates.FlightDistance, flight.Distance.Value);
-            }
-
-            // Add CancellationCode:
-            if (!string.IsNullOrWhiteSpace(flight.CancellationCode))
-            {
-                builder.Add(Constants.Predicates.FlightCancellationCode, flight.CancellationCode);
-            }
-
-            // Add Delays:
-            if (flight.ArrivalDelay.HasValue)
-            {
-                builder.Add(Constants.Predicates.FlightArrivalDelay, flight.ArrivalDelay.Value);
-            }
-
-            if (flight.CarrierDelay.HasValue)
-            {
-                builder.Add(Constants.Predicates.FlightCarrierDelay, flight.CarrierDelay.Value);
-            }
-
-            if (flight.DepartureDelay.HasValue)
-            {
-                builder.Add(Constants.Predicates.FlightDepartureDelay, flight.DepartureDelay.Value);
-            }
-
-            if (flight.LateAircraftDelay.HasValue)
-            {
-                builder.Add(Constants.Predicates.FlightLateAircraftDelay, flight.LateAircraftDelay.Value);
-            }
-
-            if (flight.NasDelay.HasValue)
-            {
-                builder.Add(Constants.Predicates.FlightNasDelay, flight.NasDelay.Value);
-            }
-
-            if (flight.SecurityDelay.HasValue)
-            {
-                builder.Add(Constants.Predicates.FlightSecurityDelay, flight.SecurityDelay.Value);
-            }
-
-            if (flight.WeatherDelay.HasValue)
-            {
-                builder.Add(Constants.Predicates.FlightWeatherDelay, flight.WeatherDelay.Value);
             }
 
             return builder.Build();

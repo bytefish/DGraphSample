@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using DGraphSample.Csv.Aotp.Parser;
-using DGraphSample.Csv.Ncar.Model.Enums;
 using DGraphSample.Dto;
 using DGraphSample.Processors;
 using DGraphSample.Queries;
@@ -61,6 +60,7 @@ namespace DGraphSample.ConsoleApp
             await InsertAirports(client);
             await InsertCarrierData(client);
             await InsertFlightData(client);
+            await InsertWeatherStationData(client);
         }
 
         private static async Task InsertAirports(DGraphClient client)
@@ -77,6 +77,55 @@ namespace DGraphSample.ConsoleApp
             var processor = new CarrierBatchProcessor(client);
 
             await processor.ProcessAsync(carriers, CancellationToken.None);
+        }
+
+        private static async Task InsertWeatherStationData(DGraphClient client)
+        {
+            // We cache the data, that fits into memory. Airports and Carriers won't 
+            // change during the initial data ingestion, so we can cache it in memory 
+            // to prevent useless network calls:
+            var airportResolver = await AirportResolver.CreateResolverAsync(client);
+
+            // Now build the Processor:
+            var carriers = GetWeatherStationData(csvCarriersFile).ToList();
+            var processor = new WeatherStationBatchProcessor(client, airportResolver);
+
+            await processor.ProcessAsync(carriers, CancellationToken.None);
+        }
+
+        private static async Task InsertWeatherData(DGraphClient client)
+        {
+            // We cache the data, that fits into memory. Airports and Carriers won't 
+            // change during the initial data ingestion, so we can cache it in memory 
+            // to prevent useless network calls:
+            var weatherStationResolver = await WeatherStationResolver.CreateResolverAsync(client);
+
+            // Now build the Processor:
+            var processor = new WeatherDataBatchProcessor(client, weatherStationResolver);
+
+            // Get the List of Files to Process:
+            // TODO
+            string[] csvWeatherDataFiles = new string[] { };
+
+            // Create Flight Data with Batched Items:
+            foreach (var csvWeatherDataFile in csvWeatherDataFiles)
+            {
+                Console.WriteLine($@"Starting Weather Data CSV Import for File: {csvWeatherDataFile}");
+
+                GetWeatherData(csvWeatherDataFile)
+                    // As an Observable:
+                    .ToObservable()
+                    // Batch in Entities / Wait:
+                    .Buffer(TimeSpan.FromSeconds(1), 100)
+                    // Insert when Buffered:
+                    .Subscribe(records =>
+                    {
+                        if (records.Count > 0)
+                        {
+                            processor.ProcessAsync(records, CancellationToken.None).GetAwaiter().GetResult();
+                        }
+                    });
+            }
         }
 
         private static async Task InsertFlightData(DGraphClient client)

@@ -62,7 +62,7 @@ namespace DGraphSample.Processors
                 .Add(Constants.Predicates.WeatherStationLat, station.Latitude)
                 .Add(Constants.Predicates.WeatherStationLon, station.Longitude)
                 .Add(Constants.Predicates.WeatherStationSynop, station.SYNOP)
-                .Add(Constants.Predicates.WeatherStationElevation, station.Elevation.Value);
+                .Add(Constants.Predicates.WeatherStationElevation, station.Elevation);
 
             if(airportResolver.TryGetByAirportId(station.IATA, out string uid))
             {
