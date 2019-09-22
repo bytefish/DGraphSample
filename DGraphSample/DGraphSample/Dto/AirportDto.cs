@@ -5,11 +5,11 @@ namespace DGraphSample.Dto
 {
     public class AirportDto
     {
-        public string Iata { get; set; }
+        public string AirportId { get; set; }
+
+        public string IATA { get; set; }
 
         public string Name { get; set; }
-
-        public string Abbr { get; set; }
 
         public string City { get; set; }
 

@@ -197,9 +197,9 @@ namespace DGraphSample.ConsoleApp
                 // Build the intermediate Airport Information:
                 .Select(x => new AirportDto
                 {
-                    Iata = x.AirportId,
+                    AirportId = x.AirportId,
+                    IATA = x.AirportIata,
                     Name = x.AirportName,
-                    Abbr = x.AirportAbbr,
                     City = x.AirportCityName,
                     Country = x.AirportCountryName,
                     State = x.AirportStateName,

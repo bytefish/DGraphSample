@@ -7,7 +7,7 @@ namespace DGraphSample.Csv.Aotp.Model
     {
         public string AirportId { get; set; }
 
-        public string AirportAbbr { get; set; }
+        public string AirportIata { get; set; }
 
         public string AirportName { get; set; }
         

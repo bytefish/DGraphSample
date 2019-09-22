@@ -19,9 +19,9 @@ namespace DGraphSample
             public const string Type = "node.type";
 
             // Airport Data:
+            public const string AirportId = "airport.airport_id";
             public const string AirportName = "airport.name";
             public const string AirportIata = "airport.iata";
-            public const string AirportAbbr = "airport.abbr";
             public const string AirportCity = "airport.city";
             public const string AirportState = "airport.state";
             public const string AirportCountry = "airport.country";

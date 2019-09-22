@@ -138,9 +138,9 @@ namespace DGraphSample.Export
         {
             return new NQuadBuilder($"_:airport_{identifier}")
                 .Add(Constants.Predicates.Type, Constants.Types.Airport)
-                .Add(Constants.Predicates.AirportIata, airport.Iata)
+                .Add(Constants.Predicates.AirportId, airport.AirportId)
                 .Add(Constants.Predicates.AirportName, airport.Name)
-                .Add(Constants.Predicates.AirportAbbr, airport.Abbr)
+                .Add(Constants.Predicates.AirportIata, airport.IATA)
                 .Add(Constants.Predicates.AirportCity, airport.City)
                 .Add(Constants.Predicates.AirportState, airport.State)
                 .Add(Constants.Predicates.AirportCountry, airport.Country)

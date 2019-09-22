@@ -6,9 +6,9 @@ node.type: string @index(exact) .
 #
 # Airport Data
 #
+airport.airport_id: string @index(exact) .
 airport.name: string @index(exact) .
 airport.iata: string @index(exact) .
-airport.abbr: string .
 airport.code: string .
 airport.city: string @index(exact) .
 airport.state: string @index(exact) .

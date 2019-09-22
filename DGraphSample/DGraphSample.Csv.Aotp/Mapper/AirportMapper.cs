@@ -13,7 +13,7 @@ namespace DGraphSample.Csv.Aotp.Mapper
         public AirportMapper()
         {
             MapProperty(1, x => x.AirportId);
-            MapProperty(2, x => x.AirportAbbr);
+            MapProperty(2, x => x.AirportIata);
             MapProperty(3, x => x.AirportName);
             MapProperty(4, x => x.AirportCityName);
             MapProperty(6, x => x.AirportWac);

@@ -3,7 +3,7 @@
         uid
         airport.airport_id
         airport.name
-        airport.abbr
+        airport.iata
         airport.city
         airport.state
         airport.country

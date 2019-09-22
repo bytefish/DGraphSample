@@ -16,14 +16,14 @@ namespace DGraphSample.Model
         [JsonProperty("uid")]
         public string UID { get; set; }
 
-        [JsonProperty("airport.iata")]
+        [JsonProperty("airport.airport_id")]
         public string AirportId { get; set; }
 
         [JsonProperty("airport.name")]
         public string Name { get; set; }
 
-        [JsonProperty("airport.abbr")]
-        public string Abbr { get; set; }
+        [JsonProperty("airport.iata")]
+        public string Iata { get; set; }
 
         [JsonProperty("airport.city")]
         public string City { get; set; }

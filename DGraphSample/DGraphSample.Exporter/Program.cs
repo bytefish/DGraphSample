@@ -31,7 +31,7 @@ namespace DGraphSample.ConsoleApp
         {
             get
             {
-                return Directory.GetFiles(@"D:\flights_data\asos", "*.txt");
+                return Directory.GetFiles(@"D:\flights_data\asos\2014", "*.txt");
             }
         }
 
@@ -41,10 +41,10 @@ namespace DGraphSample.ConsoleApp
 
             StreamWriter writer = new StreamWriter(rdfFilePath, true);
 
-            WriteAirports(writer);
-            WriteCarriers(writer);
-            WriteFlights(writer);
-            WriteWeatherStations(writer);
+            //WriteAirports(writer);
+            //WriteCarriers(writer);
+            //WriteFlights(writer);
+            //WriteWeatherStations(writer);
             WriteWeatherData(writer);
 
             writer.Flush();
@@ -57,7 +57,7 @@ namespace DGraphSample.ConsoleApp
 
             foreach (var airport in airports)
             {
-                var lines = FlightsRdfExporter.ConvertToRdf(airport.Iata, airport);
+                var lines = FlightsRdfExporter.ConvertToRdf(airport.AirportId, airport);
 
                 foreach (var line in lines)
                 {
@@ -173,9 +173,9 @@ namespace DGraphSample.ConsoleApp
                 // Build the intermediate Airport Information:
                 .Select(x => new AirportDto
                 {
-                    Iata = x.AirportId,
+                    AirportId = x.AirportId,
+                    IATA = x.AirportIata,
                     Name = x.AirportName,
-                    Abbr = x.AirportAbbr,
                     City = x.AirportCityName,
                     Country = x.AirportCountryName,
                     State = x.AirportStateName,
@@ -220,7 +220,8 @@ namespace DGraphSample.ConsoleApp
         {
             // Build a Lookup Table to get the Airport by IATA:
             var availableAirportsInData = GetAirportData(csvAirportFile)
-                .ToDictionary(x => x.Iata, x => x);
+                .GroupBy(x => x.IATA).Select(x => x.First()) // Apparently we have duplicates in the data ...
+                .ToDictionary(x => x.IATA, x => x);
 
             return Csv.Ncar.Parser.Parsers.MetarStationParser
                 // Read from the Master Coordinate CSV File:
@@ -247,6 +248,7 @@ namespace DGraphSample.ConsoleApp
         private static ParallelQuery<WeatherDataDto> GetWeatherData(string filename)
         {
             var availableStations = GetWeatherStationData(csvWeatherStationsFileName)
+                .GroupBy(x => x.ICAO).Select(x => x.First()) // Apparently we have duplicates in the data ...
                 .ToDictionary(x => x.ICAO, x => x);
 
             return Csv.Asos.Parser.Parsers.AsosDatasetParser
@@ -256,7 +258,7 @@ namespace DGraphSample.ConsoleApp
                 .Where(x => x.IsValid)
                 // Get the parsed result:
                 .Select(x => x.Result)
-                // Only uses Measurements we have a Station for:
+                // Only use measurement if the station is available:
                 .Where(x => availableStations.ContainsKey(x.station))
                 // Return the Graph Model:
                 .Select(x => new WeatherDataDto
@@ -297,7 +299,7 @@ namespace DGraphSample.ConsoleApp
                     vsby_mi = x.vsby,
                     vsby_km = ConvertMilesToKilometers(x.vsby),
                     wxcodes = x.wxcodes,
-                });
+                });            
         }
 
         #endregion

@@ -21,6 +21,11 @@ namespace DGraphSample.Utils
 
         public NQuadBuilder Add(string predicate, string objectValue)
         {
+            if(objectValue == null)
+            {
+                return this;
+            }
+
             nquads.Add(new NQuad
             {
                 Subject = subject, Predicate = predicate, ObjectValue = new Value
