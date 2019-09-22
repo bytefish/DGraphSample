@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using System;
+using System.IO;
 using System.Linq;
 using System.Reactive.Linq;
 using System.Text;
@@ -21,25 +22,26 @@ namespace DGraphSample.ConsoleApp
 {
     public class Program
     {
-        private static readonly string csvAirportFile = @"D:\github\LearningNeo4jAtScale\Resources\56803256_T_MASTER_CORD.csv";
+        private static string csvAirportFile = @"D:\flights_data\aotp\master_cord.csv";
+        private static string csvCarriersFile = @"D:\flights_data\aotp\unqiue_carriers.csv";
+        private static string csvWeatherStationsFileName = @"D:\flights_data\ncar\stations.txt";
 
-        private static readonly string csvCarriersFile = @"D:\github\LearningNeo4jAtScale\Resources\UNIQUE_CARRIERS.csv";
-
-        private static readonly string[] csvFlightStatisticsFiles = new[]
+        private static string[] csvFlightStatisticsFiles
         {
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201401.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201402.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201403.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201404.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201405.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201406.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201407.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201408.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201409.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201410.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201411.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201412.csv",
-        };
+            get
+            {
+                return Directory.GetFiles(@"D:\flights_data\aotp\2014", "*.csv");
+            }
+        }
+
+        private static string[] csvWeatherDataFiles
+        {
+            get
+            {
+                return Directory.GetFiles(@"D:\flights_data\asos", "*.txt");
+            }
+        }
+
 
         public static void Main(string[] args)
         {
@@ -102,11 +104,7 @@ namespace DGraphSample.ConsoleApp
 
             // Now build the Processor:
             var processor = new WeatherDataBatchProcessor(client, weatherStationResolver);
-
-            // Get the List of Files to Process:
-            // TODO
-            string[] csvWeatherDataFiles = new string[] { };
-
+            
             // Create Flight Data with Batched Items:
             foreach (var csvWeatherDataFile in csvWeatherDataFiles)
             {

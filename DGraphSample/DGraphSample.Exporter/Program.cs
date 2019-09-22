@@ -8,41 +8,44 @@ using System.Text;
 using DGraphSample.Csv.Aotp.Parser;
 using DGraphSample.Dto;
 using DGraphSample.Export;
+using DGraphSample.Resolvers;
 using TinyCsvParser;
 
 namespace DGraphSample.ConsoleApp
 {
     public class Program
     {
-        private static readonly string csvAirportFile = @"D:\github\LearningNeo4jAtScale\Resources\56803256_T_MASTER_CORD.csv";
+        private static string csvAirportFile = @"D:\flights_data\aotp\master_cord.csv";
+        private static string csvCarriersFile = @"D:\flights_data\aotp\unqiue_carriers.csv";
+        private static string csvWeatherStationsFileName = @"D:\flights_data\ncar\stations.txt";
 
-        private static readonly string csvCarriersFile = @"D:\github\LearningNeo4jAtScale\Resources\UNIQUE_CARRIERS.csv";
-
-        private static readonly string[] csvFlightStatisticsFiles = new[]
+        private static string[] csvFlightStatisticsFiles
         {
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201401.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201402.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201403.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201404.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201405.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201406.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201407.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201408.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201409.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201410.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201411.csv",
-            "D:\\datasets\\AOTP\\ZIP\\AirOnTimeCSV_1987_2017\\AirOnTimeCSV\\airOT201412.csv",
-        };
+            get
+            {
+                return Directory.GetFiles(@"D:\flights_data\aotp\2014", "*.csv");
+            }
+        }
+
+        private static string[] csvWeatherDataFiles
+        {
+            get
+            {
+                return Directory.GetFiles(@"D:\flights_data\asos", "*.txt");
+            }
+        }
 
         public static void Main(string[] args)
         {
-            const string rdfFilePath = "flights.rdf";
+            const string rdfFilePath = "weather_flights_dataset.rdf";
 
             StreamWriter writer = new StreamWriter(rdfFilePath, true);
 
             WriteAirports(writer);
             WriteCarriers(writer);
             WriteFlights(writer);
+            WriteWeatherStations(writer);
+            WriteWeatherData(writer);
 
             writer.Flush();
             writer.Close();
@@ -80,30 +83,29 @@ namespace DGraphSample.ConsoleApp
 
         private static void WriteFlights(StreamWriter writer)
         {
-            ulong totalNumberOfFlightsWritten = 0;
+            ulong pos = 0;
 
-            // Create Flight Data with Batched Items:
             foreach (var csvFlightStatisticsFile in csvFlightStatisticsFiles)
             {
-                Console.WriteLine($@"Starting Flights CSV Import: {csvFlightStatisticsFile}");
-
                 var flights = GetFlightData(csvFlightStatisticsFile).AsEnumerable();
 
                 foreach (var flight in flights)
                 {
-                    var lines = FlightsRdfExporter.ConvertToRdf($"{totalNumberOfFlightsWritten}", flight);
+                    var lines = FlightsRdfExporter.ConvertToRdf($"{pos}", flight);
 
                     foreach (var line in lines)
                     {
                         writer.WriteLine(line);
                     }
+
+                    pos++;
                 }
             }
         }
 
         private static void WriteWeatherStations(StreamWriter writer)
         {
-            var stations = GetWeatherStationData(csvCarriersFile).AsEnumerable();
+            var stations = GetWeatherStationData(csvWeatherStationsFileName).AsEnumerable();
 
             foreach (var station in stations)
             {
@@ -130,6 +132,8 @@ namespace DGraphSample.ConsoleApp
                 {
                     writer.WriteLine(line);
                 }
+
+                pos++;
             }
         }
 
@@ -209,9 +213,12 @@ namespace DGraphSample.ConsoleApp
                 });
         }
 
-
         private static ParallelQuery<WeatherStationDto> GetWeatherStationData(string filename)
         {
+            // Build a Lookup Table to get the Airport by IATA:
+            var availableAirportsInData = GetAirportData(csvAirportFile)
+                .ToDictionary(x => x.Iata, x => x);
+            
             return Csv.Ncar.Parser.Parsers.MetarStationParser
                 // Read from the Master Coordinate CSV File:
                 .ReadFromFile(filename, Encoding.ASCII)
@@ -219,6 +226,8 @@ namespace DGraphSample.ConsoleApp
                 .Where(x => x.IsValid)
                 // Get the parsed result:
                 .Select(x => x.Result)
+                // Only use Stations with available Airports:
+                .Where(x => availableAirportsInData.ContainsKey(x.IATA))
                 // Return the Graph Model:
                 .Select(x => new WeatherStationDto
                 {
@@ -234,6 +243,9 @@ namespace DGraphSample.ConsoleApp
 
         private static ParallelQuery<WeatherDataDto> GetWeatherData(string filename)
         {
+            var availableStations = GetWeatherStationData(csvWeatherStationsFileName)
+                .ToDictionary(x => x.ICAO, x => x);
+
             return Csv.Asos.Parser.Parsers.AsosDatasetParser
                 // Read from the Master Coordinate CSV File:
                 .ReadFromFile(filename, Encoding.ASCII)
@@ -241,6 +253,8 @@ namespace DGraphSample.ConsoleApp
                 .Where(x => x.IsValid)
                 // Get the parsed result:
                 .Select(x => x.Result)
+                // Only uses Measurements we have a Station for:
+                .Where(x => availableStations.ContainsKey(x.station))
                 // Return the Graph Model:
                 .Select(x => new WeatherDataDto
                 {
