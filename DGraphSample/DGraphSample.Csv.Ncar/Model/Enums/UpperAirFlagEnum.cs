@@ -19,6 +19,30 @@ namespace DGraphSample.Csv.Ncar.Model.Enums
         /// <summary>
         /// Wind Profiler
         /// </summary>
-        W
+        W,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>        S,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        O,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        M,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        T,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        Z
     }
 }

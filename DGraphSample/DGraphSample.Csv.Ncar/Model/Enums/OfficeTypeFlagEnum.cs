@@ -24,7 +24,21 @@ namespace DGraphSample.Csv.Ncar.Model.Enums
         /// <summary>
         /// NCEP Center
         /// </summary>
-        C
+        C,
 
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        S,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        X,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        Z
     }
 }

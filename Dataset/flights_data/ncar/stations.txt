@@ -39,7 +39,7 @@
 !
 !
 !ALASKA             19-DEC-18                                                  
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 AK ADAK NAS         PADK  ADK   70454  51 53N  176 39W    4   X     T          7 US
 AK AKHIOK           PAKH  AKK          56 56N  154 11W   14   X                8 US
 AK AKUTAN           PAUT               54 09N  165 36W   25   X                7 US
@@ -249,7 +249,7 @@ AK ALASKAN ARTCC    PZ74  Z74          60 09N  164 17W    1         A          8
 AK ALASKAN ARTCC    PZ76  Z76          65 15N  134 39W  647         A          8 US
 !
 !ALABAMA            14-SEP-16
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 AL ALABASTER        KEET  EET          33 11N  086 47W  173   X     T     A    3 US
 AL ALBERTVILLE MUNI K8A0  8A0          34 14N  086 15W  315   X                7 US
 AL ALEXANDER/RUSSEL KALX  ALX          32 55N  085 58W  209   X           W    7 US
@@ -312,7 +312,7 @@ AL HUNTSVILLE/MADIS KM82  M82          34 51N  086 33W  231   Z                8
 AL VIOSCA KNOLL768  KVOA  VOA          29 14N  087 47W   53   X                9 US
 !
 !ARKANSAS           27-JUN-19
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 AR ARKADELPHIA      KADF  ADF          34 06N  093 04W   56   X     T          8 US
 AR BATESVILLE       KBVX  BVX          35 44N  091 39W  141   X           W    7 US
 AR BENTONVILLE      KH00  H00          36 21N  094 13W  395   X           W    7 US
@@ -360,7 +360,7 @@ AR FORT CHAFFEE                 69050  35 10N  094 48W  143   Z                8
 AR MENA INTERMTN    KM39  M39          34 33N  094 12W  329   Z                8 US
 !
 !ARIZONA            27-JUN-19
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 AZ PHOENIX/SKY HRBR KPHX  PHX   72278  33 26N  112 01W  336   X     U     A    0 US
 AZ TUCSON           KTUS  TUS          32 08N  110 57W  776   X     U     A    2 US
 AZ AK-CHIN          KA39  A39          32 59N  111 55W  396   X                7 US
@@ -428,7 +428,7 @@ AZ TUBA CITY        KT03  T03          36 06N  111 23W 1400   Z                8
 AZ WINDOW ROCK      KP34  P34          35 39N  109 04W 2055   Z                8 US
 !
 !CALIFORNIA         19-DEC-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 CA ALAMEDA NAS      KNGZ  NGZ   74506  37 46N  122 19W    4   X                7 US
 CA ALTURAS          KAAT  AAT          41 29N  120 34W 1331   X           A    7 US
 CA APPLE VALLEY     KAPV  APV          34 34N  117 11W  934   X                8 US
@@ -640,7 +640,7 @@ CA VACAVILLE        KO45  O45          38 23N  121 57W   33   Z                8
 CA MARCH AFB/88D    KRIX  RIX          33 33N  117 26W  468      Z             8 US
 !
 !COLORADO           19-DEC-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 CO DENVER (DIA)     KDEN  DEN   72565  39 51N  104 39W 1640   X     U     A    0 US
 CO AKRON            KAKO  AKO          40 10N  103 13W 1421   X     V     A    4 US
 CO ALAMOSA          KALS  ALS   72462  37 26N  105 52W 2299   X     U     A    6 US
@@ -741,7 +741,7 @@ CO MIKE MADIS       K1MW               40 42N  103 29W 1336   X                8
 CO OSCAR MADIS      K1OW               40 53N  104 00W 1649   X                8 US
 !
 !CONNECTICUT        09-SEP-08
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 CT BRIDGEPORT       KBDR  BDR   72504  41 10N  073 08W    7   X     T     A    3 US
 CT CHESTER          KSNC  SNC          41 23N  072 30W  127   X           A    7 US
 CT DANBURY          KDXR  DXR          41 22N  073 29W  139   X           A    7 US
@@ -756,7 +756,7 @@ CT MANSFIELD        K5B0  5B0          41 45N  072 10W   76   Z                8
 CT PUTNAM           K5B3  5B3          41 04N  073 37W   91   Z                8 US
 !
 !DELAWARE           19-DEC-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 DE DOVER AFB        KDOV  DOV          39 07N  075 28W    9   X     T          6 US
 DE DOVER/CHESWOLD   K33N  33N          39 13N  075 36W   17   X                8 US
 DE DOVER/ELLENDALE  KDOX  DOX          38 50N  075 26W   15      X             8 US
@@ -764,7 +764,7 @@ DE GEORGETOWN       KGED  GED          38 41N  075 22W   19   X           A    7
 DE WILMINGTON       KILG  ILG          39 40N  075 36W   28   X     T     A    4 US
 !
 !FLORIDA            04-SEP-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 FL APALACHICOLA     KAAF  AAF   72220  29 44N  085 02W    5   X           A    7 US
 FL BARTOW MUNICIPAL KBOW  BOW          27 56N  081 46W   39   X                7 US
 FL BOCA RATON       KBCT  BCT          26 23N  080 06W    4   X                7 US
@@ -902,7 +902,7 @@ FL ST JOHNS LIGHT               99415  30 22N  081 36W    5   Z                8
 FL VENICE PIER                  99422  27 04N  082 33W    4   Z                8 US
 !
 !GEORGIA            27-JUN-19
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 GA ALBANY           KABY  ABY   72216  31 32N  084 12W   58   X     T     A    6 US
 GA AMERICUS         KACJ  ACJ          32 07N  084 11W  143   X           W    8 US
 GA PECAN (ALBANY)   KPZD  PZD          31 39N  084 18W   85         V          8 US
@@ -1002,7 +1002,7 @@ GA CANTON/CHEROKEE  K47A  47A          34 19N  084 25W  372   Z                9
 GA SAVANNAH LIGHT               99438  31 57N  080 19W    1   Z                8 US
 !
 !HAWAII             30-APR-13
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 HI BARKING SANDS/KA PHBK  BKH   91162  22 02N  159 47W    8   X                7 US
 HI BRADSHAW AAF/HAW PHSF  BSF          19 46N  155 33W 1887   X     T          6 US
 HI HANA             PHHN  HNM   91199  20 48N  156 01W   24   X                7 US
@@ -1036,7 +1036,7 @@ HI BARBERS PT NAS   PHNA  NAX          21 19N  158 04W   15   Z                8
 HI MIDWAY ISLAND NA PMDY  MDY   91066  28 13N  177 22W    4   X     T          6 US
 !
 !IOWA               02-FEB-11
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 IA ALGONA           KAXA  AXA          43 04N  094 16W  372   X           W    8 US
 IA AMES             KAMW  AMW          41 59N  093 37W  279   X           A    7 US
 IA ANKENY           KIKV  IKV          41 41N  093 34W  275   X           W    8 US
@@ -1107,7 +1107,7 @@ IA LAMONI           K3OI  3OI          40 37N  093 57W  342   Z                8
 IA SPENCER          K3SE  3SE          43 10N  095 09W  404   Z                8 US
 !
 !IDAHO              27-JUN-19
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 ID ADA COUNTY/BOISE KCBX  CBX          43 29N  116 14W  933      X             8 US
 ID BOISE            KBOI  BOI   72681  43 34N  116 14W  875   X     U  X  A  F 0 US
 ID BURLEY           KBYI  BYI          42 33N  113 46W 1264   X     T     A    6 US
@@ -1152,7 +1152,7 @@ ID SAYLOR CREEK     KMI1  MI1          42 30N  115 30W 1000   Z                8
 ID GRANGEVILLE      KS80  S80          45 57N  116 07W 1011   Z                7 US
 !
 !ILLINOIS           09-FEB-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 IL ALTON/ST LOUIS R KALN  ALN          38 53N  090 02W  166   X                7 US
 IL BLOOMINGTON/NORM KBMI  BMI          40 28N  088 55W  267   X     T          7 US
 IL BRADFORD/VOR     KBDF  BDF          41 09N  089 35W  247         V          8 US
@@ -1231,7 +1231,7 @@ IL RANTOUL          K2I5  2I5          40 18N  088 09W  225   Z                8
 IL ROCHELLE/KORITZ  K12C  12C          41 53N  089 04W  238   Z                8 US
 !
 !INDIANA            27-JUN-19
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 IN ANDERSON MUNICIP KAID  AID          40 07N  085 37W  280   X                7 US
 IN ANGOLA           KANQ  ANQ          41 38N  085 05W  303   X                8 US
 IN ATTERBURY        KHBE  HBE          39 20N  086 02W  215   X                8 US
@@ -1293,7 +1293,7 @@ IN JEFFERSON PRVG         MDN   74468  38 50N  085 25W  266   Z                8
 IN SHELBYVILLE      K3SM  3SM          39 35N  085 48W  245   Z                8 US
 !
 !KANSAS             27-JUN-19
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 KS ALMA/TOPEKA      KTWX  TWX          39 00N  096 14W  417      X             8 US
 KS AUGUSTA          K3AU  3AU          37 40N  097 05W  405   X                8 US
 KS BASSETT          KK88  K88          37 52N  095 23W  309   X                8 US
@@ -1382,7 +1382,7 @@ KS ULYSSES          KULS  ULS          37 36N  101 22W  936   X           W    9
 KS WELLINGTON       KEGT  EGT          37 19N  097 23W  390   X           W    9 US
 !
 !KENTUCKY           19-DEC-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 KY ASHLAND          KDWU  DWU          38 33N  082 44W  166   X     T          8 US
 KY BARDSTOWN        KBRY  BRY          37 49N  085 30W  204   X                8 US
 KY BIG SANDY RGNL   KSJS  SJS          37 45N  082 38W  372   X     T          8 US
@@ -1434,7 +1434,7 @@ KY PRESTONBURG      KK22  K22          37 45N  082 38W  372   Z                8
 KY WILLIAMSBURG     KBYL  BYL          36 48N  084 12W  359   X                8 US
 !
 !LOUISIANA          27-JUN-19
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 LA ABBEVILLE CC MEM KIYA  IYA          29 59N  092 05W    5   X           A    8 US
 LA ALEXANDRIA       KAEX  AEX   74754  31 20N  092 34W   27   X     U     A    6 US
 LA ALEXANDRIA       KESF  ESF          31 24N  092 17W   28   X     T     A    6 US
@@ -1575,7 +1575,7 @@ LA MISS CANYON 474  KIKT  IKT          28 31N  088 17W   25   X                8
 LA WALKER RIDGE 29  KWBF  WBF          26 56N  090 30W   10   X                8 US
 !
 !MASSACHUSETTS      04-SEP-06
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 MA BEDFORD          KBED  BED   74490  42 28N  071 18W   50   X     T     A    2 US
 MA BEVERLY          KBVY  BVY          42 35N  070 55W   28   X           A    7 US
 MA BLUE HILL OBS          BHV   74992  41 13N  071 07W  192                    8 US
@@ -1620,7 +1620,7 @@ MA NORTH ADAMS      K2B6  2B6          42 42N  073 11W  199   Z                8
 MA WORTHINGTON      KWOR  WOR          42 23N  072 55W  392   Z                8 US
 !
 !MARYLAND           13-FEB-12
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 MD ABERDEEN/PHILLIP KAPG  APG   74002  39 28N  076 10W   18   X                8 US
 MD ANNAPOLIS/NAVAL  KNAK               38 59N  076 29W    2   X           A    7 US
 MD ANDREWS AFB      KADW  ADW   74594  38 49N  076 52W   86   X     T          6 US
@@ -1659,7 +1659,7 @@ MD WEBSTER NAVAL    KNUI  NUI          38 09N  076 26W    7   X                8
 MD WESTMINSTER      KEMI  EMI          39 30N  076 59W  152   Z     V          8 US
 !
 !MAINE              22-MAR-12
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 ME AUBURN/LEWISTON  KLEW  LEW          44 02N  070 16W   88   X                7 US
 ME AUGUSTA          KAUG  AUG          44 19N  069 48W  109   X     T     A    4 US
 ME BANGOR           KBGR  BGR   72607  44 48N  068 49W   57   X     U     A    3 US
@@ -1698,7 +1698,7 @@ ME SEWEL RIDGE      K9B6  9B6          43 00N  068 00W  150   Z                8
 ME WISCASSET        K9B9  9B9          43 58N  069 43W   21   Z                8 US
 !
 !MICHIGAN           14-SEP-16
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 MI ADRIAN           KADG  ADG          41 52N  084 05W  241   X           A    7 US
 MI ALMA             KAMN  AMN          43 19N  084 41W  230   X           W    7 US
 MI ALPENA           KAPN  APN   72639  45 04N  083 34W  210   X     T     A    4 US
@@ -1809,7 +1809,7 @@ MI STANNARD ROCK                99420  47 10N  087 46W  183   Z                8
 MI TROY/OAKLAND     K7D2  7D2          42 33N  083 11W  222   Z                8 US
 !
 !MINNESOTA          30-JUN-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 MN AITKIN NDB       KAIT  AIT          46 32N  093 40W  367   X           W    7 US
 MN ALBERT LEA       KAEL  AEL          43 41N  093 22W  383   X           W    7 US
 MN ALEXANDRIA       KAXN  AXN          45 52N  095 24W  433   X     T     A    3 US
@@ -1950,7 +1950,7 @@ MN WARROAD          KD45  D45          48 56N  095 21W  326   Z                8
 MN WARROAD          KRAD  RAD          48 56N  095 20W  327   Z                7 US
 !
 !MISSOURI           30-JUN-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 MO BLOOMFIELD PROFI       BLM   74662  36 52N  089 58W  130            W       8 US
 MO BOONVILLE        KVER  VER          38 57N  092 41W  218   X                7 US
 MO BRANSON          KBBG  BBG          36 32N  093 12W  397   X     T          7 US
@@ -2020,7 +2020,7 @@ MO WEST PLAINS      KH63  H63          36 45N  091 52W  308   Z                8
 MO WARRENSBURG SKYH K9K4  9K4          38 47N  093 48W  244   Z                9 US
 !
 !MISSISSIPPI        07-JAN-16
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 MS ABERDEEN/AMORY   KM40  M40          33 52N  088 29W   69   X           W    8 US
 MS BAY ST LOUIS     KHSA  HSA          30 22N  089 27W    7   X     T          7 US
 MS BELMONT          K01M  01M          34 30N  088 12W  176   X           W    8 US
@@ -2070,7 +2070,7 @@ MS INNOVATOR OILP   KMYT  MYT          28 13N  089 37W   23   X                9
 MS WEST DELTA 27A   KDLP  DLP          29 07N  089 33W   36   X                9 US
 !
 !MONTANA            27-JUN-19
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 MT BAKER            KBHK               46 21N  104 15W  902   X           A    7 US
 MT ENNIS BIG SKY    KEKS  EKS          45 16N  111 39W 1641   X     T          8 US
 MT BIG TIMBER       K6S0  6S0          45 48N  109 58W 1363   X                6 US
@@ -2139,7 +2139,7 @@ MT NOVEMBER         K1NM  1NM          47 04N  109 02W 1161   X                9
 MT OSCAR            K1OM  1MM          47 20N  108 56W 1086   X                9 US
 !
 !NORTH CAROLINA     30-JAN-17
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 NC AHOSKIE/TRI COUN KASJ  ASJ          36 17N  077 10W   21   X                7 US
 NC ALBEMARLE STANLY KVUJ  VUJ          35 25N  080 09W  186   X                7 US
 NC ANDREWS          KRHP  RHP          35 11N  083 51W  518   X                7 US
@@ -2236,7 +2236,7 @@ NC ROCKINGHAM       K45J  45J          34 53N  079 46W  109   Z                8
 NC WALLACE          KACZ  ACZ          34 44N  078 00W   30   Z                8 US
 !
 !NORTH DAKOTA       07-MAR-16
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 ND BEACH            K20U  20U          46 56N  103 59W  840   X           W    8 US
 ND BISMARCK         KBIS  BIS   72764  46 46N  100 45W  505   X  X  U  X  A  F 0 US
 ND BOWMAN MUNI      KBPP  BPP          46 11N  103 26W  902   X                8 US
@@ -2282,7 +2282,7 @@ ND ROSEGLEN         KP24  P24   72765  47 45N  101 50W  624         Y          8
 ND WAHPETON         KBWP  BWP          46 15N  096 37W  295   X           W    8 US
 !
 !NEBRASKA           19-DEC-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 NE AINSWORTH MUNICI KANW  ANW          42 34N  100 00W  789   X     V          6 US
 NE ALBION MUNI      KBVN  BVN          41 44N  098 03W  551   X           W    8 US
 NE ALLIANCE         KAIA  AIA          42 03N  102 48W 1196   X     T     A    7 US
@@ -2349,7 +2349,7 @@ NE FOXTROT MADIS    K1FW               41 22N  103 28W 1453   X                8
 NE INDIA MADIS      K1IW               41 03N  102 52W 1293   X                8 US
 !
 !NEW HAMPSHIRE      26-APR-06
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 NH BERLIN           KBML  BML   72616  44 35N  071 11W  345   X           A    7 US
 NH CONCORD          KCON  CON   72605  43 12N  071 30W  103   X     U     A    6 US
 NH JAFFREY          KAFN  AFN          42 48N  072 00W  313   X           A    7 US
@@ -2371,7 +2371,7 @@ NH ROCHESTER        K6B1  6B1          43 17N  070 55W  100   Z                8
 NH TAMWORTH         KTMW  TMW          43 54N  071 18W  241   Z                8 US
 !
 !NEW JERSEY         13-FEB-12
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 NJ ALEXANDRIA       KN85  N85          40 35N  075 01W  146   X           W    7 US
 NJ ANDOVER          K12N  12N          41 01N  074 44W  177   X           A    7 US
 NJ ATLANTIC CITY    KACY  ACY   72407  39 27N  074 34W   23   X     T     A    4 US
@@ -2416,7 +2416,7 @@ NJ SUSSEX           KN63  N63          41 12N  074 36W  119   Z                8
 NJ SOMERVILLE       KSJB  SJB          40 37N  074 40W   30   Z                8 US
 !
 !NEW MEXICO         19-DEC-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 NM GALLUP           KGUP  GUP          35 31N  108 48W 1971   X     T     A    6 US
 NM ALAMOGORDO WHITE KALM  ALM   72269  32 49N  105 58W 1279   X     S          6 US
 NM ALBUQUERQUE      KABQ  ABQ   72365  35 03N  106 37W 1618   X     U  X  A  F 0 US
@@ -2478,7 +2478,7 @@ NM TAOS(AWRS)       KE23  E23          36 25N  105 34W 2123   Z                8
 NM ZUNI PUEBLO      KZUN  ZUN          35 05N  108 47W 1972   Z                8 US
 !
 !NEVADA             14-JUN-17
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 NV AUSTIN           KU31  U31          39 30N  117 04W 2014   X                7 US
 NV AUSTIN           KTMT  TMT          39 28N  117 12W 1748   X                7 US
 NV BATTLE MOUNTAIN  KB23  B23          40 36N  116 52W 1381   X                7 US
@@ -2526,7 +2526,7 @@ NV OWYHEE           KOWY  OWY   72587  41 57N  116 06W 1645   Z                8
 NV TONOPAH MILITARY KTNX  TNX          37 47N  116 46W 1691   Z                8 US
 !
 !NEW YORK           30-JUN-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 NY ALBANY           KALB  ALB   72518  42 45N  073 48W   92   X     U  X  A    3 US
 NY ALBANY/E. BERNE  KENX  ENX          42 35N  074 04W  557      X             8 US
 NY ALBANY/WFO       KALY  ALY          42 45N  073 48W   88                  F 8 US
@@ -2607,7 +2607,7 @@ NY WARSAW           KWRS  WRS          42 41N  078 12W  555   Z                8
 NY GRIFFISS AFB/88D KRMX  RMX          43 28N  075 27W  154      Z             8 US
 !
 !OHIO               27-JUN-19
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 OH AKRON (FULTON)   KAKR  AKR          41 02N  081 28W  363   X           A    7 US
 OH AKRON            KCAK  CAK   72521  40 55N  081 27W  377   X     T     A    6 US
 OH APPLETON         KAPE  APE          40 09N  082 35W  453         V          8 US
@@ -2681,7 +2681,7 @@ OH RAVENA/PORTAGE   K29G  29G          41 13N  081 15W  365   Z                8
 OH SOUTH BASS ISLA              99434  41 37N  082 10W  177   Z                8 US
 !
 !OKLAHOMA           27-JUN-19
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 OK ADA              KADH  ADH          34 48N  096 40W  308   X                7 US
 OK ARDMORE          KADM  ADM          34 17N  097 01W  232   X     V          4 US
 OK ARDMORE/EXEC     K1F0  1F0          34 09N  097 07W  257   X           W    8 US
@@ -2759,7 +2759,7 @@ OK PAGE             KPGO  PGO   72341  34 41N  094 37W  883   Z                8
 OK SEMINOLE         KH45  H45          35 16N  096 41W  312   Z                8 US
 !
 !OREGON             14-JUN-17
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 OR PORTLAND         KPDX  PDX   72698  45 36N  122 37W    7   X     U     A    2 US
 OR HILLSBORO/PORTLD KHIO  HIO          45 33N  122 57W   68   X     T     A    6 US
 OR ASTORIA          KAST  AST   72791  46 09N  123 53W    3   X     T     A    4 US
@@ -2825,7 +2825,7 @@ OR SCAPPOOSE        K1S4  1S4          45 46N  122 52W   14   Z                8
 OR TILLAMOOK        KS47  S47          45 25N  123 49W   11   Z                9 US
 !
 !PENNSYLVANIA       19-DEC-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 PA ALLENTOWN        KABE  ABE   72517  40 39N  075 27W  114   X     T     A    6 US
 PA ALLENTOWN QUEEN  KXLL  XLL          40 34N  075 29W  122   X                8 US
 PA ALTOONA          KAOO  AOO          40 18N  078 19W  455   X     T     A    6 US
@@ -2893,7 +2893,7 @@ PA WELLSBORO/GRAND  KN38               41 44N  077 24W  577   X                7
 PA WILLOW GROVE NAS KNXX  NXX          40 12N  075 09W  110   Z                8 US
 !
 !RHODE ISLAND       16-DEC-98
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 RI BLOCK ISLAND     KBID  BID          41 10N  071 35W   33   X           W    7 US
 RI N. KINGSTON/QUON KOQU  OQU          41 36N  071 25W    6   X                7 US
 RI NEWPORT          KUUU  UUU          41 32N  071 17W   51   X           A    7 US
@@ -2904,7 +2904,7 @@ RI NEWPORT          K2B4  2B4          41 32N  071 17W   52   Z                8
 RI WOONSOCKET       K1B6  1B6          41 55N  071 31W   35   Z                8 US
 !
 !SOUTH CAROLINA     09-FEB-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 SC AIKEN            KAIK  AIK          33 39N  081 41W  161   X                8 US
 SC ALLENDALE CNTY   KAQX  AQX          32 59N  081 16W   49   X                8 US
 SC ANDERSON         KAND  AND          34 30N  082 43W  239   X     T     A    6 US
@@ -2961,7 +2961,7 @@ SC SUMTER/POINSETT  K2PJ  2PJ   74792  33 51N  080 29W   68   Z                8
 AL NORTH AUX        KXNO  XNO          33 37N  081 04W   98   X                8 US
 !
 !SOUTH DAKOTA       28-FEB-12
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 SD ABERDEEN         KABR  ABR   72659  45 27N  098 25W  397   X  X  U  X     F 3 US
 SD BELLE FOURCHE    KEFC  EFC          44 43N  103 52W  982   X                7 US
 SD BISON            K6V5  6V5          45 31N  102 28W  851   X           W    7 US
@@ -3041,7 +3041,7 @@ SD PICKSTOWN              PKW   72652  43 04N  098 31W  453   Z                8
 SD REDIG            KREJ  REJ   72661  45 16N  103 32W  925   Z                8 US
 !
 !TENNESSEE          30-JUN-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 TN ATHENS/MCMINN    KMMI  MMI          35 24N  084 34W  266   X           W    7 US
 TN BOLIVAR/WHITEHST KM08  M08          35 13N  089 03W  152   X                7 US
 TN BRISTOL          KTRI  TRI          36 29N  082 24W  474   X     T     A    4 US
@@ -3108,7 +3108,7 @@ TN MONTEAGLE        KMGL  MGL          35 15N  085 51W  586   Z                8
 TN SELMER           KSZY  SZY          35 12N  088 30W  100   Z                8 US
 !
 !TEXAS              19-DEC-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 TX DALLAS/FT WORTH  KDFW  DFW   72259  32 54N  097 01W  174   X     T     A    0 US
 TX ABILENE          KABI  ABI   72266  32 25N  099 41W  548   X     U     A    4 US
 TX ALICE            KALI  ALI          27 44N  098 01W   53   X     T     A    6 US
@@ -3395,7 +3395,7 @@ TX GUNNISON 668     KGUL  GUL          27 18N  093 32W   30   X                9
 TX N PADRE 975      KOPM  OPM          26 50N  096 56W   25   X                9 US
 !
 !UTAH               27-JUN-19
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 UT SALT LAKE CITY   KSLC  SLC   72572  40 46N  111 58W 1286   X     U  X  A  F 0 US
 UT BLANDING         K4BL  4BL   72472  37 37N  109 28W 1840   X                7 US
 UT BLANDING         KBDG  BDG          37 35N  109 28W 1788   X                7 US
@@ -3440,7 +3440,7 @@ UT BULLFROG(AWRS)   KU17  U17          37 30N  110 42W 1110   Z                8
 UT JOSEPH           K7LI  7LI          38 38N  112 12W 1829   Z                8 US
 !
 !VIRGINIA           22-NOV-14
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 VA ROANOKE          KROA  ROA   72411  37 19N  079 58W  362   X     T     A    3 US
 VA ABINGDON         KVJI  VJI          36 40N  082 01W  631   X                7 US
 VA BLACKSBURG/VA T. KBCB  BCB          37 13N  080 25W  650   X     T          7 US
@@ -3521,7 +3521,7 @@ VA WARRENTON        KW66  W66          38 35N  077 43W  103   Z                8
 VA WILLIAMSBURG     KW94  W94          37 18N  076 38W   11   Z                8 US
 !
 !VERMONT            30-APR-13
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 VT BENNINGTON       KDDH  DDH   72516  42 54N  073 15W  244   X           A    7 US
 VT BURLINGTON       KBTV  BTV   72617  44 28N  073 09W  105   X     T     A  F 3 US
 VT COLCHESTER/88D   KCXX  CXX          44 31N  073 10W   97      X             8 US
@@ -3546,7 +3546,7 @@ VT WEST DOVER       KWDO  WDO          42 56N  072 51W  527   Z                8
 VT WILMINGTON       KMNW  MNW   74483  42 52N  072 07W  482   Z                8 US
 !
 !WASHINGTON         14-JUN-17
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 WA ARLINGTON MUNI   KAWO  AWO          48 10N  122 10W   42   X                7 US
 WA BELLINGHAM       KBLI  BLI          48 48N  122 32W   50   X     T     A    6 US
 WA WHATCOM (BLI)    KHUH  HUH          48 57N  122 35W   26         V          8 US
@@ -3612,7 +3612,7 @@ WA YAGABOND AAF     K1YT               46 40N  120 27W  438   X                7
 WA WEST POINT (LS)              99435  47 40N  122 34W    3   Z                8 US
 !
 !WISCONSIN          30-JAN-17
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 WI ANTIGO/LANGLADE  KAIG               45 09N  089 07W  464   X                7 US
 WI APPLETON/OUTAGAM KATW  ATW          44 16N  088 31W  280   X     T          7 US
 WI ASHWAUBENON      KGRB  GRB   72645  44 29N  088 08W  208   X  X  U  X  A  F 3 US
@@ -3698,7 +3698,7 @@ WI SHAWANO MUNI     K3WO  3WO          44 47N  088 34W  248   Z                8
 WI TOMAHAWK REGNL   KT08  T08          45 28N  089 48W  453   Z                8 US
 !
 !WEST VIRGINIA      07-OCT-14
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 WV BECKLEY          KBKW  BKW   72412  37 48N  081 07W  764   X     U     A    6 US
 WV BLUEFIELD        KBLF  BLF          37 18N  081 12W  873   X     T     A    6 US
 WV BUCKHANNON       KW22  W22          39 00N  080 16W  499   X           W    7 US
@@ -3721,7 +3721,7 @@ WV WHEELING         KHLG  HLG          40 10N  080 39W  372   X     T     A    6
 WV WHITE SULPHUR SP KSSU  SSU          37 46N  080 19W  549   X                7 US
 !
 !WYOMING            19-DEC-18
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 WY AFTON            KAFO  AFO          42 43N  110 57W 1897   X           W    8 US
 WY ALPINE           K46U               43 11N  111 03W 1717   X                7 US
 WY BIG PINEY        KBPI  BPI   72671  42 35N  110 06W 2117   X     U     A    6 US
@@ -3803,13 +3803,13 @@ WY MEETEETSE RIM    KMTR               44 16N  108 52W 1803   X           M    9
 WY ALPHA            K1AW               41 20N  104 16W 1667   X                9 US
 !
 !WASHINGTON D.C.    25-SEP-00
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  C
 DC NWS HDQTRS       KWBC  WBC          38 51N  076 56W   50                  X 8 US
 DC WASHINGTON/NATL  KDCA  DCA   72405  38 51N  077 02W   18   X     U     A    1 US
 DC WASHINGTON/ARTCC KZDC  ZDC          39 06N  077 33W   20         A          8 US
 !
 !ALBERTA            11-NOV-13
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 AB ABEE AGDM        CXAF        71285  54 17N  112 58W  664   X                8 CA
 AB ANDREW AGDM      CXAG        71286  53 55N  112 17W  625   X                8 CA
 AB ATMORE AGDM      CXAJ        71287  54 46N  112 49W  574   X                8 CA
@@ -3919,7 +3919,7 @@ AB BOW ISLAND AGDM  CPXL        71519  49 52N  111 23W  799   X                8
 AB BANFF (CWBA-old)             71122  51 10N  115 34W 1383   Z                9 CA
 !
 !BRITISH COLUMBIA   03-DEC-13
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 BC ABBOTSFORD AIRPO CYXX  YXX   71108  49 02N  122 23W   58   X     T          6 CA
 BC ADDENBROKE ISL ( CWCZ  WCZ          51 36N  127 52W   21   X                7 CA
 BC AGASSIZ (AUTO)   CWZA  WZA   71113  49 15N  121 46W   15   X                7 CA
@@ -4056,7 +4056,7 @@ BC ALERT BAY (CWAQ)             71110  50 34N  126 55W   59   Z                9
 BC INGENIKA PT CWWU                    56 47N  124 54W  680   Z                9 CA
 !
 !MANITOBA           30-APR-13
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 MB ARNES            CWRE               50 48N  096 57W  221   X                8 CA
 MB BERENS RIVER APT CYBV  YBV          52 21N  097 02W  222   X                7 CA
 MB BERENS RIVER APT CWCF  WCF   71158  52 21N  097 02W  222   X                7 CA
@@ -4099,7 +4099,7 @@ MB WINNIPEG FORKS   CXWN  XWN   71579  49 53N  097 08W  230   X                7
 MB NORWAY HOUSE ARP CYNE  YNE          53 58N  097 49W  223   X     T          8 CA
 !
 !NEW BRUNSWICK      26-APR-06
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 NB BATHURST ARPT(AW CZBF  ZBF   71574  47 37N  065 45W   59   X     T          6 CA
 NB CHARLO AIRPORT   CZCR        71711  47 58N  066 19W   38   X                7 CA
 NB CHARLO                       71315  47 59N  066 20W   42   X                7 CA
@@ -4123,7 +4123,7 @@ NB CHATHAM          CYCH               47 00N  065 27W   31   Z                8
 NB MIRAMICHI (AU8)  CWCQ  WCQ          47 00N  065 28W   34   Z                8 CA
 !
 !NEWFOUNDLAND       30-APR-13
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 NL ARGENTIA (MARS)  CWAR  WAR   71807  47 17N  054 00W   16   X                7 CA
 NL BADGER (MARS)    CWDI  WDI   71400  48 58N  056 04W  105   X                7 CA
 NL BONAVISTA        CWVA  WVA   71196  48 40N  053 07W   27   X                7 CA
@@ -4168,7 +4168,7 @@ NL WRECKHOUSE       CXWR        71584  47 43N  059 19W   33   X                8
 NL ST PIERRE-FRANCE LFVP  FVP   71805  46 46N  056 11W    8   X     T          8 FR
 !
 !NOVA SCOTIA        30-APR-13
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 NS AMHERST (MARS)   CWAH  WAH   71410  45 51N  064 16W   23   X                7 CA
 NS BEAVER ISLAND(MA CWBV  WBV   71403  44 49N  062 19W   10   X                7 CA
 NS BRIER ISLAND(AUT CWVU  WVU          44 17N  066 20W   16   X                7 CA
@@ -4206,7 +4206,7 @@ NS WESTERN HEAD (MA CWWE  WWE   71411  43 58N  064 40W    9   X                7
 NS YARMOUTH AIRPORT CYQI  YQI   71603  43 50N  066 05W   43   X     T  X       5 CA
 !
 !N.W. TERRITORIES   22-NOV-14
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 NT AKLAVIK AIRPORT  CYKD  YKD          68 13N  135 00W    7   X                7 CA
 NT CAPE PARRY AUTO4 CZCP               70 10N  124 43W   93   X                7 CA
 NT COLVILLE LAKE    CYVL               67 01N  126 08W  259   X                7 CA
@@ -4262,7 +4262,7 @@ NT YOHIN            CXYH        71020  61 15N  123 45W  204   X                8
 NT CANADA/ARTCC     CZVE  ZVE          70 10N  124 41W    1         A          8 CA
 !
 !NUNAVUT            30-APR-13
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 NU ALERT            CWLT  WLT   71082  82 30N  062 19W   63   X        X       5 CA
 NU ALERT AIRPORT    CYLT  YLT          82 31N  062 16W   31   X     T          6 CA
 NU ALERT            CZLT        71355  82 30N  062 20W   65   X                8 CA
@@ -4328,7 +4328,7 @@ NU WHALE COVE AIRPO CYXN  YXN          62 13N  092 35W   20   X                7
 NU IQALUIT CLIMATE  CXFB               63 45N  068 33W   34   Z                8 CA
 !
 !ONTARIO            07-JAN-16
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 ON ARMSTRONG (MARS) CYYW        71841  50 18N   88 54W  351   X                7 CA
 ON ATIKOKAN (AUT)   CWCH  WCH   71747  48 45N  091 37W  424   X                7 CA
 ON ATIKOKAN               WIB   71748  48 45N  091 36W  393                    7 CA
@@ -4461,7 +4461,7 @@ ON ALGONQUIN PARK   CTNK        71581  45 32N  078 16W  410   X                8
 ON WINCHESTER       CTWN        71367  45 03N  075 20W   75   X                8 CA
 !
 !PRINCE EDWARD ISLAND   09-NOV-04
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 PE CHARLOTTETOWN AR CYYG  YYG   71706  46 16N  063 07W   54   X     T          6 CA
 PE CONFEDERATION BR CXBP               46 14N  063 44W   54   X                7 CA
 PE EAST POINT (MARS CWEP  WEP   71412  46 27N  061 58W   11   X                7 CA
@@ -4473,7 +4473,7 @@ PE SUMMERSIDE(CAN M CYSU  YSU   71702  46 25N  063 49W   24   Z                8
 PE HARRINGTON CDA   CAHR        71350  46 21N  063 10W   53   X                8 CA
 !
 !QUEBEC             25-FEB-14
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 QC AMQUI            CWZS  WZS   71386  48 28N  067 26W  166   X                7 CA
 QC AKULIVIK AIRPORT CYKO  YKO          60 49N  078 09W    9   X                7 CA
 QC AUPALUK          CYLA  YLA          59 17N  069 35W   35   X                7 CA
@@ -4617,7 +4617,7 @@ QC ST M-D-NAPIERVIL CMSX               45 11N  073 37W   59   X                8
 QC ST CHRYSOSTOME   CMYT               45 08N  073 46W   55   X                8 CA
 !
 !SASKATCHEWAN       30-APR-13
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 SK ASSINIBOIA ARPT  CWJI  WJI   71487  49 43N  105 55W  724   X                7 CA
 SK BROADVIEW        CWIK  WIK   71861  50 22N  102 35W  602   X        Z       7 CA
 SK BRATTS LAKE      CXBK  XBK   71569  50 12N  104 42W  580   X        O       7 CA
@@ -4668,7 +4668,7 @@ SK WALDRON VOR      CYDR  YDR          50 22N  102 32W  615         Z          8
 SK CANADA ARTCC     CZFD  ZFD          59 19N  107 11W  131         A          8 CA
 !
 !YUKON TERRITORY    30-APR-13
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
 YT BEAVER CREEK ARP CYXQ  YXQ          62 25N  140 52W  649   X                7 CA
 YT BURWASH          CYDB  YDB   71967  61 22N  139 03W  801   X     T          6 CA
 YT CARMACKS         CXCK  XCK   71039  62 07N  136 12W  540   X                7 CA
@@ -4690,7 +4690,7 @@ YT WATSON LAKE      CXQH        71199  60 07N  128 49W  690   X                8
 YT WHITEHORSE AIRPO CYXY  YXY   71964  60 43N  135 04W  703   X     T  X       5 CA
 !
 !MEXICO             26-FEB-15
-CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
+!CD  STATION         ICAO  IATA  SYNOP   LAT     LONG   ELEV   M  N  V  U  A  X
    ACAPULCO/G. ALVA MMAA  ACA          16 45N  099 45W    5   X     T          3 MX
    ACAPULCO/G. ALVA             76805  16 50N  099 56W    3            X       8 MX
    AGUASCALIENTES   MMAS  AGU   76571  21 42N  102 19W 1863   X     T          6 MX

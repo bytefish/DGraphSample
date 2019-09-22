@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using TinyCsvParser.Tokenizer;
+﻿using TinyCsvParser.Tokenizer;
 using static TinyCsvParser.Tokenizer.FixedLengthTokenizer;
 
 namespace DGraphSample.Csv.Ncar.Tokenizer
@@ -27,6 +24,7 @@ namespace DGraphSample.Csv.Ncar.Tokenizer
                     new ColumnDefinition(68, 69),
                     new ColumnDefinition(71, 72),
                     new ColumnDefinition(74, 75),
+                    new ColumnDefinition(77, 78),
                 };
 
                 return new FixedLengthTokenizer(columns, true);

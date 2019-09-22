@@ -14,6 +14,17 @@ namespace DGraphSample.Csv.Ncar.Model.Enums
         /// <summary>
         /// Is a NEXRAD (WSR-88D) Radar site
         /// </summary>
-        X
+        X,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        S,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        Z
+
     }
 }

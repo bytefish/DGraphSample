@@ -120,17 +120,20 @@ namespace DGraphSample.ConsoleApp
 
         private static void WriteWeatherData(StreamWriter writer)
         {
-            var measurements = GetWeatherData(csvCarriersFile).AsEnumerable();
-
             ulong pos = 0;
 
-            foreach (var measurement in measurements)
+            foreach (var csvWeatherDataFile in csvWeatherDataFiles)
             {
-                var lines = FlightsRdfExporter.ConvertToRdf($"{pos}", measurement);
+                var measurements = GetWeatherData(csvWeatherDataFile).AsEnumerable();
 
-                foreach (var line in lines)
+                foreach (var measurement in measurements)
                 {
-                    writer.WriteLine(line);
+                    var lines = FlightsRdfExporter.ConvertToRdf($"{pos}", measurement);
+
+                    foreach (var line in lines)
+                    {
+                        writer.WriteLine(line);
+                    }
                 }
 
                 pos++;
@@ -218,7 +221,7 @@ namespace DGraphSample.ConsoleApp
             // Build a Lookup Table to get the Airport by IATA:
             var availableAirportsInData = GetAirportData(csvAirportFile)
                 .ToDictionary(x => x.Iata, x => x);
-            
+
             return Csv.Ncar.Parser.Parsers.MetarStationParser
                 // Read from the Master Coordinate CSV File:
                 .ReadFromFile(filename, Encoding.ASCII)

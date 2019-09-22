@@ -19,6 +19,12 @@ namespace DGraphSample.Csv.Ncar.Model.Enums
         /// <summary>
         /// Is Obsolete
         /// </summary>
-        Z
+        Z,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        S
+
     }
 }

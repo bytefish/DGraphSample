@@ -29,6 +29,26 @@ namespace DGraphSample.Csv.Ncar.Model.Enums
         /// <summary>
         /// T+V
         /// </summary>
-        U
+        U,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        S,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        W,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        Y,
+
+        /// <summary>
+        /// Not documented.
+        /// </summary>
+        Z
     }
 }
