@@ -16,10 +16,10 @@ namespace DGraphSample.DGraph.Model
         [JsonProperty("uid")]
         public string UID { get; set; }
 
-        [JsonProperty("code")]
+        [JsonProperty("airport.code")]
         public string Code { get; set; }
 
-        [JsonProperty("description")]
+        [JsonProperty("airport.description")]
         public string Description { get; set; }
     }
 }

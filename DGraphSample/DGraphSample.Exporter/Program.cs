@@ -54,7 +54,7 @@ namespace DGraphSample.ConsoleApp
 
             foreach (var airport in airports)
             {
-                var lines = FlightsRdfExporter.ConvertToRdf(airport.AirportId, airport);
+                var lines = FlightsRdfExporter.ConvertToRdf(airport.Iata, airport);
 
                 foreach (var line in lines)
                 {
@@ -118,7 +118,7 @@ namespace DGraphSample.ConsoleApp
                 .Select(x => new DGraph.Model.CarrierDto
                 {
                     Code = x.Code,
-                    Name = x.Name
+                    Description = x.Description
                 });
         }
 
@@ -136,7 +136,7 @@ namespace DGraphSample.ConsoleApp
                 // Build the intermediate Airport Information:
                 .Select(x => new AirportDto
                 {
-                    AirportId = x.AirportId,
+                    Iata = x.AirportId,
                     Name = x.AirportName,
                     Abbr = x.AirportAbbr,
                     City = x.AirportCityName,

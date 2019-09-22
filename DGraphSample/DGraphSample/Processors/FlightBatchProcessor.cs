@@ -61,76 +61,76 @@ namespace DGraphSample.DGraph.Processors
             var builder = new NQuadBuilder($"_:flight_{pos}")
                 .Add(Constants.Predicates.Type, Constants.Types.Flight)
                 .Add(Constants.Predicates.FlightNumber, flight.FlightNumber)
-                .Add(Constants.Predicates.TailNumber, flight.TailNumber)
+                .Add(Constants.Predicates.FlightTailNumber, flight.TailNumber)
                 .Add(Constants.Predicates.FlightDate, flight.FlightDate)
-                .Add(Constants.Predicates.DayOfWeek, flight.DayOfWeek)
-                .Add(Constants.Predicates.DayOfMonth, flight.DayOfMonth)
-                .Add(Constants.Predicates.Month, flight.Month)
-                .Add(Constants.Predicates.Year, flight.Year);
+                .Add(Constants.Predicates.FlightDayOfWeek, flight.DayOfWeek)
+                .Add(Constants.Predicates.FlightDayOfMonth, flight.DayOfMonth)
+                .Add(Constants.Predicates.FlightMonth, flight.Month)
+                .Add(Constants.Predicates.FlightYear, flight.Year);
 
             // Set Airports:
             if (airportResolver.TryGetByAirportId(flight.OriginAirport, out string originAirportUid))
             {
-                builder.AddEdge(Constants.Predicates.OriginAirport, originAirportUid);
+                builder.AddEdge(Constants.Predicates.HasOriginAirport, originAirportUid);
             }
 
             if (airportResolver.TryGetByAirportId(flight.DestinationAirport, out string destinationAirportUid))
             {
-                builder.AddEdge(Constants.Predicates.DestinationAirport, destinationAirportUid);
+                builder.AddEdge(Constants.Predicates.HasDestinationAirport, destinationAirportUid);
             }
 
             // Set Carrier:
             if (carrierResolver.TryGetByCode(flight.Carrier, out string carrierUid))
             {
-                builder.AddEdge(Constants.Predicates.Carrier, carrierUid);
+                builder.AddEdge(Constants.Predicates.HasCarrier, carrierUid);
             }
 
             // Add Distance:
             if (flight.Distance.HasValue)
             {
-                builder.Add(Constants.Predicates.Distance, flight.Distance.Value);
+                builder.Add(Constants.Predicates.FlightDistance, flight.Distance.Value);
             }
 
             // Add CancellationCode:
             if (!string.IsNullOrWhiteSpace(flight.CancellationCode))
             {
-                builder.Add(Constants.Predicates.CancellationCode, flight.CancellationCode);
+                builder.Add(Constants.Predicates.FlightCancellationCode, flight.CancellationCode);
             }
 
             // Add Delays:
             if (flight.ArrivalDelay.HasValue)
             {
-                builder.Add(Constants.Predicates.ArrivalDelay, flight.ArrivalDelay.Value);
+                builder.Add(Constants.Predicates.FlightArrivalDelay, flight.ArrivalDelay.Value);
             }
 
             if (flight.CarrierDelay.HasValue)
             {
-                builder.Add(Constants.Predicates.CarrierDelay, flight.CarrierDelay.Value);
+                builder.Add(Constants.Predicates.FlightCarrierDelay, flight.CarrierDelay.Value);
             }
 
             if (flight.DepartureDelay.HasValue)
             {
-                builder.Add(Constants.Predicates.DepartureDelay, flight.DepartureDelay.Value);
+                builder.Add(Constants.Predicates.FlightDepartureDelay, flight.DepartureDelay.Value);
             }
 
             if (flight.LateAircraftDelay.HasValue)
             {
-                builder.Add(Constants.Predicates.LateAircraftDelay, flight.LateAircraftDelay.Value);
+                builder.Add(Constants.Predicates.FlightLateAircraftDelay, flight.LateAircraftDelay.Value);
             }
 
             if (flight.NasDelay.HasValue)
             {
-                builder.Add(Constants.Predicates.NasDelay, flight.NasDelay.Value);
+                builder.Add(Constants.Predicates.FlightNasDelay, flight.NasDelay.Value);
             }
 
             if (flight.SecurityDelay.HasValue)
             {
-                builder.Add(Constants.Predicates.SecurityDelay, flight.SecurityDelay.Value);
+                builder.Add(Constants.Predicates.FlightSecurityDelay, flight.SecurityDelay.Value);
             }
 
             if (flight.WeatherDelay.HasValue)
             {
-                builder.Add(Constants.Predicates.WeatherDelay, flight.WeatherDelay.Value);
+                builder.Add(Constants.Predicates.FlightWeatherDelay, flight.WeatherDelay.Value);
             }
 
             return builder.Build();

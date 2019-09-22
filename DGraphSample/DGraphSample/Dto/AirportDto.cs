@@ -5,7 +5,7 @@ namespace DGraphSample.DGraph.Dto
 {
     public class AirportDto
     {
-        public string AirportId { get; set; }
+        public string Iata { get; set; }
 
         public string Name { get; set; }
 

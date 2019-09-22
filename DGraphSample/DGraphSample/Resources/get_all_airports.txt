@@ -1,0 +1,11 @@
+﻿{
+    airports(func: eq(node.type, "airport")) {
+        uid
+        airport.airport_id
+        airport.name
+        airport.abbr
+        airport.city
+        airport.state
+        airport.country
+    }
+}

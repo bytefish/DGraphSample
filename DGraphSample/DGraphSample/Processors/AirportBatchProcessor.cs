@@ -53,12 +53,12 @@ namespace DGraphSample.DGraph.Processors
         {
             return new NQuadBuilder($"_:airport_{pos}")
                 .Add(Constants.Predicates.Type, Constants.Types.Airport)
-                .Add(Constants.Predicates.AirportID, airport.AirportId)
-                .Add(Constants.Predicates.Name, airport.Name)
-                .Add(Constants.Predicates.Abbr, airport.Abbr)
-                .Add(Constants.Predicates.City, airport.City)
-                .Add(Constants.Predicates.State, airport.State)
-                .Add(Constants.Predicates.Country, airport.Country)
+                .Add(Constants.Predicates.AirportIata, airport.Iata)
+                .Add(Constants.Predicates.AirportName, airport.Name)
+                .Add(Constants.Predicates.AirportAbbr, airport.Abbr)
+                .Add(Constants.Predicates.AirportCity, airport.City)
+                .Add(Constants.Predicates.AirportState, airport.State)
+                .Add(Constants.Predicates.AirportCountry, airport.Country)
                 .Build();
         }
     }

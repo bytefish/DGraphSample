@@ -53,8 +53,8 @@ namespace DGraphSample.DGraph.Processors
         {
             return new NQuadBuilder($"_:carrier_{pos}")
                 .Add(Constants.Predicates.Type, Constants.Types.Carrier)
-                .Add(Constants.Predicates.Code, carrier.Code)
-                .Add(Constants.Predicates.Name, carrier.Name)
+                .Add(Constants.Predicates.CarrierCode, carrier.Code)
+                .Add(Constants.Predicates.CarrierDescription, carrier.Description)
                 .Build();
         }
     }

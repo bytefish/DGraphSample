@@ -21,6 +21,8 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DGraphSample.Csv.Aotp\DGraphSample.Csv.Aotp.csproj" />
+    <ProjectReference Include="..\DGraphSample.Csv.Asos\DGraphSample.Csv.Asos.csproj" />
+    <ProjectReference Include="..\DGraphSample.Csv.Ncar\DGraphSample.Csv.Ncar.csproj" />
     <ProjectReference Include="..\DGraphSample\DGraphSample.csproj" />
   </ItemGroup>
 

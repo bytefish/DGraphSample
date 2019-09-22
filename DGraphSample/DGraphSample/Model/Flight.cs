@@ -11,61 +11,61 @@ namespace DGraphSample.DGraph.Model
         [JsonProperty("uid")]
         public string UID { get; set; }
 
-        [JsonProperty("flight_number")]
+        [JsonProperty("flight.flight_number")]
         public string FlightNumber { get; set; }
 
-        [JsonProperty("tail_number")]
+        [JsonProperty("flight.tail_number")]
         public string TailNumber { get; set; }
 
-        [JsonProperty("carrier")]
+        [JsonProperty("flight.carrier")]
         public string Carrier { get; set; }
 
-        [JsonProperty("origin_airport")]
+        [JsonProperty("flight.origin_airport")]
         public string OriginAirport { get; set; }
 
-        [JsonProperty("destination_airport")]
+        [JsonProperty("flight.destination_airport")]
         public string DestinationAirport { get; set; }
 
-        [JsonProperty("flight_date")]
+        [JsonProperty("flight.flight_date")]
         public DateTime FlightDate { get; set; }
 
-        [JsonProperty("year")]
+        [JsonProperty("flight.year")]
         public int Year { get; set; }
 
-        [JsonProperty("month")]
+        [JsonProperty("flight.month")]
         public int Month { get; set; }
 
-        [JsonProperty("day_of_month")]
+        [JsonProperty("flight.day_of_month")]
         public int DayOfMonth { get; set; }
 
-        [JsonProperty("day_of_week")]
+        [JsonProperty("flight.day_of_week")]
         public int DayOfWeek { get; set; }
 
-        [JsonProperty("departure_delay")]
+        [JsonProperty("flight.departure_delay")]
         public int? DepartureDelay { get; set; }
 
-        [JsonProperty("arrival_delay")]
+        [JsonProperty("flight.arrival_delay")]
         public int? ArrivalDelay { get; set; }
 
-        [JsonProperty("distance")]
+        [JsonProperty("flight.distance")]
         public float? Distance { get; set; }
 
-        [JsonProperty("carrier_delay")]
+        [JsonProperty("flight.carrier_delay")]
         public int? CarrierDelay { get; set; }
 
-        [JsonProperty("weather_delay")]
+        [JsonProperty("flight.weather_delay")]
         public int? WeatherDelay { get; set; }
 
-        [JsonProperty("nas_delay")]
+        [JsonProperty("flight.nas_delay")]
         public int? NasDelay { get; set; }
 
-        [JsonProperty("security_delay")]
+        [JsonProperty("flight.security_delay")]
         public int? SecurityDelay { get; set; }
 
-        [JsonProperty("late_aircraft_delay")]
+        [JsonProperty("flight.late_aircraft_delay")]
         public int? LateAircraftDelay { get; set; }
 
-        [JsonProperty("cancellation_code")]
+        [JsonProperty("flight.cancellation_code")]
         public string CancellationCode { get; set; }
     }
 }

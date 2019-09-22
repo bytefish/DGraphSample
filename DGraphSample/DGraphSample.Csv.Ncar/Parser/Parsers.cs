@@ -15,7 +15,13 @@ namespace DGraphSample.Csv.Parser
             get
             {
                 var tokenizer = Tokenizers.StationTokenizer;
-                var options = new CsvParserOptions(true, "!", tokenizer);
+
+                // The CSV file has ! as Comments, that we want to ignore while parsing 
+                // the data, because it will yield invalid data:
+                var options = new CsvParserOptions(
+                    skipHeader: false, 
+                    commentCharacter: "!", 
+                    tokenizer: tokenizer);
 
                 return new CsvParser<MetarStation>(options, new MetarStationMapper());
             }

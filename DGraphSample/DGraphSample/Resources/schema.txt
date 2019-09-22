@@ -1,0 +1,62 @@
+﻿#
+# General Node Data
+#
+node.type: string @index(exact) .
+
+#
+# Airport Data
+#
+airport.name: string @index(exact) .
+airport.iata: string @index(exact) .
+airport.abbr: string .
+airport.code: string .
+airport.city: string @index(exact) .
+airport.state: string @index(exact) .
+airport.country: string @index(exact) .
+
+#
+# Carrier Data
+#
+carrier.code: string @index(exact) .
+carrier.description: string @index(exact) .
+
+# 
+# Weather Station Data
+# 
+weather_station.icao: @index(exact) .
+weather_station.name: string @index(exact) .
+weather_station.iata: @index(exact) .
+
+#
+# METAR / ASOS Weather Measurements
+#
+
+
+
+#
+# Flight Data
+#
+flight.number: string @index(exact) .
+flight.year: int .
+flight.month: int .
+flight.day_of_month: int .
+flight.day_of_week: int .
+flight.date: dateTime .
+flight.tail_number: string .
+flight.cancellation_code: string .
+flight.distance: float .
+flight.departure_delay: int .
+flight.arrival_delay: int .
+flight.carrier_delay: int .
+flight.weather_delay: int .
+flight.nas_delay: int .
+flight.security_delay: int .
+flight.late_aircraft_delay: int .
+
+#
+# Relationships in Data
+#
+has_origin_airport: uid @reverse @count .
+has_destination_airport: uid @reverse @count .
+has_carrier: uid @reverse @count .
+has_weather_station: uid @reverse @count .

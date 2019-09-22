@@ -16,22 +16,22 @@ namespace DGraphSample.DGraph.Model
         [JsonProperty("uid")]
         public string UID { get; set; }
 
-        [JsonProperty("airport_id")]
+        [JsonProperty("airport.iata")]
         public string AirportId { get; set; }
 
-        [JsonProperty("name")]
+        [JsonProperty("airport.name")]
         public string Name { get; set; }
 
-        [JsonProperty("abbr")]
+        [JsonProperty("airport.abbr")]
         public string Abbr { get; set; }
 
-        [JsonProperty("city")]
+        [JsonProperty("airport.city")]
         public string City { get; set; }
 
-        [JsonProperty("state")]
+        [JsonProperty("airport.state")]
         public string State { get; set; }
 
-        [JsonProperty("country")]
+        [JsonProperty("airport.country")]
         public string Country { get; set; }
     }
 }
