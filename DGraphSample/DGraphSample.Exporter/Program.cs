@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using DGraphSample.Csv.Aotp.Parser;
-using DGraphSample.DGraph.Dto;
+using DGraphSample.Dto;
 using DGraphSample.Export;
 using TinyCsvParser;
 
@@ -105,7 +105,7 @@ namespace DGraphSample.ConsoleApp
 
         #region CSV Parsing 
 
-        private static ParallelQuery<DGraph.Model.CarrierDto> GetCarrierData(string filename)
+        private static ParallelQuery<CarrierDto> GetCarrierData(string filename)
         {
             return Parsers.CarrierParser
                 // Parse as ASCII file:
@@ -115,7 +115,7 @@ namespace DGraphSample.ConsoleApp
                 // Get the Result:
                 .Select(x => x.Result)
                 // Get Carrier:
-                .Select(x => new DGraph.Model.CarrierDto
+                .Select(x => new CarrierDto
                 {
                     Code = x.Code,
                     Description = x.Description

@@ -4,12 +4,13 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using DGraphSample.DGraph.Model;
-using DGraphSample.DGraph.Utils;
+using DGraphSample.Model;
+using DGraphSample.Utils;
 using TinyDgraphClient.Generated;
 using TinyDgraphClient.Client;
+using DGraphSample.Dto;
 
-namespace DGraphSample.DGraph.Processors
+namespace DGraphSample.Processors
 {
     public class CarrierBatchProcessor
     {

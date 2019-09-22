@@ -5,7 +5,7 @@ using DGraphSample.Csv.Asos.Mapper;
 using DGraphSample.Csv.Asos.Model;
 using TinyCsvParser;
 
-namespace DGraphSample.Csv.Parser
+namespace DGraphSample.Csv.Asos.Parser
 {
     public static class Parsers
     {

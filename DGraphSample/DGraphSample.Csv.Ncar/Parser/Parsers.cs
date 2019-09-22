@@ -2,11 +2,10 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using DGraphSample.Csv.Ncar.Mapper;
-using DGraphSample.Csv.Ncar.Tokenizers;
 using DGraphSample.Csv.Ncar.Model;
 using TinyCsvParser;
 
-namespace DGraphSample.Csv.Parser
+namespace DGraphSample.Csv.Ncar.Parser
 {
     public static class Parsers
     {
@@ -14,7 +13,7 @@ namespace DGraphSample.Csv.Parser
         {
             get
             {
-                var tokenizer = Tokenizers.StationTokenizer;
+                var tokenizer = Tokenizer.Tokenizers.StationTokenizer;
 
                 // The CSV file has ! as Comments, that we want to ignore while parsing 
                 // the data, because it will yield invalid data:

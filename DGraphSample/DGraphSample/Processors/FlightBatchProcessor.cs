@@ -4,13 +4,13 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using DGraphSample.DGraph.Dto;
-using DGraphSample.DGraph.Resolvers;
-using DGraphSample.DGraph.Utils;
+using DGraphSample.Dto;
+using DGraphSample.Resolvers;
+using DGraphSample.Utils;
 using TinyDgraphClient.Generated;
 using TinyDgraphClient.Client;
 
-namespace DGraphSample.DGraph.Processors
+namespace DGraphSample.Processors
 {
     public class FlightBatchProcessor
     {

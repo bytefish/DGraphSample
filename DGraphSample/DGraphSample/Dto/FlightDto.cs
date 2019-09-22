@@ -3,7 +3,7 @@
 
 using System;
 
-namespace DGraphSample.DGraph.Dto
+namespace DGraphSample.Dto
 {
     public class FlightDto
     {

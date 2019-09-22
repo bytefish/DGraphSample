@@ -3,7 +3,7 @@
 
 using System.IO;
 
-namespace DGraphSample.DGraph.Queries
+namespace DGraphSample.Queries
 {
     public static class Query
     {
@@ -28,6 +28,14 @@ namespace DGraphSample.DGraph.Queries
             get
             {
                 return File.ReadAllText("Resources/get_all_carriers.txt");
+            }
+        }
+
+        public static string GetAllWeatherStations
+        {
+            get
+            {
+                return File.ReadAllText("Resources/get_all_stations.txt");
             }
         }
     }

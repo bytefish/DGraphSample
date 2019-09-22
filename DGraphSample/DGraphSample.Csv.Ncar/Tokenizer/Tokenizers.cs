@@ -4,7 +4,7 @@ using System.Text;
 using TinyCsvParser.Tokenizer;
 using static TinyCsvParser.Tokenizer.FixedLengthTokenizer;
 
-namespace DGraphSample.Csv.Ncar.Tokenizers
+namespace DGraphSample.Csv.Ncar.Tokenizer
 {
     public static class Tokenizers
     {

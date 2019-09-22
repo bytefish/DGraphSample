@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using TinyDgraphClient.Generated;
 using TinyDgraphClient.Utils;
 
-namespace DGraphSample.DGraph.Utils
+namespace DGraphSample.Utils
 {
     public class NQuadBuilder
     {
@@ -64,6 +64,26 @@ namespace DGraphSample.DGraph.Utils
             return this;
         }
 
+        public NQuadBuilder Add(string predicate, float? objectValue)
+        {
+            if(!objectValue.HasValue)
+            {
+                return this;
+            }
+
+            nquads.Add(new NQuad
+            {
+                Subject = subject,
+                Predicate = predicate,
+                ObjectValue = new Value
+                {
+                    DoubleVal = objectValue.Value
+                }
+            });
+
+            return this;
+        }
+
         public NQuadBuilder Add(string predicate, DateTime objectValue)
         {
             
@@ -80,9 +100,42 @@ namespace DGraphSample.DGraph.Utils
             return this;
         }
 
+        public NQuadBuilder Add(string predicate, DateTime? objectValue)
+        {
+            if(!objectValue.HasValue)
+            {
+                return this;
+            }
+
+            nquads.Add(new NQuad
+            {
+                Subject = subject,
+                Predicate = predicate,
+                ObjectValue = new Value
+                {
+                    DatetimeVal = TypeConverters.Convert(objectValue)
+                }
+            });
+
+            return this;
+        }
+
         public NQuadBuilder AddEdge(string predicate, string objectId)
         {
             
+            nquads.Add(new NQuad
+            {
+                Subject = subject,
+                Predicate = predicate,
+                ObjectId = objectId
+            });
+
+            return this;
+        }
+
+        public NQuadBuilder AddEdge(string subject, string predicate, string objectId)
+        {
+
             nquads.Add(new NQuad
             {
                 Subject = subject,

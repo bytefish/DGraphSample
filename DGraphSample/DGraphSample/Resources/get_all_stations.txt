@@ -1,0 +1,12 @@
+﻿{
+    stations(func: eq(node.type, "weather_station")) {
+        uid
+        weather_station.name
+        weather_station.icao
+        weather_station.iata
+        weather_station.synop
+        weather_station.lat
+        weather_station.lon
+        weather_station.elevation
+    }
+}

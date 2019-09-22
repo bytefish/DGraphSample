@@ -4,7 +4,7 @@
 using Google.Protobuf;
 using Newtonsoft.Json;
 
-namespace DGraphSample.DGraph.Utils
+namespace DGraphSample.Utils
 {
     public static class ProtobufUtils
     {

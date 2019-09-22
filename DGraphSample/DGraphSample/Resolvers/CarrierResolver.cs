@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using DGraphSample.DGraph.Model;
-using DGraphSample.DGraph.Queries;
-using DGraphSample.DGraph.Utils;
+using DGraphSample.Model;
+using DGraphSample.Queries;
 using TinyDgraphClient.Client;
+using DGraphSample.Utils;
 
-namespace DGraphSample.DGraph.Resolvers
+namespace DGraphSample.Resolvers
 {
     public class CarrierResolver
     {

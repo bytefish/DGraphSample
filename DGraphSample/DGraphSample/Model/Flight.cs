@@ -4,7 +4,7 @@
 using System;
 using Newtonsoft.Json;
 
-namespace DGraphSample.DGraph.Model
+namespace DGraphSample.Model
 {
     public class Flight
     {

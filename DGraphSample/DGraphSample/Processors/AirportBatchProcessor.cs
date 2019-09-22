@@ -4,12 +4,12 @@
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
-using DGraphSample.DGraph.Dto;
-using DGraphSample.DGraph.Utils;
+using DGraphSample.Dto;
+using DGraphSample.Utils;
 using TinyDgraphClient.Client;
 using TinyDgraphClient.Generated;
 
-namespace DGraphSample.DGraph.Processors
+namespace DGraphSample.Processors
 {
     public class AirportBatchProcessor
     {
