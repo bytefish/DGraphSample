@@ -12,24 +12,24 @@ namespace DGraphSample.Csv.Asos.Converter
         {
             result = default(TimeSpan?);
 
-            if(value == null)
+            if (value == null)
             {
                 return false;
             }
 
             var components = value.Split(".");
 
-            if(components.Length != 2)
+            if (components.Length != 2)
             {
                 return false;
             }
 
-            if(!int.TryParse(components[0], out int hours))
+            if (!int.TryParse(components[0], out int hours))
             {
                 return false;
             }
 
-            if(!int.TryParse(components[1], out int minutes))
+            if (!int.TryParse(components[1], out int minutes))
             {
                 return false;
             }

@@ -18,8 +18,8 @@ namespace DGraphSample.Csv.Ncar.Parser
                 // The CSV file has ! as Comments, that we want to ignore while parsing 
                 // the data, because it will yield invalid data:
                 var options = new CsvParserOptions(
-                    skipHeader: false, 
-                    commentCharacter: "!", 
+                    skipHeader: false,
+                    commentCharacter: "!",
                     tokenizer: tokenizer);
 
                 return new CsvParser<MetarStation>(options, new MetarStationMapper());

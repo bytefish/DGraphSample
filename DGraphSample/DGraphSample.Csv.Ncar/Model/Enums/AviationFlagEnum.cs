@@ -9,7 +9,7 @@ namespace DGraphSample.Csv.Ncar.Model.Enums
         /// <summary>
         /// No value set
         /// </summary>
-        None, 
+        None,
 
         /// <summary>
         /// AIRMET/SIGMET end point

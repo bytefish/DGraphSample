@@ -1,0 +1,96 @@
+﻿#
+# General Node Data
+#
+node.type: string @index(exact) .
+
+#
+# Airport Data
+#
+airport.airport_id: string @index(exact) .
+airport.name: string @index(exact) .
+airport.iata: string @index(exact) .
+airport.code: string .
+airport.city: string @index(exact) .
+airport.state: string @index(exact) .
+airport.country: string @index(exact) .
+
+#
+# Carrier Data
+#
+carrier.code: string @index(exact) .
+carrier.description: string @index(exact) .
+
+# 
+# Weather Station Data
+# 
+weather_station.icao: string @index(exact) .
+weather_station.name: string @index(exact) .
+weather_station.iata: string @index(exact) .
+weather_station.synop: string @index(exact) .
+weather_station.lat: string .
+weather_station.lon: string .
+weather_station.elevation: float .
+
+#
+# METAR / ASOS Weather Measurements
+#
+weather_data.timestamp: dateTime .
+weather_data.tmpf: float .
+weather_data.tmpc: float .
+weather_data.dwpf: float .
+weather_data.dwpc: float .
+weather_data.relh: float .
+weather_data.drct: float .
+weather_data.sknt: float .
+weather_data.p01i: float .
+weather_data.alti: float .
+weather_data.mslp: float.
+weather_data.vsby_mi: float .
+weather_data.vsby_km: float .
+weather_data.skyc1: string .
+weather_data.skyc2: string .
+weather_data.skyc3: string .
+weather_data.skyc4: string .
+weather_data.skyl1: float .
+weather_data.skyl2: float .
+weather_data.skyl3: float .
+weather_data.skyl4: float .
+weather_data.wxcodes: string .
+weather_data.feelf: float .
+weather_data.feelc: float .
+weather_data.ice_accretion_1hr: float .
+weather_data.ice_accretion_3hr: float .
+weather_data.ice_accretion_6hr: float .
+weather_data.peak_wind_gust: float .
+weather_data.peak_wind_drct: float .
+weather_data.peak_wind_time_hh: int .
+weather_data.peak_wind_time_MM: int .
+weather_data.metar: string .
+
+#
+# Flight Data
+#
+flight.number: string @index(exact) .
+flight.year: int .
+flight.month: int .
+flight.day_of_month: int .
+flight.day_of_week: int .
+flight.date: dateTime .
+flight.tail_number: string .
+flight.cancellation_code: string .
+flight.distance: float .
+flight.departure_delay: int .
+flight.arrival_delay: int .
+flight.carrier_delay: int .
+flight.weather_delay: int .
+flight.nas_delay: int .
+flight.security_delay: int .
+flight.late_aircraft_delay: int .
+
+#
+# Relationships in Data
+#
+has_origin_airport: uid @reverse @count .
+has_destination_airport: uid @reverse @count .
+has_carrier: uid @reverse @count .
+has_weather_station: uid @count .

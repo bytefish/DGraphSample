@@ -1,9 +1,9 @@
 // Copyright (c) Philipp Wagner. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using System;
 using DGraphSample.Csv.Aotp.Converter;
 using DGraphSample.Csv.Aotp.Model;
+using System;
 using TinyCsvParser.Mapping;
 using TinyCsvParser.TypeConverter;
 
@@ -27,7 +27,7 @@ namespace DGraphSample.Csv.Aotp.Mapper
             MapProperty(11, x => x.DestinationAirport);
             MapProperty(12, x => x.Destination);
             MapProperty(13, x => x.DestinationState);
-            MapProperty(14, x => x.ScheduledDepatureTime, new FlightDurationConverter());
+            MapProperty(14, x => x.ScheduledDepartureTime, new FlightDurationConverter());
             MapProperty(15, x => x.ActualDepartureTime, new FlightDurationConverter());
             MapProperty(16, x => x.DepartureDelay, new FlightMinutesConverter());
             MapProperty(17, x => x.DepartureDelayNew, new FlightMinutesConverter());

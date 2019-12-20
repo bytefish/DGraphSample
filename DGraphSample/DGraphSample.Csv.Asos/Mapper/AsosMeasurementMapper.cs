@@ -3,7 +3,6 @@
 
 using DGraphSample.Csv.Asos.Converter;
 using DGraphSample.Csv.Asos.Model;
-using System;
 using TinyCsvParser.Mapping;
 using TinyCsvParser.TypeConverter;
 

@@ -15,7 +15,7 @@ namespace DGraphSample.Csv.Ncar.Converter
 
         public bool TryConvert(string value, out TTargetType result)
         {
-            if(string.IsNullOrWhiteSpace(value))
+            if (string.IsNullOrWhiteSpace(value))
             {
                 value = "None";
             }

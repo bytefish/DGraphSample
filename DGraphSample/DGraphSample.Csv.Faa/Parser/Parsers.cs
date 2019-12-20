@@ -9,13 +9,13 @@ namespace DGraphSample.Csv.Faa.Parser
 {
     public static class Parsers
     {
-        public static CsvParser<FaaAircraft> MetarStationParser
+        public static CsvParser<FaaAircraft> FaaAircraftParser
         {
             get
             {
                 var tokenizer = Tokenizer.Tokenizers.FaaAircraftTokenizer;
 
-                var options = new CsvParserOptions(skipHeader: true,  tokenizer: tokenizer);
+                var options = new CsvParserOptions(skipHeader: true, tokenizer: tokenizer);
 
                 return new CsvParser<FaaAircraft>(options, new FaaAircraftMapper());
             }

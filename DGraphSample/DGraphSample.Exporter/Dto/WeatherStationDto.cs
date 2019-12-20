@@ -1,18 +1,14 @@
-// Copyright (c) Philipp Wagner. All rights reserved.
+﻿// Copyright (c) Philipp Wagner. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using DGraphSample.Csv.Ncar.Model.Enums;
-
-namespace DGraphSample.Csv.Ncar.Model
+namespace DGraphSample.Exporter.Dto
 {
-
-    /// <summary>
-    public class MetarStation
+    public class WeatherStationDto
     {
         /// <summary>
-        /// 2 letter state (province) abbreviation
+        /// The NodeId
         /// </summary>
-        public string CD { get; set; }
+        public string NodeId { get; set; }
 
         /// <summary>
         /// 16 character station long name
@@ -48,35 +44,5 @@ namespace DGraphSample.Csv.Ncar.Model
         /// Station elevation(meters)
         /// </summary>
         public float? Elevation { get; set; }
-
-        /// <summary>
-        /// METAR reporting station. 
-        /// </summary>
-        public MetarFlagEnum M { get; set; }
-
-        /// <summary>
-        /// NEXRAD (WSR-88D) Radar site
-        /// </summary>
-        public NexradFlagEnum N { get; set; }
-
-        /// <summary>
-        /// Aviation-specific flag 
-        /// </summary>
-        public AviationFlagEnum V { get; set; }
-
-        /// <summary>
-        /// Upper air
-        /// </summary>
-        public UpperAirFlagEnum U { get; set; }
-
-        /// <summary>
-        /// Auto
-        /// </summary>
-        public AutoFlagEnum A { get; set; }
-
-        /// <summary>
-        /// Office type
-        /// </summary>
-        public OfficeTypeFlagEnum C { get; set; }
     }
 }

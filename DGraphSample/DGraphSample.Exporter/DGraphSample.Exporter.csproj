@@ -6,10 +6,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Resources\schema.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Resources\schema.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="dotNetRDF" Version="2.3.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="TinyDgraphClient" Version="0.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\DGraphSample.Csv.Aotp\DGraphSample.Csv.Aotp.csproj" />
     <ProjectReference Include="..\DGraphSample.Csv.Asos\DGraphSample.Csv.Asos.csproj" />
+    <ProjectReference Include="..\DGraphSample.Csv.Faa\DGraphSample.Csv.Faa.csproj" />
     <ProjectReference Include="..\DGraphSample.Csv.Ncar\DGraphSample.Csv.Ncar.csproj" />
-    <ProjectReference Include="..\DGraphSample\DGraphSample.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Dto\" />
   </ItemGroup>
 
 </Project>

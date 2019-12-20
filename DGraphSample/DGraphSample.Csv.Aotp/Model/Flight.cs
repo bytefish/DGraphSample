@@ -86,7 +86,7 @@ namespace DGraphSample.Csv.Aotp.Model
         /// <summary>
         /// CRS Departure Time (local time: hhmm).
         /// </summary>
-        public TimeSpan? ScheduledDepatureTime { get; set; }
+        public TimeSpan? ScheduledDepartureTime { get; set; }
 
         /// <summary>
         /// Actual Departure Time (local time: hhmm).

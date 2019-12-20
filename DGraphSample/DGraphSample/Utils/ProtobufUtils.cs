@@ -21,6 +21,4 @@ namespace DGraphSample.Utils
             return JsonConvert.DeserializeObject<TResult>(jsonString);
         }
     }
-
-    
 }

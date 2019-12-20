@@ -18,6 +18,6 @@ namespace DGraphSample.Csv.Asos.Parser
                 return new CsvParser<AsosMeasurement>(csvParserOptions, new AsosMeasurementMapper());
             }
         }
-        
+
     }
 }
