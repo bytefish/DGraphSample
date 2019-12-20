@@ -183,9 +183,11 @@ namespace DGraphSample.Exporter
             
             // Honestly this is a bit brittle. We just want to use the AbsoluteUri,
             // if the Uri starts with an XMLSchema definition:
-            if(u.ToString().StartsWith("http://www.w3.org/2001/XMLSchema"))
+            if(u.ToString().StartsWith("http://www.w3.org/2001/XMLSchema#"))
             {
-                return u.AbsoluteUri;
+                return u
+                    .ToString()
+                    .Replace("http://www.w3.org/2001/XMLSchema#", "xs:");
             }
 
             // In dotnetrdf the Formatters expexts a valid Uri for a Uri Node. We cannot 
@@ -391,20 +393,7 @@ namespace DGraphSample.Exporter
             // from exploding while writing the Data:
             nodeFactory = new NodeFactory();
 
-            // We don't want to write the full URL for every 
-            // triple, because that will lead to a large TTL 
-            // file with redundant data:
-            namespaceMapper = new NamespaceMapper();
-
-            namespaceMapper.AddNamespace("ge", Constants.NsAviationGeneral);
-            namespaceMapper.AddNamespace("ap", Constants.NsAviationAirport);
-            namespaceMapper.AddNamespace("ac", Constants.NsAviationtAircraft);
-            namespaceMapper.AddNamespace("ca", Constants.NsAviationCarrier);
-            namespaceMapper.AddNamespace("fl", Constants.NsAviationFlight);
-            namespaceMapper.AddNamespace("we", Constants.NsAviationWeather);
-            namespaceMapper.AddNamespace("st", Constants.NsAviationWeatherStation);
-
-            // Create the TurtleFormatter with the Namespace Mappings:
+            // Create the CustomNTriplesFormatter:
             nTriplesFormatter = new CustomNTriplesFormatter();
 
             // Load the Base Data:
@@ -958,6 +947,5 @@ namespace DGraphSample.Exporter
         }
 
         #endregion
-
     }
 }
