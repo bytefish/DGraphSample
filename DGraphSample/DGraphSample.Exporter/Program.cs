@@ -176,11 +176,26 @@ namespace DGraphSample.Exporter
 
         public override string FormatUri(Uri u)
         {
+            if(u == null)
+            {
+                return string.Empty;
+            }
+            
+            // Honestly this is a bit brittle. We just want to use the AbsoluteUri,
+            // if the Uri starts with an XMLSchema definition:
             if(u.ToString().StartsWith("http://www.w3.org/2001/XMLSchema"))
             {
                 return u.AbsoluteUri;
             }
 
+            // In dotnetrdf the Formatters expexts a valid Uri for a Uri Node. We cannot 
+            // use "<airport.airport_id>" for a predicate. At the same time I don't want 
+            // to have "<http://www.bytefish.de/Aviation/Airports#airport.airport_id> for 
+            // predicates. They would make queries extremly painful.
+            //
+            // We use a little knowledge about the predicates used in this code. We only 
+            // use the Fragment of the Uri as the predicate. Maybe this doesn't hold for 
+            // the RDF you need to write, so please be careful using this code:
             return u
                 .Fragment
                 .TrimStart('#');
@@ -288,6 +303,11 @@ namespace DGraphSample.Exporter
         }
     }
 
+    /// <summary>
+    /// A simple Generator for Blank Node IDs. I don't need any validation / caching or complicated mechanisms
+    /// for generating Blank Node IDs. We will instantiate this Generator and generate unique IDs among 
+    /// all entities to be used.
+    /// </summary>
     public class NodeIdGenerator
     {
         private long nodeId;
