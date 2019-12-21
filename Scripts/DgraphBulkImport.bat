@@ -3,11 +3,8 @@
 :: Copyright (c) Philipp Wagner. All rights reserved.
 :: Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-set FUSEKI_SERVER_DIRECTORY="G:\Apache_Jena\apache-jena-fuseki-3.13.1"
-set AVIATION_SERVICE_CONFIGURATION="D:\github\ApacheJenaSample\Scripts\config\aviation_conf.ttl"
+set DGRAPH_EXECUTABLE="G:\DGraph\v1.0.17\dgraph.exe"
+set FILENAME_RDF="G:\aviation_2014.rdf"
+set FILENAME_SCHEMA="D:\github\DGraphSample\Scripts\res\schema.txt"
 
-pushd %FUSEKI_SERVER_DIRECTORY%
-
-java -Xmx1200M -jar "%FUSEKI_SERVER_DIRECTORY%\fuseki-server.jar" --conf=%AVIATION_SERVICE_CONFIGURATION%
-
-pause
+%DGRAPH_EXECUTABLE% bulk -f %FILENAME_RDF% -s %FILENAME_SCHEMA% --reduce_shards=1 --http localhost:8000 --zero=localhost:5080
