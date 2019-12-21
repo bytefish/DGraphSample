@@ -193,11 +193,11 @@ namespace DGraphSample.Exporter
             // In dotnetrdf the Formatters expexts a valid Uri for a Uri Node. We cannot 
             // use "<airport.airport_id>" for a predicate. At the same time I don't want 
             // to have "<http://www.bytefish.de/Aviation/Airports#airport.airport_id> for 
-            // predicates. They would make queries extremly painful.
+            // predicates. It would make queries extremly painful.
             //
-            // We use a little knowledge about the predicates used in this code. We only 
-            // use the Fragment of the Uri as the predicate. Maybe this doesn't hold for 
-            // the RDF you need to write, so please be careful using this code:
+            // We use a little knowledge about the predicates used in this code: We only 
+            // use the Fragment part of the Uri as the predicate. Maybe this doesn't hold 
+            // for the RDF you need to write, so please be careful using this code:
             return u
                 .Fragment
                 .TrimStart('#');
@@ -383,6 +383,7 @@ namespace DGraphSample.Exporter
         {
             // Simple NodeId Generator for BlankNode usage:
             nodeIdGenerator = new NodeIdGenerator();
+
 
             // Create a Console Logger:
             log = LoggerFactory
@@ -780,8 +781,8 @@ namespace DGraphSample.Exporter
                     SecurityDelay = x.SecurityDelay,
                     WeatherDelay = x.WeatherDelay,
                     FlightDate = x.FlightDate,
-                    ActualDepartureTime = x.ActualDepartureTime,
-                    ScheduledDepartureTime = x.ScheduledDepartureTime
+                    ActualDepartureTime = x.ActualDepartureTime.HasValue ? x.FlightDate.Add(x.ActualDepartureTime.Value) : (DateTime?) null,
+                    ScheduledDepartureTime = x.ScheduledDepartureTime.HasValue ? x.FlightDate.Add(x.ScheduledDepartureTime.Value) : (DateTime?)null,
                 });
         }
 

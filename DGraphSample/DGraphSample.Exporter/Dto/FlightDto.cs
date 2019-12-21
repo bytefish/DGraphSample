@@ -47,9 +47,9 @@ namespace DGraphSample.Exporter.Dto
 
         public string CancellationCode { get; set; }
 
-        public TimeSpan? ActualDepartureTime { get; set; }
+        public DateTime? ActualDepartureTime { get; set; }
 
-        public TimeSpan? ScheduledDepartureTime { get; set; }
+        public DateTime? ScheduledDepartureTime { get; set; }
 
         private string GetUniqueIdentifier()
         {
