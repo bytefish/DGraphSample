@@ -1,4 +1,4 @@
-﻿#
+#
 # General Node Data
 #
 node_type: string @index(exact) .
@@ -6,16 +6,16 @@ node_type: string @index(exact) .
 #
 # Aircraft Data
 #
-aircraft.n_number
-aircraft.serial_number
-aircraft.unique_id
-aircraft.manufacturer
-aircraft.model
-aircraft.seats
-aircraft.engine_manufacturer
-aircraft.engine_model
-aircraft.engine_horsepower
-aircraft.engine_thrust
+aircraft.n_number: string @index(exact) .
+aircraft.serial_number: string .
+aircraft.unique_id: string .
+aircraft.manufacturer: string .
+aircraft.model: string .
+aircraft.seats: string .
+aircraft.engine_manufacturer: string .
+aircraft.engine_model: string .
+aircraft.engine_horsepower: string .
+aircraft.engine_thrust: string .
 
 #
 # Airport Data
@@ -46,7 +46,7 @@ station.lon: string .
 station.elevation: float .
 
 #
-# METAR / ASOS Weather Measurements
+# METAR or ASOS Weather Measurements
 #
 weather.timestamp: dateTime .
 weather.tmpf: float .
@@ -58,7 +58,7 @@ weather.drct: float .
 weather.sknt: float .
 weather.p01i: float .
 weather.alti: float .
-weather.mslp: float.
+weather.mslp: float .
 weather.vsby_mi: float .
 weather.vsby_km: float .
 weather.skyc1: string .

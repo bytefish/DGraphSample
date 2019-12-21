@@ -51,13 +51,5 @@ namespace DGraphSample.Exporter.Dto
 
         public DateTime? ScheduledDepartureTime { get; set; }
 
-        private string GetUniqueIdentifier()
-        {
-            var flightDate = FlightDate.ToString("yyyyMMdd");
-
-            var scheduledDepartureTime = $"{ScheduledDepartureTime?.Hours}_{ScheduledDepartureTime?.Minutes}";
-
-            return $"flight_{FlightNumber}_{TailNumber}_{flightDate}_{scheduledDepartureTime}";
-        }
     }
 }

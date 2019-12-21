@@ -185,9 +185,7 @@ namespace DGraphSample.Exporter
             // if the Uri starts with an XMLSchema definition:
             if(u.ToString().StartsWith("http://www.w3.org/2001/XMLSchema#"))
             {
-                return u
-                    .ToString()
-                    .Replace("http://www.w3.org/2001/XMLSchema#", "xs:");
+                return u.AbsoluteUri;
             }
 
             // In dotnetrdf the Formatters expexts a valid Uri for a Uri Node. We cannot 
@@ -373,8 +371,6 @@ namespace DGraphSample.Exporter
 
         private static CustomNTriplesFormatter nTriplesFormatter;
 
-        private static NamespaceMapper namespaceMapper;
-
         private static ILogger log;
 
         private static NodeIdGenerator nodeIdGenerator;
@@ -383,7 +379,6 @@ namespace DGraphSample.Exporter
         {
             // Simple NodeId Generator for BlankNode usage:
             nodeIdGenerator = new NodeIdGenerator();
-
 
             // Create a Console Logger:
             log = LoggerFactory
