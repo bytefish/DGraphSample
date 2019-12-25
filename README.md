@@ -153,6 +153,23 @@ has_weather_station: uid @reverse .
 has_station: uid @reverse .
 ```
 
+## Importing the Dataset ##
+
+Dgraph is able to constantly map 177.4k nquads per second during the entire import:
+
+```
+[18:13:19+0100] MAP 01h03m20s nquad_count:586.6M err_count:0.000 nquad_speed:154.4k/sec edge_count:674.1M edge_speed:177.4k/sec
+```
+
+Importing the entire dataset takes 2h18m14s:
+
+```
+[19:28:13+0100] REDUCE 02h18m14s 100.00% edge_count:1.113G edge_speed:532.0k/sec plist_count:991.8M plist_speed:474.2k/sec
+Total: 02h18m14s
+```
+
+The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
+
 ## Queries ##
 
 ### Number of Flights Departed by Airport ###

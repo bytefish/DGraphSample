@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading;
 using DGraphSample.Csv.Aotp.Parser;
@@ -19,6 +20,243 @@ using VDS.RDF.Writing.Formatting;
 
 namespace DGraphSample.Exporter
 {
+    public class BlankNode : VDS.RDF.BlankNode
+    {
+        protected BlankNode()
+        {
+        }
+
+        protected BlankNode(SerializationInfo info, StreamingContext context) 
+            : base(info, context)
+        {
+        }
+
+        protected internal BlankNode(IGraph g) 
+            : base(g)
+        {
+        }
+
+        protected internal BlankNode(INodeFactory factory) 
+            : base(factory)
+        {
+        }
+
+        protected internal BlankNode(IGraph g, string id) 
+            : base(g, id)
+        {
+        }
+    }
+
+    public class GraphLiteralNode : VDS.RDF.GraphLiteralNode
+    {
+        protected GraphLiteralNode()
+        {
+        }
+
+        protected GraphLiteralNode(SerializationInfo info, StreamingContext context) 
+            : base(info, context)
+        {
+        }
+
+        protected internal GraphLiteralNode(IGraph g) 
+            : base(g)
+        {
+        }
+
+        protected internal GraphLiteralNode(IGraph g, IGraph subgraph) 
+            : base(g, subgraph)
+        {
+        }
+    }
+
+    public class LiteralNode : VDS.RDF.LiteralNode
+    {
+        protected LiteralNode()
+        {
+        }
+
+        protected LiteralNode(SerializationInfo info, StreamingContext context) 
+            : base(info, context)
+        {
+        }
+
+        protected internal LiteralNode(IGraph g, string literal) 
+            : base(g, literal)
+        {
+        }
+
+        protected internal LiteralNode(IGraph g, string literal, bool normalize) 
+            : base(g, literal, normalize)
+        {
+        }
+
+        protected internal LiteralNode(IGraph g, string literal, string langspec) 
+            : base(g, literal, langspec)
+        {
+        }
+
+        protected internal LiteralNode(IGraph g, string literal, Uri datatype) 
+            : base(g, literal, datatype)
+        {
+        }
+
+        protected internal LiteralNode(IGraph g, string literal, string langspec, bool normalize) 
+            : base(g, literal, langspec, normalize)
+        {
+        }
+
+        protected internal LiteralNode(IGraph g, string literal, Uri datatype, bool normalize) 
+            : base(g, literal, datatype, normalize)
+        {
+        }
+    }
+
+    public class UriNode : VDS.RDF.UriNode
+    {
+        protected UriNode()
+        {
+        }
+
+        protected UriNode(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
+
+        protected internal UriNode(IGraph g, Uri uri) : base(g, uri)
+        {
+        }
+
+        protected internal UriNode(IGraph g, string qname) : base(g, qname)
+        {
+        }
+    }
+
+    public class VariableNode : VDS.RDF.VariableNode
+    {
+        protected VariableNode()
+        {
+        }
+
+        protected VariableNode(SerializationInfo info, StreamingContext context) : base(info, context)
+        {
+        }
+
+        protected internal VariableNode(IGraph g, string varname) : base(g, varname)
+        {
+        }
+    }
+
+    public class NodeFactory : INodeFactory
+    {
+        /// <summary>
+        /// Creates a new Node Factory.
+        /// </summary>
+        public NodeFactory()
+        { }
+
+        #region INodeFactory Members
+
+        /// <summary>
+        /// Creates a Blank Node with a new automatically generated ID.
+        /// </summary>
+        /// <returns></returns>
+        public IBlankNode CreateBlankNode()
+        {
+            return new BlankNode(this);
+        }
+
+        /// <summary>
+        /// Creates a Blank Node with the given Node ID.
+        /// </summary>
+        /// <param name="nodeId">Node ID.</param>
+        /// <returns></returns>
+        public IBlankNode CreateBlankNode(string nodeId)
+        {
+            return new BlankNode(null, nodeId);
+        }
+
+        /// <summary>
+        /// Creates a Graph Literal Node which represents the empty Subgraph.
+        /// </summary>
+        /// <returns></returns>
+        public IGraphLiteralNode CreateGraphLiteralNode()
+        {
+            return new GraphLiteralNode(null);
+        }
+
+        /// <summary>
+        /// Creates a Graph Literal Node which represents the given Subgraph.
+        /// </summary>
+        /// <param name="subgraph">Subgraph.</param>
+        /// <returns></returns>
+        public IGraphLiteralNode CreateGraphLiteralNode(IGraph subgraph)
+        {
+            return new GraphLiteralNode(null, subgraph);
+        }
+
+        /// <summary>
+        /// Creates a Literal Node with the given Value and Data Type.
+        /// </summary>
+        /// <param name="literal">Value of the Literal.</param>
+        /// <param name="datatype">Data Type URI of the Literal.</param>
+        /// <returns></returns>
+        public ILiteralNode CreateLiteralNode(string literal, Uri datatype)
+        {
+            return new LiteralNode(null, literal, datatype);
+        }
+
+        /// <summary>
+        /// Creates a Literal Node with the given Value.
+        /// </summary>
+        /// <param name="literal">Value of the Literal.</param>
+        /// <returns></returns>
+        public ILiteralNode CreateLiteralNode(string literal)
+        {
+            return new LiteralNode(null, literal);
+        }
+
+        /// <summary>
+        /// Creates a Literal Node with the given Value and Language.
+        /// </summary>
+        /// <param name="literal">Value of the Literal.</param>
+        /// <param name="langspec">Language Specifier for the Literal.</param>
+        /// <returns></returns>
+        public ILiteralNode CreateLiteralNode(string literal, string langspec)
+        {
+            return new LiteralNode(null, literal, langspec);
+        }
+
+        /// <summary>
+        /// Creates a URI Node for the given URI.
+        /// </summary>
+        /// <param name="uri">URI.</param>
+        /// <returns></returns>
+        public IUriNode CreateUriNode(Uri uri)
+        {
+            return new UriNode(null, uri);
+        }
+
+        /// <summary>
+        /// Creates a Variable Node for the given Variable Name.
+        /// </summary>
+        /// <param name="varname"></param>
+        /// <returns></returns>
+        public IVariableNode CreateVariableNode(string varname)
+        {
+            return new VariableNode(null, varname);
+        }
+
+        /// <summary>
+        /// Creates a new unused Blank Node ID and returns it.
+        /// </summary>
+        /// <returns></returns>
+        public string GetNextBlankNodeID()
+        {
+            throw new NotImplementedException();
+        }
+
+        #endregion
+    }
+
     public class CustomNTriplesFormatter : BaseFormatter
     {
         /// <summary>
@@ -290,19 +528,6 @@ namespace DGraphSample.Exporter
         }
     }
 
-    public class NonCachingQNameOutputMapper : QNameOutputMapper
-    {
-        public NonCachingQNameOutputMapper(INamespaceMapper nsmapper)
-            : base(nsmapper)
-        {
-        }
-
-        protected override void AddToCache(string uri, QNameMapping mapping)
-        {
-            // Ignore ...
-        }
-    }
-
     /// <summary>
     /// A simple Generator for Blank Node IDs. I don't need any validation / caching or complicated mechanisms
     /// for generating Blank Node IDs. We will instantiate this Generator and generate unique IDs among 
@@ -400,7 +625,7 @@ namespace DGraphSample.Exporter
             var airports = GetAirportData(csvAirportFile).ToList();
             var stations = GetWeatherStationData(csvWeatherStationsFileName).ToList();
 
-            using (FileStream fileStream = File.Create(@"G:\aviation_2014.ttl"))
+            using (FileStream fileStream = File.Create(@"G:\aviation_2014.rdf"))
             {
                 using (StreamWriter writer = new StreamWriter(fileStream))
                 {

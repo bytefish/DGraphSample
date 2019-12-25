@@ -21,17 +21,17 @@ namespace DGraphSample.Exporter
 
         public static class Types
         {
-            public const string Aircraft = "aircraft";
-            public const string Flight = "flight";
-            public const string Carrier = "carrier";
-            public const string Airport = "airport";
-            public const string WeatherStation = "weather_station";
-            public const string WeatherData = "weather_data";
+            public const string Aircraft = "Aircraft";
+            public const string Flight = "Flight";
+            public const string Carrier = "Carrier";
+            public const string Airport = "Airport";
+            public const string WeatherStation = "Station";
+            public const string WeatherData = "Weather";
         }
 
         public static class Predicates
         {
-            public static readonly Uri Type = UriHelper.SetFragment(NsAviationGeneral, "node_type");
+            public static readonly Uri Type = UriHelper.SetFragment(NsAviationGeneral, "dgraph.type");
 
             // Airport Data:
             public static readonly Uri AirportId = UriHelper.SetFragment(NsAviationAirport, "airport.airport_id");
