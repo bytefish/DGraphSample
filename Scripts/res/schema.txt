@@ -12,18 +12,6 @@ aircraft.engine_model: string .
 aircraft.engine_horsepower: string .
 aircraft.engine_thrust: string .
 
-type Aircraft {
-  aircraft.n_number
-  aircraft.serial_number
-  aircraft.unique_id
-  aircraft.manufacturer
-  aircraft.model
-  aircraft.seats
-  aircraft.engine_manufacturer
-  aircraft.engine_model
-  aircraft.engine_horsepower
-  aircraft.engine_thrust
-}
 
 #
 # Airport Data
@@ -36,26 +24,11 @@ airport.city: string .
 airport.state: string .
 airport.country: string .
 
-type Airport {
-  airport.airport_id
-  airport.name
-  airport.iata
-  airport.code
-  airport.city
-  airport.state
-  airport.country
-}
-
 #
 # Carrier Data
 #
 carrier.code: string @index(exact) .
 carrier.description: string .
-
-type Carrier {
-  carrier.code
-  carrier.description
-}
 
 # 
 # Weather Station Data
@@ -67,16 +40,6 @@ station.synop: string .
 station.lat: string .
 station.lon: string .
 station.elevation: float .
-
-type Station {
-  station.icao
-  station.name
-  station.iata
-  station.synop
-  station.lat
-  station.lon
-  station.elevation
-}
 
 #
 # METAR or ASOS Weather Measurements
@@ -114,6 +77,82 @@ weather.peak_wind_time_hh: int .
 weather.peak_wind_time_MM: int .
 weather.metar: string .
 
+#
+# Flight Data
+#
+flight.tail_number: string @index(exact) .
+flight.flight_number: string @index(exact) .
+flight.flight_date: dateTime .
+flight.carrier: string .
+flight.year: int .
+flight.month: int .
+flight.day_of_week: int .
+flight.day_of_month: int .
+flight.cancellation_code: string @index(exact) .
+flight.distance: float .
+flight.departure_delay: int .
+flight.arrival_delay: int .
+flight.carrier_delay: int .
+flight.weather_delay: int .
+flight.nas_delay: int .
+flight.security_delay: int .
+flight.late_aircraft_delay: int .
+flight.scheduled_departure_time: dateTime .
+flight.actual_departure_time: dateTime .
+
+#
+# Relationships in Data
+#
+has_aircraft: uid @reverse .
+has_origin_airport: uid @reverse .
+has_destination_airport: uid @reverse .
+has_carrier: uid @reverse .
+has_weather_station: uid @reverse .
+has_station: uid @reverse .
+
+#
+# Types 
+#
+type Aircraft {
+  aircraft.n_number
+  aircraft.serial_number
+  aircraft.unique_id
+  aircraft.manufacturer
+  aircraft.model
+  aircraft.seats
+  aircraft.engine_manufacturer
+  aircraft.engine_model
+  aircraft.engine_horsepower
+  aircraft.engine_thrust
+}
+
+type Airport {
+  airport.airport_id
+  airport.name
+  airport.iata
+  airport.code
+  airport.city
+  airport.state
+  airport.country
+
+  has_weather_station
+}
+
+type Carrier {
+  carrier.code
+  carrier.description
+}
+
+type Station {
+  station.icao
+  station.name
+  station.iata
+  station.synop
+  station.lat
+  station.lon
+  station.elevation  
+}
+
 type Weather {
   weather.timestamp
   weather.tmpf
@@ -147,30 +186,9 @@ type Weather {
   weather.peak_wind_time_hh
   weather.peak_wind_time_MM
   weather.metar
+  
+  has_station
 }
-
-#
-# Flight Data
-#
-flight.tail_number: string @index(exact) .
-flight.flight_number: string @index(exact) .
-flight.flight_date: dateTime .
-flight.carrier: string .
-flight.year: int .
-flight.month: int .
-flight.day_of_week: int .
-flight.day_of_month: int .
-flight.cancellation_code: string @index(exact) .
-flight.distance: float .
-flight.departure_delay: int .
-flight.arrival_delay: int .
-flight.carrier_delay: int .
-flight.weather_delay: int .
-flight.nas_delay: int .
-flight.security_delay: int .
-flight.late_aircraft_delay: int .
-flight.scheduled_departure_time: dateTime .
-flight.actual_departure_time: dateTime .
 
 type Flight {
   flight.tail_number
@@ -192,14 +210,9 @@ type Flight {
   flight.late_aircraft_delay
   flight.scheduled_departure_time
   flight.actual_departure_time
+  
+  has_aircraft
+  has_origin_airport
+  has_destination_airport
+  has_carrier
 }
-
-#
-# Relationships in Data
-#
-has_aircraft: uid @reverse .
-has_origin_airport: uid @reverse .
-has_destination_airport: uid @reverse .
-has_carrier: uid @reverse .
-has_weather_station: uid @reverse .
-has_station: uid @reverse .
