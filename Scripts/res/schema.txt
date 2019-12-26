@@ -1,9 +1,4 @@
 #
-# General Node Data
-#
-node_type: string @index(exact) .
-
-#
 # Aircraft Data
 #
 aircraft.n_number: string @index(exact) .
@@ -17,6 +12,19 @@ aircraft.engine_model: string .
 aircraft.engine_horsepower: string .
 aircraft.engine_thrust: string .
 
+type Aircraft {
+  aircraft.n_number
+  aircraft.serial_number
+  aircraft.unique_id
+  aircraft.manufacturer
+  aircraft.model
+  aircraft.seats
+  aircraft.engine_manufacturer
+  aircraft.engine_model
+  aircraft.engine_horsepower
+  aircraft.engine_thrust
+}
+
 #
 # Airport Data
 #
@@ -28,11 +36,26 @@ airport.city: string .
 airport.state: string .
 airport.country: string .
 
+type Airport {
+  airport.airport_id
+  airport.name
+  airport.iata
+  airport.code
+  airport.city
+  airport.state
+  airport.country
+}
+
 #
 # Carrier Data
 #
 carrier.code: string @index(exact) .
 carrier.description: string .
+
+type Carrier {
+  carrier.code
+  carrier.description
+}
 
 # 
 # Weather Station Data
@@ -44,6 +67,16 @@ station.synop: string .
 station.lat: string .
 station.lon: string .
 station.elevation: float .
+
+type Station {
+  station.icao
+  station.name
+  station.iata
+  station.synop
+  station.lat
+  station.lon
+  station.elevation
+}
 
 #
 # METAR or ASOS Weather Measurements
@@ -81,6 +114,41 @@ weather.peak_wind_time_hh: int .
 weather.peak_wind_time_MM: int .
 weather.metar: string .
 
+type Weather {
+  weather.timestamp
+  weather.tmpf
+  weather.tmpc
+  weather.dwpf
+  weather.dwpc
+  weather.relh
+  weather.drct
+  weather.sknt
+  weather.p01i
+  weather.alti
+  weather.mslp
+  weather.vsby_mi
+  weather.vsby_km
+  weather.skyc1
+  weather.skyc2
+  weather.skyc3
+  weather.skyc4
+  weather.skyl1
+  weather.skyl2
+  weather.skyl3
+  weather.skyl4
+  weather.wxcodes
+  weather.feelf
+  weather.feelc
+  weather.ice_accretion_1hr
+  weather.ice_accretion_3hr
+  weather.ice_accretion_6hr
+  weather.peak_wind_gust
+  weather.peak_wind_drct
+  weather.peak_wind_time_hh
+  weather.peak_wind_time_MM
+  weather.metar
+}
+
 #
 # Flight Data
 #
@@ -103,6 +171,28 @@ flight.security_delay: int .
 flight.late_aircraft_delay: int .
 flight.scheduled_departure_time: dateTime .
 flight.actual_departure_time: dateTime .
+
+type Flight {
+  flight.tail_number
+  flight.flight_number
+  flight.flight_date
+  flight.carrier
+  flight.year
+  flight.month
+  flight.day_of_week
+  flight.day_of_month
+  flight.cancellation_code
+  flight.distance
+  flight.departure_delay
+  flight.arrival_delay
+  flight.carrier_delay
+  flight.weather_delay
+  flight.nas_delay
+  flight.security_delay
+  flight.late_aircraft_delay
+  flight.scheduled_departure_time
+  flight.actual_departure_time
+}
 
 #
 # Relationships in Data
