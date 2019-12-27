@@ -82,7 +82,7 @@ weather.metar: string .
 #
 flight.tail_number: string @index(exact) .
 flight.flight_number: string @index(exact) .
-flight.flight_date: dateTime .
+flight.flight_date: dateTime @index(day) .
 flight.carrier: string .
 flight.year: int .
 flight.month: int .
@@ -186,7 +186,7 @@ type Weather {
   weather.peak_wind_time_hh
   weather.peak_wind_time_MM
   weather.metar
-  
+ 
   has_station
 }
 

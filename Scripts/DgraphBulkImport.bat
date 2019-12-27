@@ -9,7 +9,7 @@ set DGRAPH_BULK_TMP_DIRECTORY="G:\DGraph\tmp"
 set DGRAPH_BULK_OUT_DIRECTORY="G:\DGraph\out"
 
 :: Schema and Data
-set FILENAME_RDF="G:\aviation_2014.rdf"
+set FILENAME_RDF="D:\aviation_2014.rdf.gz"
 set FILENAME_SCHEMA="D:\github\DGraphSample\Scripts\res\schema.txt"
 
 %DGRAPH_EXECUTABLE% bulk -f %FILENAME_RDF% -s %FILENAME_SCHEMA% --replace_out --reduce_shards=1 --tmp %DGRAPH_BULK_TMP_DIRECTORY% --out %DGRAPH_BULK_OUT_DIRECTORY% --http localhost:8000 --zero=localhost:5080

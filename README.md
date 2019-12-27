@@ -172,6 +172,21 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 
 ## Queries ##
 
+### Airports with a Weather Station ###
+
+```graphql
+{
+  q(func: type(Airport)) @filter(has(has_weather_station)) {
+    airport.airport_id
+    airport.name
+    has_weather_station {
+      station.name
+      station.elevation
+    }
+  }
+}
+```
+
 ### Number of Flights Departed by Airport ###
 
 ```graphql
