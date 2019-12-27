@@ -172,6 +172,20 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 
 ## Queries ##
 
+### Get all reachable Nodes for a given Flight ###
+
+```graphql
+{
+  flights(func: type(Flight)) @filter(eq(flight.tail_number, "965UW") 
+    and eq(flight.flight_number, "1981")
+    and eq(flight.flight_date, "2014-03-18T00:00:00")) {
+      expand(_all_) {
+        expand(_all_)
+    }
+  }
+}
+```
+
 ### Airports with a Weather Station ###
 
 ```graphql
@@ -183,17 +197,6 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
       station.name
       station.elevation
     }
-  }
-}
-```
-
-### Number of Flights Departed by Airport ###
-
-```graphql
-{
-   number_of_flights_started(func: eq(type, "airport")) {
-    name
-    count(~origin_airport)
   }
 }
 ```
