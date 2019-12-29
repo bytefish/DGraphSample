@@ -1,7 +1,0 @@
-﻿{
-    carriers(func: eq(node.type, "carrier")) {
-        uid
-        carrier.code
-        carrier.description
-    }
-}
