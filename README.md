@@ -303,7 +303,7 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 
 ### Weather for Day of Flight ###
 
-```
+```graphql
 {
   q(func: type(Flight)) @filter(eq(flight.tail_number, "965UW") and eq(flight.flight_number, "1981") and eq(flight.flight_date, "2014-03-18T00:00:00")) @cascade {
     uid
@@ -713,7 +713,7 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 
 ### TOP 10 Airports for Flight Cancellations ###
 
-```
+```graphql
 {
   var(func: type(Airport)) @filter(has(~has_origin_airport)) {
     uid
