@@ -37,34 +37,30 @@ dgraph alpha --lru_mb 4096 --zero localhost:5080
 
 ```
 #
-# General Node Data
-#
-node_type: string @index(exact) .
-
-#
 # Aircraft Data
 #
 aircraft.n_number: string @index(exact) .
 aircraft.serial_number: string .
 aircraft.unique_id: string .
-aircraft.manufacturer: string .
-aircraft.model: string .
-aircraft.seats: string .
-aircraft.engine_manufacturer: string .
-aircraft.engine_model: string .
-aircraft.engine_horsepower: string .
-aircraft.engine_thrust: string .
+aircraft.manufacturer: string @index(exact) .
+aircraft.model: string @index(exact) .
+aircraft.seats: string @index(exact) .
+aircraft.engine_manufacturer: string @index(exact) .
+aircraft.engine_model: string @index(exact) .
+aircraft.engine_horsepower: string @index(exact) .
+aircraft.engine_thrust: string @index(exact) .
+
 
 #
 # Airport Data
 #
-airport.airport_id: string .
+airport.airport_id: string @index(exact) .
 airport.name: string @index(exact) .
 airport.iata: string @index(exact) .
-airport.code: string .
-airport.city: string .
+airport.code: string @index(exact) .
+airport.city: string @index(exact) .
 airport.state: string .
-airport.country: string .
+airport.country: string @index(exact) .
 
 #
 # Carrier Data
@@ -86,7 +82,7 @@ station.elevation: float .
 #
 # METAR or ASOS Weather Measurements
 #
-weather.timestamp: dateTime .
+weather.timestamp: dateTime @index(day) .
 weather.tmpf: float .
 weather.tmpc: float .
 weather.dwpf: float .
@@ -124,23 +120,23 @@ weather.metar: string .
 #
 flight.tail_number: string @index(exact) .
 flight.flight_number: string @index(exact) .
-flight.flight_date: dateTime .
-flight.carrier: string .
-flight.year: int .
-flight.month: int .
-flight.day_of_week: int .
-flight.day_of_month: int .
+flight.flight_date: dateTime @index(day) .
+flight.carrier: string @index(exact) .
+flight.year: int @index(int) .
+flight.month: int @index(int) .
+flight.day_of_week: int @index(int) .
+flight.day_of_month: int @index(int) .
 flight.cancellation_code: string @index(exact) .
-flight.distance: float .
-flight.departure_delay: int .
-flight.arrival_delay: int .
-flight.carrier_delay: int .
-flight.weather_delay: int .
-flight.nas_delay: int .
-flight.security_delay: int .
-flight.late_aircraft_delay: int .
-flight.scheduled_departure_time: dateTime .
-flight.actual_departure_time: dateTime .
+flight.distance: float @index(float) .
+flight.departure_delay: int @index(int) .
+flight.arrival_delay: int @index(int) .
+flight.carrier_delay: int @index(int) .
+flight.weather_delay: int @index(int) .
+flight.nas_delay: int @index(int) .
+flight.security_delay: int @index(int) .
+flight.late_aircraft_delay: int @index(int) .
+flight.scheduled_departure_time: dateTime @index(day) .
+flight.actual_departure_time: dateTime @index(day) .
 
 #
 # Relationships in Data
@@ -151,6 +147,113 @@ has_destination_airport: uid @reverse .
 has_carrier: uid @reverse .
 has_weather_station: uid @reverse .
 has_station: uid @reverse .
+
+#
+# Types 
+#
+type Aircraft {
+  aircraft.n_number
+  aircraft.serial_number
+  aircraft.unique_id
+  aircraft.manufacturer
+  aircraft.model
+  aircraft.seats
+  aircraft.engine_manufacturer
+  aircraft.engine_model
+  aircraft.engine_horsepower
+  aircraft.engine_thrust
+}
+
+type Airport {
+  airport.airport_id
+  airport.name
+  airport.iata
+  airport.code
+  airport.city
+  airport.state
+  airport.country
+
+  has_weather_station
+}
+
+type Carrier {
+  carrier.code
+  carrier.description
+}
+
+type Station {
+  station.icao
+  station.name
+  station.iata
+  station.synop
+  station.lat
+  station.lon
+  station.elevation  
+}
+
+type Weather {
+  weather.timestamp
+  weather.tmpf
+  weather.tmpc
+  weather.dwpf
+  weather.dwpc
+  weather.relh
+  weather.drct
+  weather.sknt
+  weather.p01i
+  weather.alti
+  weather.mslp
+  weather.vsby_mi
+  weather.vsby_km
+  weather.skyc1
+  weather.skyc2
+  weather.skyc3
+  weather.skyc4
+  weather.skyl1
+  weather.skyl2
+  weather.skyl3
+  weather.skyl4
+  weather.wxcodes
+  weather.feelf
+  weather.feelc
+  weather.ice_accretion_1hr
+  weather.ice_accretion_3hr
+  weather.ice_accretion_6hr
+  weather.peak_wind_gust
+  weather.peak_wind_drct
+  weather.peak_wind_time_hh
+  weather.peak_wind_time_MM
+  weather.metar
+ 
+  has_station
+}
+
+type Flight {
+  flight.tail_number
+  flight.flight_number
+  flight.flight_date
+  flight.carrier
+  flight.year
+  flight.month
+  flight.day_of_week
+  flight.day_of_month
+  flight.cancellation_code
+  flight.distance
+  flight.departure_delay
+  flight.arrival_delay
+  flight.carrier_delay
+  flight.weather_delay
+  flight.nas_delay
+  flight.security_delay
+  flight.late_aircraft_delay
+  flight.scheduled_departure_time
+  flight.actual_departure_time
+  
+  has_aircraft
+  has_origin_airport
+  has_destination_airport
+  has_carrier
+}
 ```
 
 ## Importing the Dataset ##
