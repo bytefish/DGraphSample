@@ -4,25 +4,25 @@
 aircraft.n_number: string @index(exact) .
 aircraft.serial_number: string .
 aircraft.unique_id: string .
-aircraft.manufacturer: string .
-aircraft.model: string .
-aircraft.seats: string .
-aircraft.engine_manufacturer: string .
-aircraft.engine_model: string .
-aircraft.engine_horsepower: string .
-aircraft.engine_thrust: string .
+aircraft.manufacturer: string @index(exact) .
+aircraft.model: string @index(exact) .
+aircraft.seats: string @index(exact) .
+aircraft.engine_manufacturer: string @index(exact) .
+aircraft.engine_model: string @index(exact) .
+aircraft.engine_horsepower: string @index(exact) .
+aircraft.engine_thrust: string @index(exact) .
 
 
 #
 # Airport Data
 #
-airport.airport_id: string .
+airport.airport_id: string @index(exact) .
 airport.name: string @index(exact) .
 airport.iata: string @index(exact) .
-airport.code: string .
-airport.city: string .
+airport.code: string @index(exact) .
+airport.city: string @index(exact) .
 airport.state: string .
-airport.country: string .
+airport.country: string @index(exact) .
 
 #
 # Carrier Data
@@ -44,7 +44,7 @@ station.elevation: float .
 #
 # METAR or ASOS Weather Measurements
 #
-weather.timestamp: dateTime .
+weather.timestamp: dateTime @index(day) .
 weather.tmpf: float .
 weather.tmpc: float .
 weather.dwpf: float .
@@ -83,22 +83,22 @@ weather.metar: string .
 flight.tail_number: string @index(exact) .
 flight.flight_number: string @index(exact) .
 flight.flight_date: dateTime @index(day) .
-flight.carrier: string .
-flight.year: int .
-flight.month: int .
-flight.day_of_week: int .
-flight.day_of_month: int .
+flight.carrier: string @index(exact) .
+flight.year: int @index(int) .
+flight.month: int @index(int) .
+flight.day_of_week: int @index(int) .
+flight.day_of_month: int @index(int) .
 flight.cancellation_code: string @index(exact) .
-flight.distance: float .
-flight.departure_delay: int .
-flight.arrival_delay: int .
-flight.carrier_delay: int .
-flight.weather_delay: int .
-flight.nas_delay: int .
-flight.security_delay: int .
-flight.late_aircraft_delay: int .
-flight.scheduled_departure_time: dateTime .
-flight.actual_departure_time: dateTime .
+flight.distance: float @index(float) .
+flight.departure_delay: int @index(int) .
+flight.arrival_delay: int @index(int) .
+flight.carrier_delay: int @index(int) .
+flight.weather_delay: int @index(int) .
+flight.nas_delay: int @index(int) .
+flight.security_delay: int @index(int) .
+flight.late_aircraft_delay: int @index(int) .
+flight.scheduled_departure_time: dateTime @index(day) .
+flight.actual_departure_time: dateTime @index(day) .
 
 #
 # Relationships in Data

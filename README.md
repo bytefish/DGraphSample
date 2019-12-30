@@ -176,12 +176,73 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 
 ```graphql
 {
-  flights(func: type(Flight)) @filter(eq(flight.tail_number, "965UW") 
-    and eq(flight.flight_number, "1981")
-    and eq(flight.flight_date, "2014-03-18T00:00:00")) {
+  flights(func: type(Flight)) @filter(eq(flight.tail_number, "965UW") and eq(flight.flight_number, "1981") and eq(flight.flight_date, "2014-03-18T00:00:00")) {
       expand(_all_) {
         expand(_all_)
     }
+  }
+}
+```
+
+### Weather for Day of Flight ###
+
+```
+{
+  q(func: type(Flight)) @filter(eq(flight.tail_number, "965UW") and eq(flight.flight_number, "1981") and eq(flight.flight_date, "2014-03-18T00:00:00")) @cascade {
+    uid
+    actual_departure: flight.actual_departure_time
+    scheduled_departure: flight.scheduled_departure_time
+    carrier: has_carrier {
+      code: carrier.code
+      description: carrier.description
+    }
+    destination: has_destination_airport {
+      uid
+      name: airport.name
+      weather_station: has_weather_station {
+        measurements: ~has_station (orderasc: weather.timestamp) @filter(ge(weather.timestamp, "2014-03-18T00:00:00") and le(weather.timestamp, "2014-03-19T00:00:00")) {
+          timestamp: weather.timestamp
+          temperature: weather.tmpc
+        }
+      }
+    }
+    origin: has_origin_airport {
+    uid
+    name: airport.name
+    weather_station: has_weather_station {
+        measurements: ~has_station (orderasc: weather.timestamp) @filter(ge(weather.timestamp, "2014-03-18T00:00:00") and le(weather.timestamp, "2014-03-19T00:00:00")) {
+          timestamp: weather.timestamp
+          temperature: weather.tmpc
+        }
+      }
+    }
+  }
+}
+```
+
+### Flights Cancelled due to Weather ###
+
+```graphql
+{
+  var(func: type(Airport)) @filter(has(~has_origin_airport)) {
+    uid
+    total_flights as count(~has_origin_airport)
+  }
+    
+  var(func: type(Airport)) @filter(has(~has_origin_airport)) {
+    uid
+    cancelled_flights as count(~has_origin_airport) @filter(eq(flight.cancellation_code, "B"))
+  }
+      
+  var(func: uid(total_flights, cancelled_flights))  {
+    uid
+    percent_cancelled as math(cancelled_flights / (total_flights * 1.0) * 100.0)
+  }
+
+  q(func: uid(percent_cancelled), first: 10, orderdesc: val(percent_cancelled)) @filter(ge(val(total_flights), 50000)) {
+    uid
+    airport: airport.name
+    percent_cancelled: val(percent_cancelled)
   }
 }
 ```

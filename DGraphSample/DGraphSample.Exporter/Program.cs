@@ -893,7 +893,7 @@ namespace DGraphSample.Exporter
 
             if (stations.TryGetValue(weather.station, out WeatherStationDto station))
             {
-                triples.Add(nodeFactory.AsUriNode(Constants.Predicates.HasWeatherStation), nodeFactory.AsBlankNode(station.NodeId));
+                triples.Add(nodeFactory.AsUriNode(Constants.Predicates.HasStation), nodeFactory.AsBlankNode(station.NodeId));
             }
 
             return triples.Build();

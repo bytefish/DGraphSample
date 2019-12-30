@@ -131,6 +131,7 @@ namespace DGraphSample.Exporter
             public static readonly Uri HasDestinationAirport = UriHelper.SetFragment(NsAviationGeneral, "has_destination_airport");
             public static readonly Uri HasCarrier = UriHelper.SetFragment(NsAviationGeneral, "has_carrier");
             public static readonly Uri HasWeatherStation = UriHelper.SetFragment(NsAviationGeneral, "has_weather_station");
+            public static readonly Uri HasStation = UriHelper.SetFragment(NsAviationGeneral, "has_station");
         }
     }
 }
