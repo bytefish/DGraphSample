@@ -21,19 +21,136 @@ Starting Dgraph consists of running **Dgraph Zero** and **Dgraph Alpha**:
 * **Dgraph Alpha** 
     * Hosts predicates and indexes.
 
-So first start **Dgraph Zero** by running:
+### Dgraph Zero ###
 
-```
-dgraph zero
-```
+Dgraph Zero is started running ``dgraph.exe zero``. I want the Dgraph Zero WAL Directory on a SSD, so I am also 
+using the ``--wal`` switch to specify the directory:
 
-Then start **Dgraph Alpha** by running:
-
-```
-dgraph alpha --lru_mb 4096 --zero localhost:5080
+```batch
+dgraph.exe zero --wal <ZERO_VAL_DIRECTORY>
 ```
 
-## Dgraph Schema ##
+### Dgraph Alpha ###
+
+A Dgraph Alpha host is started running ``dgraph.exe``. Again I want the WAL Directory and Postings directory on a SSD, 
+so I am using the ``--wal`` and ``--postings`` switch to specify both directories:
+
+```batch
+dgraph.exe alpha --lru_mb 4096 --wal <DGRAPH_WAL_DIRECTORY> --postings <DGRAPH_POSTINGS_DIRECTORY> --zero localhost:5080
+```
+
+## Importing the Aviation Dataset ##
+
+I started this project writing the [TinyDgraphClient] library, which uses the Dgraph Protobuf Schema to communicate 
+with Dgraph. My assumption was, that the mutations are fast enough to perform the import in a reasonable time. This 
+turned out to be wrong, I should have read the documentation and the blog post with technical details:
+
+* [https://blog.dgraph.io/post/bulkloader/](https://blog.dgraph.io/post/bulkloader/)
+
+So the Bulk Loader is the way to go for importing large datasets:
+
+* [https://docs.dgraph.io/deploy/#bulk-loader](https://docs.dgraph.io/deploy/#bulk-loader)
+
+### Building the RDF Dataset ###
+
+In my article on Apache Jena I have already created a RDF dataset for Aviation data. The idea was to simply use this 
+RDF dataset for my Dgraph experiments. Getting the data into a shape I am happy with... turned out to be a bit of a 
+hassle with [dotNetRDF].
+
+Dgraph supports the following set of RDF types:
+
+* [https://docs.dgraph.io/mutations/#language-and-rdf-types](https://docs.dgraph.io/mutations/#language-and-rdf-types)
+
+The original dataset represented the serial number of an Aircraft like this:
+
+```
+<http://www.bytefish.de/aviation/Aircraft#NW8172> <http://www.bytefish.de/aviation/Aircraft#serial_number> "123"^^<http://www.w3.org/2001/XMLSchema#string>
+```
+
+So in RDF all predicates are given as URIs, but I don't want full URLs as predicate names in Dgraph. It would lead to 
+really horrible looking queries. So I opted to write the above statement using a Blank Node (so Dgraph assigns the 
+internal ``uid`` by itself) and ``aircraft.serial_number`` as the predicate name:
+
+```
+_:aircraft_NW8172 <aircraft.serial_number> "123"^^<xs:string>
+```
+
+Since [dotNetRDF] expects a URI as predicate, it failed internally to parse ``aircraft.serial_number`` as a URI. That's 
+why the sample application overrides some of the Nodes and Formatters of the [dotNetRDF] library. There are easier ways 
+to generate the dataset for sure.
+
+### The Dgraph Bulk Loader ### 
+
+Writing the data is done using the ``dgraph bulk`` command. There are various filenames and directories I am setting, 
+so I wrote a small Batch script to not write the entire statement for each import I am testing: 
+
+```batch
+@echo off
+
+:: Copyright (c) Philipp Wagner. All rights reserved.
+:: Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+:: Executable & Temp Dir:
+set DGRAPH_EXECUTABLE="G:\DGraph\v1.1.1\dgraph.exe"
+set DGRAPH_BULK_TMP_DIRECTORY="G:\DGraph\tmp"
+set DGRAPH_BULK_OUT_DIRECTORY="G:\DGraph\out"
+
+:: Schema and Data
+set FILENAME_RDF="D:\aviation_2014.rdf.gz"
+set FILENAME_SCHEMA="D:\github\DGraphSample\Scripts\res\schema.txt"
+
+%DGRAPH_EXECUTABLE% bulk -f %FILENAME_RDF% -s %FILENAME_SCHEMA% --replace_out --reduce_shards=1 --tmp %DGRAPH_BULK_TMP_DIRECTORY% --out %DGRAPH_BULK_OUT_DIRECTORY% --http localhost:8000 --zero=localhost:5080
+
+pause
+```
+
+The switches are:
+
+* ``-f``
+    * The RDF File
+* ``-s``
+    * The Dgraph Schema of the Dgraph database
+* ``--reduce_shards``
+    * I am not building a cluster at the moment, so I am not sharding the data.
+* ``--replace_out``
+    * Each invocation of the Script overrides the existing ``out`` directory, where the data is written to.
+* ``--tmp``
+    * Temporary Directory for the Bulk Import.
+* ``--out`` 
+    * Directory where the data is written to. This dataset will replace the Dgraph postings directory ``p``.
+    
+### Dgraph Schema ###
+
+The Dgraph documentation has a section on Schema definition:
+
+* [https://docs.dgraph.io/query-language/#schema](https://docs.dgraph.io/query-language/#schema)
+
+The Aviation Schema for this sample is available here:
+
+* [https://github.com/bytefish/DGraphSample/blob/master/Scripts/res/schema.txt](https://github.com/bytefish/DGraphSample/blob/master/Scripts/res/schema.txt)
+
+Most examples in the Dgraph documentation share predicates. What do I mean with sharing predicates? Imagine 
+you have a predicate called ``name``. This ``name`` could be used as an actor name, a director name, a movie 
+title, a company name, ...
+
+The "A Tour of Dgraph" tutorial for example uses a name for ``Person`` and ``Company``: 
+
+* [https://tour.dgraph.io/schema/1/](https://tour.dgraph.io/schema/1/)
+
+My **feeling** is, that sharing predicates requires a careful analysis. When I look at my data I think: Should 
+all subjects use the same index for the shared predicate? Should they use the same tokenizer? What queries do 
+we need and does a shared predicate work for all of them? Are the concepts and semantics similar? What will 
+the queries look like?
+
+So the predicates in this examples have names like ``aircraft.serial_number`` to indicate, that this is the 
+Serial Number of the type ``Aircraft``. I think the queries won't be as good looking as in the Dgraph 
+documentation, but I wanted to avoid too much analysis.
+
+Another interesting point are indexes. You can only ``filter`` and ``order`` for predicates, that have an ``index`` 
+applied. This makes a lot of sense to reduce the impact on upserts, for example to avoid rebuilding of indexes. Initially 
+I had problems when writing the queries for the flight data, so I indexed all of the predicates.
+
+Without further explanation here are the directives and indexes:
 
 ```
 #
@@ -147,7 +264,18 @@ has_destination_airport: uid @reverse .
 has_carrier: uid @reverse .
 has_weather_station: uid @reverse .
 has_station: uid @reverse .
+```
 
+Dgraph uses a query language called "GraphQL+-". The language is close to GraphQL, but it also has some additions the "official" 
+GraphQL definition misses. The Dgraph team puts a lot of effort in closing the gap as far as I can see, and a recent addition to 
+Dgraph have been Types:
+
+* [https://docs.dgraph.io/master/query-language/#type-system](https://docs.dgraph.io/master/query-language/#type-system)
+
+These types are needed for example to have Dgraph expanding edges of a Node or to visualize the Schema nicely. For the sample I am 
+defining the Node types ``Aircraft``, ``Airport``, ``Carrier``, ``Station``, ``Weather`` and ``Flight``:
+
+```
 #
 # Types 
 #
@@ -277,6 +405,8 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 
 ### Get all reachable Nodes for a given Flight ###
 
+The edges for a node can be easily expanded in Dgraph using ``expand(_all_)`` in a subquery:
+
 ```graphql
 {
   flights(func: type(Flight)) @filter(eq(flight.tail_number, "965UW") and eq(flight.flight_number, "1981") and eq(flight.flight_date, "2014-03-18T00:00:00")) {
@@ -405,6 +535,8 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 ```
 
 ### Weather for Day of Flight ###
+
+Now the query to get the weather for a day of flight turned out to be surprisingly hard in Dgraph. 
 
 ```graphql
 {
@@ -705,6 +837,15 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 
 ### TOP 10 Airports with Flight Cancellations due to Weather ###
 
+To calculate the average number of flights cancelled due to weather, we need the 
+total number of flights and the number of cancelled flights for each airport.
+
+I had problems doing it in one var block, so I have put it into multiple query blocks:
+
+* https://docs.dgraph.io/query-language/#query-variables
+
+The ``uid(...)`` function represents the union of UIDs:
+
 ```graphql
 {
   var(func: type(Airport)) @filter(has(~has_origin_airport)) {
@@ -730,8 +871,9 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 }
 ```
 
-
 #### Results ####
+
+The results are consistent with the results of Apache Jena, which indicates the two queries are similar:
 
 ```json
 {
@@ -816,6 +958,9 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 
 ### TOP 10 Airports for Flight Cancellations ###
 
+To get the Top 10 Airports with Flights cancelled for all possible reasons listed in the 
+dataset we extend the filter to include all possible causes (A, B, C, D):
+
 ```graphql
 {
   var(func: type(Airport)) @filter(has(~has_origin_airport)) {
@@ -829,7 +974,7 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
       eq(flight.cancellation_code, "A") 
       	or eq(flight.cancellation_code, "B") 
       	or eq(flight.cancellation_code, "C")
-    		or eq(flight.cancellation_code, "D"))
+        or eq(flight.cancellation_code, "D"))
   }
       
   var(func: uid(total_flights, cancelled_flights))  {
@@ -846,6 +991,8 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 ```
 
 #### Result #### 
+
+Again the results are consistent with the Apache Jena query, which indicates the figures are correct for the dataset:
 
 ```json
 {
@@ -927,6 +1074,9 @@ The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 ```
 
 ### Airports with a Weather Station ###
+
+To check if a predicate exists for a given node, the ``has(...)`` function can be used. In the 
+example we check, if a Node of type ``Airport`` has a predicate ``has_weather_station``:
 
 ```graphql
 {
