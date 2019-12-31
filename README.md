@@ -7,8 +7,9 @@ In this repository I want to analyze the Airline On Time Performance dataset usi
 > Dgraph is an open source, scalable, distributed, highly available and fast graph database, 
 > designed from ground up to be run in production.
 
-I have written about working with Neo4j and the SQL Server Graph Database:
+I have previously written about working with Apache Jena, Neo4j and the SQL Server Graph Database:
 
+* [https://bytefish.de/blog/apache_jena/](https://bytefish.de/blog/apache_jena/)
 * [https://bytefish.de/blog/neo4j_at_scale_airline_dataset/](https://bytefish.de/blog/neo4j_at_scale_airline_dataset/)
 * [https://bytefish.de/blog/sql_server_2017_graph_database/](https://bytefish.de/blog/sql_server_2017_graph_database/)
 
@@ -23,8 +24,9 @@ Starting Dgraph consists of running **Dgraph Zero** and **Dgraph Alpha**:
 
 ### Dgraph Zero ###
 
-Dgraph Zero is started running ``dgraph.exe zero``. I want the Dgraph Zero WAL Directory on a SSD, so I am also 
-using the ``--wal`` switch to specify the directory:
+Dgraph Zero is started running ``dgraph zero``. 
+
+I want the Dgraph Zero WAL Directory on a SSD, so I am also using the ``--wal`` switch to specify the directory:
 
 ```batch
 dgraph.exe zero --wal <ZERO_VAL_DIRECTORY>
@@ -32,8 +34,9 @@ dgraph.exe zero --wal <ZERO_VAL_DIRECTORY>
 
 ### Dgraph Alpha ###
 
-A Dgraph Alpha host is started running ``dgraph.exe``. Again I want the WAL Directory and Postings directory on a SSD, 
-so I am using the ``--wal`` and ``--postings`` switch to specify both directories:
+A Dgraph Alpha host is started running ``dgraph alpha``. 
+
+Again I want the WAL Directory and Postings directory on a SSD, so I am using the ``--wal`` and ``--postings`` switch to specify both directories:
 
 ```batch
 dgraph.exe alpha --lru_mb 4096 --wal <DGRAPH_WAL_DIRECTORY> --postings <DGRAPH_POSTINGS_DIRECTORY> --zero localhost:5080
@@ -41,9 +44,11 @@ dgraph.exe alpha --lru_mb 4096 --wal <DGRAPH_WAL_DIRECTORY> --postings <DGRAPH_P
 
 ## Importing the Aviation Dataset ##
 
-I started this project writing the [TinyDgraphClient] library, which uses the Dgraph Protobuf Schema to communicate 
-with Dgraph. My assumption was, that the mutations are fast enough to perform the import in a reasonable time. This 
-turned out to be wrong, I should have read the documentation and the blog post with technical details:
+I started this project with writing the [TinyDgraphClient] library, which is a thin client for the Dgraph 
+Protobuf API. My assumption was, that the batched mutations are fast enough to perform the import of large 
+datasets in a reasonable amount of time. 
+
+This turned out to be wrong, I should have read the documentation and the blog post with technical details:
 
 * [https://blog.dgraph.io/post/bulkloader/](https://blog.dgraph.io/post/bulkloader/)
 
@@ -54,12 +59,18 @@ So the Bulk Loader is the way to go for importing large datasets:
 ### Building the RDF Dataset ###
 
 In my article on Apache Jena I have already created a RDF dataset for Aviation data. The idea was to simply use this 
-RDF dataset for my Dgraph experiments. Getting the data into a shape I am happy with... turned out to be a bit of a 
-hassle with [dotNetRDF].
+RDF dataset for my Dgraph experiments. But getting the data into a shape I am happy with... turned out to be a bit of a 
+fight with [dotNetRDF].
+
+####  ####
 
 Dgraph supports the following set of RDF types:
 
 * [https://docs.dgraph.io/mutations/#language-and-rdf-types](https://docs.dgraph.io/mutations/#language-and-rdf-types)
+
+So for the RDF data I removed all occurences of ``xs:durations``, and turned them into ``xs:dateTime``.
+
+#### Predicates and URIs ####
 
 The original dataset represented the serial number of an Aircraft like this:
 
@@ -67,21 +78,24 @@ The original dataset represented the serial number of an Aircraft like this:
 <http://www.bytefish.de/aviation/Aircraft#NW8172> <http://www.bytefish.de/aviation/Aircraft#serial_number> "123"^^<http://www.w3.org/2001/XMLSchema#string>
 ```
 
-So in RDF all predicates are given as URIs, but I don't want full URLs as predicate names in Dgraph. It would lead to 
-really horrible looking queries. So I opted to write the above statement using a Blank Node (so Dgraph assigns the 
-internal ``uid`` by itself) and ``aircraft.serial_number`` as the predicate name:
+In RDF all predicates are given as IRI (an extension of URI), but I don't want full URLs as predicate 
+names in Dgraph. Why? It would lead to ugly & hard to read queries. So I opted to write the above RDF 
+statement using a Blank Node (so Dgraph assigns the internal ``uid`` by itself) and ``aircraft.serial_number`` 
+as the predicate name:
 
 ```
 _:aircraft_NW8172 <aircraft.serial_number> "123"^^<xs:string>
 ```
 
-Since [dotNetRDF] expects a URI as predicate, it failed internally to parse ``aircraft.serial_number`` as a URI. That's 
-why the sample application overrides some of the Nodes and Formatters of the [dotNetRDF] library. There are easier ways 
-to generate the dataset for sure.
+Since [dotNetRDF] expects a IRI as a predicate, it failed internally to parse ``aircraft.serial_number`` as a URI. That's 
+why the sample application overrides some of the Nodes and Formatters of the [dotNetRDF] library. There are much easier ways 
+to generate the simple Dgraph RDF statements and you should be able to write the NQuads without a library.
 
-### The Dgraph Bulk Loader ### 
+Well... Hindsight is 20/20.
 
-Writing the data is done using the ``dgraph bulk`` command. There are various filenames and directories I am setting, 
+### Running the Dgraph Bulk Loader ### 
+
+Writing RDF data is done using the ``dgraph bulk`` command. There are various filenames and directories I am setting, 
 so I wrote a small Batch script to not write the entire statement for each import I am testing: 
 
 ```batch
@@ -129,6 +143,8 @@ The Aviation Schema for this sample is available here:
 
 * [https://github.com/bytefish/DGraphSample/blob/master/Scripts/res/schema.txt](https://github.com/bytefish/DGraphSample/blob/master/Scripts/res/schema.txt)
 
+#### About Predicates ####
+
 Most examples in the Dgraph documentation share predicates. What do I mean with sharing predicates? Imagine 
 you have a predicate called ``name``. This ``name`` could be used as an actor name, a director name, a movie 
 title, a company name, ...
@@ -137,18 +153,26 @@ The "A Tour of Dgraph" tutorial for example uses a name for ``Person`` and ``Com
 
 * [https://tour.dgraph.io/schema/1/](https://tour.dgraph.io/schema/1/)
 
-My **feeling** is, that sharing predicates requires a careful analysis. When I look at my data I think: Should 
-all subjects use the same index for the shared predicate? Should they use the same tokenizer? What queries do 
-we need and does a shared predicate work for all of them? Are the concepts and semantics similar? What will 
-the queries look like?
+My **feeling** is, that sharing predicates requires a careful analysis. When I look at my data I think: 
 
-So the predicates in this examples have names like ``aircraft.serial_number`` to indicate, that this is the 
-Serial Number of the type ``Aircraft``. I think the queries won't be as good looking as in the Dgraph 
-documentation, but I wanted to avoid too much analysis.
+* Should all subjects use the same index for the shared predicate?
+* Should they use the same tokenizer? 
+* What queries do we need and does a shared predicate work for all of them? 
+* Are the concepts and semantics similar? 
+* If concepts slightly differ, then what will the queries look like? Will they be readable?
 
-Another interesting point are indexes. You can only ``filter`` and ``order`` for predicates, that have an ``index`` 
+So I have used names like ``aircraft.serial_number`` for the predicates. I think queries won't be as 
+good looking as in the Dgraph documentation, but this avoids too much preliminary analysis.
+
+#### About Indexes ####
+
+Another interesting point in Schemas are the indexes. 
+
+You can only ``filter`` and ``order`` for predicates, that have an ``index`` 
 applied. This makes a lot of sense to reduce the impact on upserts, for example to avoid rebuilding of indexes. Initially 
 I had problems when writing the queries for the flight data, so I indexed all of the predicates.
+
+#### Aviation Schema: Predicates & Types ####
 
 Without further explanation here are the directives and indexes:
 
@@ -384,15 +408,15 @@ type Flight {
 }
 ```
 
-## Importing the Dataset ##
+#### Results ####
 
-Dgraph is able to constantly map 177.4k nquads per second during the entire import:
+Dgraph is able to constantly map 177.4k nquads per second during the entire import, here is a relevant log statement:
 
 ```
 [18:13:19+0100] MAP 01h03m20s nquad_count:586.6M err_count:0.000 nquad_speed:154.4k/sec edge_count:674.1M edge_speed:177.4k/sec
 ```
 
-Importing the entire dataset takes 2h18m14s:
+The entire dataset takes ``2h18m14s`` to import:
 
 ```
 [19:28:13+0100] REDUCE 02h18m14s 100.00% edge_count:1.113G edge_speed:532.0k/sec plist_count:991.8M plist_speed:474.2k/sec
@@ -401,7 +425,11 @@ Total: 02h18m14s
 
 The final ``p`` directory in the ``out`` folder has a size of 19.5 GB.
 
-## Queries ##
+## GraphQL Queries ##
+
+In the following section I will recreate the SPARQL queries of my Apache Jena project:
+
+* [https://github.com/bytefish/ApacheJenaSample/](https://github.com/bytefish/ApacheJenaSample/)
 
 ### Get all reachable Nodes for a given Flight ###
 
@@ -1177,3 +1205,6 @@ example we check, if a Node of type ``Airport`` has a predicate ``has_weather_st
     * An in-depth analysis of Dgraph 1.0.2. Explains a lot of Dgraph concepts and internals.
 
 [Dgraph]: https://dgraph.io/
+[dotNetRDF]: https://www.dotnetrdf.org/
+[RFC 4180]: https://tools.ietf.org/html/rfc4180
+[RDF]: https://www.w3.org/TR/rdf11-concepts/
